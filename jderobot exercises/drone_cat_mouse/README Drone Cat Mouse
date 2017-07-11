@@ -1,0 +1,16 @@
+1º Genero el mundo con:
+	~/tfg/drone_cat_mouse/mice$ gazebo ardrone-trees-simple.world
+
+2º Inicio el Dron Gato:
+	~/tfg/drone_cat_mouse/cat_py$ ./cat.py --Ice.Config=cat_conf.cfg
+
+3º Inicio el Dron Raton:
+	~/tfg/drone_cat_mouse/mice$ ./q1_mouse q1.cfg
+
+4º Creo el Arbitro: (no conseguido)
+	~/tfg/drone_cat_mouse/referee$ python2 referee.py referee.cfg 
+	Traceback (most recent call last):
+	  File "referee.py", line 7, in <module>
+    	    import jderobot
+	ImportError: No module named jderobot
+
