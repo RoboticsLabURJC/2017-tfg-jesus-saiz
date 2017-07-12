@@ -1,14 +1,19 @@
 import threading
 import time
 from datetime import datetime
+import cv2
+import numpy as np
+from math import pi
 
-from parallelIce.cameraClient import CameraClient
+from sensors.cameraFilter import CameraFilter
 from parallelIce.navDataClient import NavDataClient
 from parallelIce.cmdvel import CMDVel
 from parallelIce.extra import Extra
 from parallelIce.pose3dClient import Pose3DClient
 
+
 time_cycle = 80
+detect = False
 
 class MyAlgorithm(threading.Thread):
 
@@ -18,11 +23,13 @@ class MyAlgorithm(threading.Thread):
         self.pose = pose
         self.cmdvel = cmdvel
         self.extra = extra
+        self.minError=0.01
 
         self.stop_event = threading.Event()
         self.kill_event = threading.Event()
         self.lock = threading.Lock()
         threading.Thread.__init__(self, args=self.stop_event)
+
 
     def run (self):
 
@@ -57,9 +64,56 @@ class MyAlgorithm(threading.Thread):
 
     def execute(self):
         # Add your code here
-        tmp = self.navdata.getNavdata()
-        if tmp is not None:
-            print ("State: " +str(tmp.state))
-            print ("Altitude: " +str(tmp.altd))
-            print ("Vehicle: " +str(tmp.vehicle))
-            print ("Battery %: " +str(tmp.batteryPercent))
+         global detec
+
+         input_image = self.camera.getImage()
+
+         if input_image is not None:
+             blur = cv2.GaussianBlur(input_image, (3, 3), 0)
+             color_HSV = cv2.cvtColor(blur, cv2.COLOR_RGB2HSV)
+
+             H_max = 0.15*(180/(2*pi))
+             H_min = 0.0*(180/(2*pi))
+             S_max = 1.0*(255/1)
+             S_min = 0.2*(255/1)
+             V_max = 255.09
+             V_min = 0.00
+
+             bk_image = cv2.inRange(color_HSV, np.array([H_min,S_min,V_min]), np.array([H_max,S_max,V_max]))
+
+             bk_image_cp = np.copy(bk_image)
+             image, contours, hierarchy = cv2.findContours(bk_image_cp, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+
+             if contours is not None:
+                 cnt = contours[0]
+                 approx = cv2.approxPolyDP(cnt,0.1*cv2.arcLength(cnt,True),True)
+                 x,y,w,h = cv2.boundingRect(approx)
+                 image_contour = cv2.rectangle(blur,(x,y),(x+w,y+h),(0,255,0),2)
+                 self.camera.setColorImage(image_contour)
+                 detec = True
+             else:
+                 self.camera.setColorImage(blur)
+
+         if (detec == True):
+             print ("Mouse Detected")
+#            posicion central de la imagen en el filtro de color
+             ini_pos = np.array([160, -120])
+             print (ini_pos)
+             coord_mou = np.array([x+w/2, -y+h/2])
+             print (coord_mou)
+             vect_1 = ini_pos - coord_mou
+             vel_1 = vect_1*0.003
+             print (vel_1)
+             if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
+                 self.cmdvel.sendCMDVel(0,0,0,0,0,0)
+                 print ("Mouse Stop")
+             else:
+                 self.cmdvel.sendCMDVel(vel_1[0],vel_1[1],0,0,0,0)
+                 print ("Following mouse")
+
+#        tmp = self.navdata.getNavdata()
+#        if tmp is not None:
+#            print ("State: " +str(tmp.state))
+#            print ("Altitude: " +str(tmp.altd))
+#            print ("Vehicle: " +str(tmp.vehicle))
+#            print ("Battery %: " +str(tmp.batteryPercent))

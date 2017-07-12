@@ -24,6 +24,7 @@ from MyAlgorithm import MyAlgorithm
 import easyiceconfig as EasyIce
 from gui.threadGUI import ThreadGUI
 from parallelIce.cameraClient import CameraClient
+from sensors.cameraFilter import CameraFilter
 from parallelIce.navDataClient import NavDataClient
 from parallelIce.cmdvel import CMDVel
 from parallelIce.extra import Extra
@@ -31,13 +32,15 @@ from parallelIce.pose3dClient import Pose3DClient
 from gui.GUI import MainWindow
 from PyQt5.QtWidgets import QApplication
 
+
 import signal
 
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 if __name__ == '__main__':
     ic = EasyIce.initialize(sys.argv)
-    camera = CameraClient(ic, "Introrob.Camera", True)
+    cameraCli = CameraClient(ic, "Introrob.Camera", True)
+    camera = CameraFilter(cameraCli)
     navdata = NavDataClient(ic, "Introrob.Navdata", True)
     pose = Pose3DClient(ic, "Introrob.Pose3D", True)
     cmdvel = CMDVel(ic, "Introrob.CMDVel")
@@ -55,8 +58,6 @@ if __name__ == '__main__':
     frame.setExtra(extra)
     frame.setAlgorithm(algorithm)
     frame.show()
-
-
 
     t2 = ThreadGUI(frame)
     t2.daemon=True

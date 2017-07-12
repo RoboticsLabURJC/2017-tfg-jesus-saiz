@@ -26,6 +26,7 @@ from gui.teleopWidget import TeleopWidget
 from gui.cameraWidget import CameraWidget
 from gui.communicator import Communicator
 from gui.sensorsWidget import SensorsWidget
+from gui.colorFilterWidget import  ColorFilterWidget
 from gui.logoWidget import LogoWidget
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -48,14 +49,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         self.cameraCheck.stateChanged.connect(self.showCameraWidget)
         self.sensorsCheck.stateChanged.connect(self.showSensorsWidget)
+        self.colorFilterCheck.stateChanged.connect(self.showColorFilterWidget)
         
         self.rotationDial.valueChanged.connect(self.rotationChange)
         self.altdSlider.valueChanged.connect(self.altitudeChange)
         
         self.cameraWidget=CameraWidget(self)
         self.sensorsWidget=SensorsWidget(self)
+        self.colorFilterWidget=ColorFilterWidget(self)
 
         self.cameraCommunicator=Communicator()
+        self.colorFilterCommunicator=Communicator()
         self.trackingCommunicator = Communicator()
 
         self.stopButton.clicked.connect(self.stopClicked)
@@ -103,7 +107,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     
     def updateGUI(self):
         self.cameraWidget.imageUpdate.emit()
-        self.sensorsWidget.sensorsUpdate.emit()  
+        self.sensorsWidget.sensorsUpdate.emit()
+        self.colorFilterWidget.imageUpdate.emit()
     
     def playClicked(self):
         if self.record == True:
@@ -147,7 +152,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             
     def closeCameraWidget(self):
         self.cameraCheck.setChecked(False)
-        
+
+    def showColorFilterWidget(self,state):
+        if state == Qt.Checked:
+            self.colorFilterWidget.show()
+        else:
+            self.colorFilterWidget.close()
+
+    def closeColorFilterWidget(self):
+        self.colorFilterCheck.setChecked(False)
+
     def showSensorsWidget(self,state):
         if state == Qt.Checked:
             self.sensorsWidget.show()           
@@ -165,7 +179,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def altitudeChange(self,value):
         value=(1.0/(self.altdSlider.maximum()/2))*(value - (self.altdSlider.maximum()/2))
-        self.altdValue.setText('%.2f' % value)
+        self.rotValue.setText('%.2f' % value)
         self.cmdvel.setVZ(value)
         self.cmdvel.sendVelocities()
 
@@ -178,7 +192,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def closeEvent(self, event):
         self.algorithm.kill()
-        self.camera.stop()
+        self.camera.client.stop()
         self.navdata.stop()
         self.pose.stop()
         event.accept()

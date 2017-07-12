@@ -14,3 +14,6 @@
     	    import jderobot
 	ImportError: No module named jderobot
 
+5º Para el filtro de color utilizo:
+	~/tfg/drone_cat_mouse/cat_py$ colorTuner --Ice.Config=color_tuner_conf.cfg
+
