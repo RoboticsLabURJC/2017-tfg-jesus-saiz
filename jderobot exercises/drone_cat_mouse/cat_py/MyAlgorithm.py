@@ -72,11 +72,11 @@ class MyAlgorithm(threading.Thread):
              blur = cv2.GaussianBlur(input_image, (3, 3), 0)
              color_HSV = cv2.cvtColor(blur, cv2.COLOR_RGB2HSV)
 
-             H_max = 0.15*(180/(2*pi))
+             H_max = 0.05*(180/(2*pi))
              H_min = 0.0*(180/(2*pi))
              S_max = 1.0*(255/1)
              S_min = 0.2*(255/1)
-             V_max = 255.09
+             V_max = 150.00
              V_min = 0.00
 
              bk_image = cv2.inRange(color_HSV, np.array([H_min,S_min,V_min]), np.array([H_max,S_max,V_max]))
@@ -104,12 +104,48 @@ class MyAlgorithm(threading.Thread):
              vect_1 = ini_pos - coord_mou
              vel_1 = vect_1*0.003
              print (vel_1)
+
+             area_mou = w*h
+             print (area_mou)
+             ini_area = 7*7
+             vel_x = (ini_area - area_mou)*0.01
+             print (vel_x)
+             if vel_x > 1.0:
+                 vel_x = 0.5
+             elif vel_x < -1.0:
+                 vel_x = -0.5
+
              if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
                  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
                  print ("Mouse Stop")
              else:
-                 self.cmdvel.sendCMDVel(vel_1[0],vel_1[1],0,0,0,0)
+                 if area_mou > ini_area:
+                     print ("Near mouse")
+                     self.cmdvel.sendCMDVel(-vel_x,0,-vel_1[1],vel_1[0],0,0)
+                 elif area_mou <= ini_area:
+                     print ("Far mouse")
+                     self.cmdvel.sendCMDVel(vel_x,0,-vel_1[1],vel_1[0],0,0)
+#                 else:
+#                     self.cmdvel.setVX(0)
+#                     self.cmdvel.sendVelocities( )
+
                  print ("Following mouse")
+
+
+
+#             if area_mou > ini_area:
+#                 print ("Near mouse")
+#                 self.cmdvel.setVX(-vel_x)
+#                 self.cmdvel.sendVelocities( )
+#             elif area_mou < ini_area:
+#                 print ("Far mouse")
+#                 self.cmdvel.setVX(vel_x)
+#                 self.cmdvel.sendVelocities( )
+#             else:
+#                 self.cmdvel.setVX(0)
+#                 self.cmdvel.sendVelocities( )
+
+
 
 #        tmp = self.navdata.getNavdata()
 #        if tmp is not None:
