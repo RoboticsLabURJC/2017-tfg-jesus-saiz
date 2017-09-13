@@ -96,7 +96,10 @@ class MyAlgorithm(threading.Thread):
             if abs(vect_1[0]) < self.minError and abs(vect_1[1]) < self.minError:
                 self.cmdvel.sendCMDVel(0,0,0,0,0,0)
                 i = i+1
-                print ("Baliza Alcanzada: ", i)
+                if (i < 6):
+                    print ("Baliza Alcanzada: ", i)
+                else:
+                    print ("Posicion Inicial")
             else:
                 self.cmdvel.sendCMDVel(vel_1[0],vel_1[1],0,0,0,0)
 #                print ("1")
