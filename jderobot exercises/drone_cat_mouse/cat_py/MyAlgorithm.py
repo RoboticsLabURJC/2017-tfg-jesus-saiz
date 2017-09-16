@@ -23,7 +23,7 @@ class MyAlgorithm(threading.Thread):
         self.pose = pose
         self.cmdvel = cmdvel
         self.extra = extra
-        self.minError=0.01
+        self.minError=0.5
 
         self.stop_event = threading.Event()
         self.kill_event = threading.Event()
@@ -98,22 +98,22 @@ class MyAlgorithm(threading.Thread):
              print ("Mouse Detected")
 #            posicion central de la imagen en el filtro de color
              ini_pos = np.array([160, -120])
-             print (ini_pos)
+             print ("Ini pos:", ini_pos)
              coord_mou = np.array([x+w/2, -y+h/2])
-             print (coord_mou)
+             print ("Coord Rat:", coord_mou)
              vect_1 = ini_pos - coord_mou
-             vel_1 = vect_1*0.003
-             print (vel_1)
+             vel_1 = vect_1*0.01
+             print ("Vel yaw y z:", vel_1)
 
              area_mou = w*h
-             print (area_mou)
+             print ("Area rat:", area_mou)
              ini_area = 7*7
              vel_x = (ini_area - area_mou)*0.01
-             print (vel_x)
+             print ("Vel x", vel_x)
              if vel_x > 1.0:
-                 vel_x = 0.5
+                 vel_x = 0.3
              elif vel_x < -1.0:
-                 vel_x = -0.5
+                 vel_x = -0.3
 
              if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
                  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
