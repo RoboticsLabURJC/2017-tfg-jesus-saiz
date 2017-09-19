@@ -111,9 +111,11 @@ class MyAlgorithm(threading.Thread):
              vel_x = (ini_area - area_mou)*0.01
              print ("Vel x", vel_x)
              if vel_x > 1.0:
-                 vel_x = 0.3
+                 vel_x = 0.8
+                 print ("1")
              elif vel_x < -1.0:
-                 vel_x = -0.3
+                 vel_x = -0.8
+                 print ("-1")
 
              if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
                  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
@@ -121,14 +123,12 @@ class MyAlgorithm(threading.Thread):
              else:
                  if area_mou > ini_area:
                      print ("Near mouse")
-                     self.cmdvel.sendCMDVel(-vel_x,0,-vel_1[1],vel_1[0],0,0)
+                     self.cmdvel.sendCMDVel(0,vel_x,-vel_1[1],vel_1[0],0,0)
+#                     self.cmdvel.sendCMDVel(0,0,-vel_1[1],vel_1[0],0,0)
                  elif area_mou <= ini_area:
                      print ("Far mouse")
-                     self.cmdvel.sendCMDVel(vel_x,0,-vel_1[1],vel_1[0],0,0)
-#                 else:
-#                     self.cmdvel.setVX(0)
-#                     self.cmdvel.sendVelocities( )
-
+                     self.cmdvel.sendCMDVel(0,vel_x,-vel_1[1],vel_1[0],0,0)
+#                     self.cmdvel.sendCMDVel(0,0,-vel_1[1],vel_1[0],0,0)
                  print ("Following mouse")
 
 
