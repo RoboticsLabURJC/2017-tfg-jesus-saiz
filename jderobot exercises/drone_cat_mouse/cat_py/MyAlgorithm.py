@@ -23,7 +23,7 @@ class MyAlgorithm(threading.Thread):
         self.pose = pose
         self.cmdvel = cmdvel
         self.extra = extra
-        self.minError=0.5
+        self.minError=0.05
 
         self.stop_event = threading.Event()
         self.kill_event = threading.Event()
@@ -99,12 +99,28 @@ class MyAlgorithm(threading.Thread):
 #            posicion central de la imagen en el filtro de color
              ini_pos = np.array([160, -120])
              print ("Ini pos:", ini_pos)
+
+# cambio en yaw y en z
              coord_mou = np.array([x+w/2, -y+h/2])
              print ("Coord Rat:", coord_mou)
              vect_1 = ini_pos - coord_mou
-             vel_1 = vect_1*0.01
+             vel_1 = vect_1*0.02
              print ("Vel yaw y z:", vel_1)
 
+             # yaw
+             if abs(vel_1[0]) < self.minError:
+                 self.cmdvel.setYaw(0)
+                 print ("mouse on yaw good")
+             else:
+                 self.cmdvel.setYaw(vel_1[0])
+             # z
+             if abs(vel_1[1]) < self.minError:
+                 self.cmdvel.setVZ(0)
+                 print ("mouse on z good")
+             else:
+                 self.cmdvel.setVZ(vel_1[1])
+
+# cambio en la velocidad en x
              area_mou = w*h
              print ("Area rat:", area_mou)
              ini_area = 7*7
@@ -112,24 +128,31 @@ class MyAlgorithm(threading.Thread):
              print ("Vel x", vel_x)
              if vel_x > 1.0:
                  vel_x = 0.8
-                 print ("1")
+                 print ("Far mouse")
              elif vel_x < -1.0:
                  vel_x = -0.8
-                 print ("-1")
+                 print ("Near mouse")
 
-             if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
-                 self.cmdvel.sendCMDVel(0,0,0,0,0,0)
-                 print ("Mouse Stop")
+             if abs(vel_x) < self.minError:
+                 print ("mouse on x good")
+                 self.cmdvel.setVX(0)
              else:
-                 if area_mou > ini_area:
-                     print ("Near mouse")
-                     self.cmdvel.sendCMDVel(0,vel_x,-vel_1[1],vel_1[0],0,0)
-#                     self.cmdvel.sendCMDVel(0,0,-vel_1[1],vel_1[0],0,0)
-                 elif area_mou <= ini_area:
-                     print ("Far mouse")
-                     self.cmdvel.sendCMDVel(0,vel_x,-vel_1[1],vel_1[0],0,0)
-#                     self.cmdvel.sendCMDVel(0,0,-vel_1[1],vel_1[0],0,0)
-                 print ("Following mouse")
+                 self.cmdvel.setVX(vel_x)
+
+
+#              if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
+#                  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
+#                  print ("Mouse Stop")
+#              else:
+#                  if area_mou > ini_area:
+#                      print ("Near mouse")
+#                      self.cmdvel.sendCMDVel(0,vel_x,-vel_1[1],vel_1[0],0,0)
+# #                     self.cmdvel.sendCMDVel(0,0,-vel_1[1],vel_1[0],0,0)
+#                  elif area_mou <= ini_area:
+#                      print ("Far mouse")
+#                      self.cmdvel.sendCMDVel(0,vel_x,-vel_1[1],vel_1[0],0,0)
+# #                     self.cmdvel.sendCMDVel(0,0,-vel_1[1],vel_1[0],0,0)
+#                  print ("Following mouse")
 
 
 
