@@ -100,60 +100,46 @@ class MyAlgorithm(threading.Thread):
              print ("Mouse Detected")
 #            posicion central de la imagen en el filtro de color
              ini_pos = np.array([160, -120])
+             print ("Ini pos:", ini_pos)
 
 # Cambio en yaw y en z
              coord_mou = np.array([x+w/2, -y+h/2])
              print ("Coord Rat:", coord_mou)
              vect_1 = ini_pos - coord_mou
-             vel_yaw = vect_1[0]*0.006
-             vel_z = vect_1[1]*(-0.008)
-             print ("Vel yaw y z:", vel_yaw, vel_z)
+             vel_1 = vect_1*0.02
+             print ("Vel yaw y z:", vel_1)
 
-            #  # yaw
-            #  if vel_yaw > 1:
-            #     vel_yaw = 0.9
-            #  elif vel_yaw < -1:
-            #     vel_yaw = -0.9
-             #
-            #  if abs(vel_yaw) < self.minError:
-            #      self.cmdvel.setYaw(0)
-            #      print ("mouse on yaw good")
-            #  else:
-            #      self.cmdvel.setYaw(vel_yaw)
-            #      print("cambia yaw", vel_yaw)
-            #      print()
+             # yaw
+             if abs(vel_1[0]) < self.minError:
+                 self.cmdvel.setYaw(0)
+                 print ("mouse on yaw good")
+             else:
+                 self.cmdvel.setYaw(vel_1[0])
              # z
-             if vel_z > 1:
-                vel_z = 0.9
-             elif vel_z < -1:
-                vel_z = -0.9
-
-             if abs(vel_z) < self.minError:
+             if abs(vel_1[1]) < self.minError:
                  self.cmdvel.setVZ(0)
                  print ("mouse on z good")
              else:
-                 self.cmdvel.setVZ(vel_z)
-                 print("cambia z", vel_z)
-                 print()
+                 self.cmdvel.setVZ(vel_1[1])
 
-# # Cambio en la velocidad en x
-#              area_mou = w*h
-#              print ("Area rat:", area_mou)
-#              ini_area = 7*7
-#              vel_x = (ini_area - area_mou)*0.01
-#              print ("Vel x", vel_x)
-#              if vel_x > 1.0:
-#                  vel_x = 0.8
-#                  print ("Far mouse")
-#              elif vel_x < -1.0:
-#                  vel_x = -0.8
-#                  print ("Near mouse")
-#
-#              if abs(vel_x) < self.minError:
-#                  print ("mouse on x good")
-#                  self.cmdvel.setVX(0)
-#              else:
-#                  self.cmdvel.setVX(vel_x)
+# Cambio en la velocidad en x
+             area_mou = w*h
+             print ("Area rat:", area_mou)
+             ini_area = 7*7
+             vel_x = (ini_area - area_mou)*0.01
+             print ("Vel x", vel_x)
+             if vel_x > 1.0:
+                 vel_x = 0.8
+                 print ("Far mouse")
+             elif vel_x < -1.0:
+                 vel_x = -0.8
+                 print ("Near mouse")
+
+             if abs(vel_x) < self.minError:
+                 print ("mouse on x good")
+                 self.cmdvel.setVX(0)
+             else:
+                 self.cmdvel.setVX(vel_x)
 
 
 #              if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
