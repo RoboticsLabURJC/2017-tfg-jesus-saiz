@@ -76,8 +76,8 @@ class MyAlgorithm(threading.Thread):
              H_max = 0.05*(180/(2*pi))
              H_min = 0.0*(180/(2*pi))
              S_max = 1.0*(255/1)
-             S_min = 0.2*(255/1)
-             V_max = 150.00
+             S_min = 0.05*(255/1)
+             V_max = 170.06
              V_min = 0.00
 
              bk_image = cv2.inRange(color_HSV, np.array([H_min,S_min,V_min]), np.array([H_max,S_max,V_max]))
@@ -122,38 +122,39 @@ class MyAlgorithm(threading.Thread):
             #      self.cmdvel.setYaw(vel_yaw)
             #      print("cambia yaw", vel_yaw)
             #      print()
-             # z
-             if vel_z > 1:
-                vel_z = 0.9
-             elif vel_z < -1:
-                vel_z = -0.9
+            #  # z
+            #  if vel_z > 1:
+            #     vel_z = 0.9
+            #  elif vel_z < -1:
+            #     vel_z = -0.9
+             #
+            #  if abs(vel_z) < self.minError:
+            #      self.cmdvel.setVZ(0)
+            #      print ("mouse on z good")
+            #  else:
+            #      self.cmdvel.setVZ(vel_z)
+            #      print("cambia z", vel_z)
+            #      print()
 
-             if abs(vel_z) < self.minError:
-                 self.cmdvel.setVZ(0)
-                 print ("mouse on z good")
+# Cambio en la velocidad en x
+             area_mou = w*h
+             print ("Area mouse:", area_mou)
+             ini_area = 11*11
+             vel_x = (ini_area - area_mou)*0.01
+             print ("Vel x", vel_x)
+             if vel_x > 1.0:
+                 vel_x = 0.8
+                 print ("Far mouse")
+             elif vel_x < -1.0:
+                 vel_x = -0.8
+                 print ("Near mouse")
+
+             if abs(vel_x) < (self.minError*6):
+                 print ("mouse on x good")
+                 self.cmdvel.sendCMDVel(0,0,0,0,0,0)
              else:
-                 self.cmdvel.setVZ(vel_z)
-                 print("cambia z", vel_z)
-                 print()
-
-# # Cambio en la velocidad en x
-#              area_mou = w*h
-#              print ("Area rat:", area_mou)
-#              ini_area = 7*7
-#              vel_x = (ini_area - area_mou)*0.01
-#              print ("Vel x", vel_x)
-#              if vel_x > 1.0:
-#                  vel_x = 0.8
-#                  print ("Far mouse")
-#              elif vel_x < -1.0:
-#                  vel_x = -0.8
-#                  print ("Near mouse")
-#
-#              if abs(vel_x) < self.minError:
-#                  print ("mouse on x good")
-#                  self.cmdvel.setVX(0)
-#              else:
-#                  self.cmdvel.setVX(vel_x)
+                 print ("CATCH", vel_x)
+                 self.cmdvel.sendCMDVel(vel_x,0,0,0,0,0)
 
 
 #              if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
