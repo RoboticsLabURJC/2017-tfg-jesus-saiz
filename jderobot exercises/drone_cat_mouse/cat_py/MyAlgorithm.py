@@ -14,6 +14,9 @@ from parallelIce.pose3dClient import Pose3DClient
 
 time_cycle = 80
 detect = False
+bool_velYaw = False
+bool_velZ = False
+bool_velX = False
 
 class MyAlgorithm(threading.Thread):
 
@@ -105,41 +108,44 @@ class MyAlgorithm(threading.Thread):
              coord_mou = np.array([x+w/2, -y+h/2])
              print ("Coord Rat:", coord_mou)
              vect_1 = ini_pos - coord_mou
-             vel_yaw = vect_1[0]*0.006
-             vel_z = vect_1[1]*(-0.008)
+             vel_yaw = vect_1[0]*0.01
+             vel_z = vect_1[1]*(-0.01)
              print ("Vel yaw y z:", vel_yaw, vel_z)
 
-            #  # yaw
-            #  if vel_yaw > 1:
-            #     vel_yaw = 0.9
-            #  elif vel_yaw < -1:
-            #     vel_yaw = -0.9
-             #
-            #  if abs(vel_yaw) < self.minError:
-            #      self.cmdvel.setYaw(0)
-            #      print ("mouse on yaw good")
-            #  else:
-            #      self.cmdvel.setYaw(vel_yaw)
-            #      print("cambia yaw", vel_yaw)
-            #      print()
-            #  # z
-            #  if vel_z > 1:
-            #     vel_z = 0.9
-            #  elif vel_z < -1:
-            #     vel_z = -0.9
-             #
-            #  if abs(vel_z) < self.minError:
-            #      self.cmdvel.setVZ(0)
-            #      print ("mouse on z good")
-            #  else:
-            #      self.cmdvel.setVZ(vel_z)
-            #      print("cambia z", vel_z)
-            #      print()
+             # yaw
+             if vel_yaw > 1:
+                vel_yaw = 0.9
+             elif vel_yaw < -1:
+                vel_yaw = -0.9
+
+             if abs(vel_yaw) < self.minError:
+                 bool_velYaw = False
+                #  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
+                 print ("mouse on yaw good")
+             else:
+                 bool_velYaw = True
+                #  self.cmdvel.sendCMDVel(0,vel_yaw,0,0,0,0)
+                 print("cambia yaw", vel_yaw)
+
+             # z
+             if vel_z > 1:
+                vel_z = 0.9
+             elif vel_z < -1:
+                vel_z = -0.9
+
+             if abs(vel_z) < self.minError:
+                 bool_velZ = False
+                #  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
+                 print ("mouse on z good")
+             else:
+                 bool_velZ = True
+                #  self.cmdvel.sendCMDVel(0,0,vel_z,0,0,0)
+                 print("cambia z", vel_z)
 
 # Cambio en la velocidad en x
              area_mou = w*h
              print ("Area mouse:", area_mou)
-             ini_area = 11*11
+             ini_area = 5*5
              vel_x = (ini_area - area_mou)*0.01
              print ("Vel x", vel_x)
              if vel_x > 1.0:
@@ -150,11 +156,47 @@ class MyAlgorithm(threading.Thread):
                  print ("Near mouse")
 
              if abs(vel_x) < (self.minError*6):
+                 bool_velX = False
+                #  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
                  print ("mouse on x good")
-                 self.cmdvel.sendCMDVel(0,0,0,0,0,0)
              else:
-                 print ("CATCH", vel_x)
-                 self.cmdvel.sendCMDVel(vel_x,0,0,0,0,0)
+                 bool_velX = True
+                #  self.cmdvel.sendCMDVel(vel_x,0,0,0,0,0)
+                 print ("Cambia x", vel_x)
+
+# Enviamos el comando de cambio de velocidades
+             if (bool_velX == True and bool_velZ == True and bool_velYaw == True):
+                self.cmdvel.sendCMDVel(vel_x,vel_yaw,vel_z,0,0,0)
+                print("Cambio las tres velocidades")
+                print()
+             elif (bool_velX == True and bool_velYaw == True and (bool_velZ == False)):
+                self.cmdvel.sendCMDVel(vel_x,vel_yaw,0,0,0,0)
+                print("Cambio VX y VY")
+                print()
+             elif (bool_velX == True and bool_velZ == True and (bool_velYaw == False)):
+                self.cmdvel.sendCMDVel(vel_x,0,vel_z,0,0,0)
+                print("Cambio VX y VZ")
+                print()
+             elif (bool_velYaw == True and bool_velZ == True and (bool_velX == False)):
+                self.cmdvel.sendCMDVel(0,vel_yaw,vel_z,0,0,0)
+                print("Cambio VY y VZ")
+                print()
+             elif(bool_velX == True and bool_velYaw == False and bool_velZ == False):
+                self.cmdvel.sendCMDVel(vel_x,0,0,0,0,0)
+                print("Cambio VX")
+                print()
+             elif(bool_velYaw == True and bool_velX == False and bool_velZ == False):
+                self.cmdvel.sendCMDVel(0,vel_yaw,0,0,0,0)
+                print("Cambio VY")
+                print()
+             elif(bool_velZ == True and bool_velYaw == False and bool_velX == False):
+                self.cmdvel.sendCMDVel(0,0,vel_z,0,0,0)
+                print("Cambio VZ")
+                print()
+             else:
+                self.cmdvel.sendCMDVel(0,0,0,0,0,0)
+                print("Raton quieto")
+                print()
 
 
 #              if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
