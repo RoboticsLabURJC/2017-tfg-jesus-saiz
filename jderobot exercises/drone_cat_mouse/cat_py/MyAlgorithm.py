@@ -66,7 +66,7 @@ class MyAlgorithm(threading.Thread):
         self.kill_event.set()
 
     def execute(self):
-        # Add your code here
+        # Add
          global detec
 
          input_image = self.camera.getImage()
@@ -76,12 +76,12 @@ class MyAlgorithm(threading.Thread):
              blur = cv2.GaussianBlur(input_image, (3, 3), 0)
              color_HSV = cv2.cvtColor(blur, cv2.COLOR_RGB2HSV)
 
-             H_max = 0.05*(180/(2*pi))
-             H_min = 0.0*(180/(2*pi))
-             S_max = 1.0*(255/1)
-             S_min = 0.05*(255/1)
-             V_max = 170.06
-             V_min = 0.00
+             H_max = 0.42*(180/(2*pi))  # 0.05
+             H_min = 0.0*(180/(2*pi))   # 0.0
+             S_max = 1.0*(255/1)        # 1.0
+             S_min = 0.00*(255/1)       # 0.05
+             V_max = 238.00             # 170.06
+             V_min = 40.00               # 0.00
 
              bk_image = cv2.inRange(color_HSV, np.array([H_min,S_min,V_min]), np.array([H_max,S_max,V_max]))
 
@@ -101,8 +101,8 @@ class MyAlgorithm(threading.Thread):
 # Seguimiento del raton
          if (detec == True):
              print ("Mouse Detected")
-#            posicion central de la imagen en el filtro de color
-             ini_pos = np.array([160, -120])
+#            posicion central de la imagen en el filtro de color (cambio: rojo por debajo del centro)
+             ini_pos = np.array([160, -140])
 
 # Cambio en yaw y en z
              coord_mou = np.array([x+w/2, -y+h/2])
@@ -113,10 +113,10 @@ class MyAlgorithm(threading.Thread):
              print ("Vel yaw y z:", vel_yaw, vel_z)
 
              # yaw
-             if vel_yaw > 1:
-                vel_yaw = 0.9
-             elif vel_yaw < -1:
-                vel_yaw = -0.9
+             if vel_yaw > 0.25:
+                vel_yaw = 0.99
+             elif vel_yaw < -0.25:
+                vel_yaw = -0.99
 
              if abs(vel_yaw) < self.minError:
                  bool_velYaw = False
@@ -128,10 +128,10 @@ class MyAlgorithm(threading.Thread):
                  print("cambia yaw", vel_yaw)
 
              # z
-             if vel_z > 1:
-                vel_z = 0.9
-             elif vel_z < -1:
-                vel_z = -0.9
+             if vel_z > 0.25:
+                vel_z = 0.99
+             elif vel_z < -0.25:
+                vel_z = -0.99
 
              if abs(vel_z) < self.minError:
                  bool_velZ = False
@@ -145,17 +145,17 @@ class MyAlgorithm(threading.Thread):
 # Cambio en la velocidad en x
              area_mou = w*h
              print ("Area mouse:", area_mou)
-             ini_area = 5*5
+             ini_area = 9*9
              vel_x = (ini_area - area_mou)*0.01
              print ("Vel x", vel_x)
-             if vel_x > 1.0:
-                 vel_x = 0.8
+             if vel_x > 0.3:
+                 vel_x = 0.99
                  print ("Far mouse")
-             elif vel_x < -1.0:
-                 vel_x = -0.8
+             elif vel_x < -0.3:
+                 vel_x = -0.99
                  print ("Near mouse")
 
-             if abs(vel_x) < (self.minError*6):
+             if abs(vel_x) < (self.minError*3):
                  bool_velX = False
                 #  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
                  print ("mouse on x good")
