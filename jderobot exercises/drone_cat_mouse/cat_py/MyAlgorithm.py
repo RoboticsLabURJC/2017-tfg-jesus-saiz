@@ -27,6 +27,8 @@ class MyAlgorithm(threading.Thread):
         self.cmdvel = cmdvel
         self.extra = extra
         self.minError=0.05
+        self.minErrorY=0.025
+        self.minErrorZ=0.025
 
         self.stop_event = threading.Event()
         self.kill_event = threading.Event()
@@ -67,133 +69,139 @@ class MyAlgorithm(threading.Thread):
 
     def execute(self):
         # Add
-         global detec
+        global detec
 
-         input_image = self.camera.getImage()
+        input_image = self.camera.getImage()
 
 # Realizacion del filtro de color
-         if input_image is not None:
-             blur = cv2.GaussianBlur(input_image, (3, 3), 0)
-             color_HSV = cv2.cvtColor(blur, cv2.COLOR_RGB2HSV)
+        if input_image is not None:
+            blur = cv2.GaussianBlur(input_image, (3, 3), 0)
+            color_HSV = cv2.cvtColor(blur, cv2.COLOR_RGB2HSV)
 
-             H_max = 0.42*(180/(2*pi))  # 0.05
-             H_min = 0.0*(180/(2*pi))   # 0.0
-             S_max = 1.0*(255/1)        # 1.0
-             S_min = 0.00*(255/1)       # 0.05
-             V_max = 238.00             # 170.06
-             V_min = 40.00               # 0.00
+            H_max = 0.42*(180/(2*pi))  # 0.05
+            H_min = 0.0*(180/(2*pi))   # 0.0
+            S_max = 1.0*(255/1)        # 1.0
+            S_min = 0.00*(255/1)       # 0.05
+            V_max = 238.00             # 170.06
+            V_min = 40.00               # 0.00
 
-             bk_image = cv2.inRange(color_HSV, np.array([H_min,S_min,V_min]), np.array([H_max,S_max,V_max]))
+            bk_image = cv2.inRange(color_HSV, np.array([H_min,S_min,V_min]), np.array([H_max,S_max,V_max]))
 
-             bk_image_cp = np.copy(bk_image)
-             image, contours, hierarchy = cv2.findContours(bk_image_cp, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+            kernel = np.ones((19, 19), np.uint8)
+            image_HSV_close = cv2.morphologyEx(bk_image, cv2.MORPH_CLOSE, kernel)
+            self.camera.setThresoldImage(image_HSV_close)
 
-             if contours is not None:
-                 cnt = contours[0]
-                 approx = cv2.approxPolyDP(cnt,0.1*cv2.arcLength(cnt,True),True)
-                 x,y,w,h = cv2.boundingRect(approx)
-                 image_contour = cv2.rectangle(blur,(x,y),(x+w,y+h),(0,255,0),2)
-                 self.camera.setColorImage(image_contour)
-                 detec = True
-             else:
-                 self.camera.setColorImage(blur)
+            image_HSV_cp = np.copy(image_HSV_close)
+            input_image_cp = np.copy(input_image)
+            image, contours, hierarchy = cv2.findContours(image_HSV_close, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+
+            if contours is not None:
+                cnt = contours[0]
+                approx = cv2.approxPolyDP(cnt,0.1*cv2.arcLength(cnt,True),True)
+                cnt_approx = cv2.approxPolyDP(cnt, 3, True);
+                x,y,w,h = cv2.boundingRect(cnt_approx)
+                image_contour = cv2.rectangle(input_image_cp,(x,y),(x+w,y+h),(0,255,0),2)
+                self.camera.setColorImage(input_image_cp)
+                detec = True
+            else:
+                self.camera.setColorImage(blur)
 
 # Seguimiento del raton
-         if (detec == True):
-             print ("Mouse Detected")
-#            posicion central de la imagen en el filtro de color (cambio: rojo por debajo del centro)
-             ini_pos = np.array([160, -140])
+        if (detec == True):
+            print ("Mouse Detected")
+            # posicion central de la imagen en el filtro de color (cambio: rojo por debajo del centro)
+            ini_pos = np.array([160, -125])
 
-# Cambio en yaw y en z
-             coord_mou = np.array([x+w/2, -y+h/2])
-             print ("Coord Rat:", coord_mou)
-             vect_1 = ini_pos - coord_mou
-             vel_yaw = vect_1[0]*0.01
-             vel_z = vect_1[1]*(-0.01)
-             print ("Vel yaw y z:", vel_yaw, vel_z)
+            # Cambio en yaw y en z
+            coord_mou = np.array([x+w/2, -y+h/2])
+            print ("Coord Rat:", coord_mou)
+            vect_1 = ini_pos - coord_mou
+            vel_yaw = vect_1[0]*0.007
+            vel_z = vect_1[1]*(-0.008)
+            print ("Vel yaw y z:", vel_yaw, vel_z)
 
-             # yaw
-             if vel_yaw > 0.25:
-                vel_yaw = 0.99
-             elif vel_yaw < -0.25:
-                vel_yaw = -0.99
+            # yaw
+            if vel_yaw > 0.4:
+                vel_yaw = 1.7
+            elif vel_yaw < -0.4:
+                vel_yaw = -1.7
 
-             if abs(vel_yaw) < self.minError:
-                 bool_velYaw = False
+            if abs(vel_yaw) < self.minErrorY:
+                bool_velYaw = False
                 #  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
-                 print ("mouse on yaw good")
-             else:
-                 bool_velYaw = True
+                print ("mouse on yaw good")
+            else:
+                bool_velYaw = True
                 #  self.cmdvel.sendCMDVel(0,vel_yaw,0,0,0,0)
-                 print("cambia yaw", vel_yaw)
+                print("cambia yaw", vel_yaw)
 
-             # z
-             if vel_z > 0.25:
-                vel_z = 0.99
-             elif vel_z < -0.25:
-                vel_z = -0.99
+            # z
+            if vel_z > 0.4:
+                vel_z = 1.5
+            elif vel_z < -0.4:
+                vel_z = -1.5
 
-             if abs(vel_z) < self.minError:
-                 bool_velZ = False
+            if abs(vel_z) < self.minErrorZ:
+                bool_velZ = False
                 #  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
-                 print ("mouse on z good")
-             else:
-                 bool_velZ = True
+                print ("mouse on z good")
+            else:
+                bool_velZ = True
                 #  self.cmdvel.sendCMDVel(0,0,vel_z,0,0,0)
-                 print("cambia z", vel_z)
+                print("cambia z", vel_z)
 
 # Cambio en la velocidad en x
-             area_mou = w*h
-             print ("Area mouse:", area_mou)
-             ini_area = 9*9
-             vel_x = (ini_area - area_mou)*0.01
-             print ("Vel x", vel_x)
-             if vel_x > 0.3:
-                 vel_x = 0.99
-                 print ("Far mouse")
-             elif vel_x < -0.3:
-                 vel_x = -0.99
-                 print ("Near mouse")
+            area_mou = w*h
+            print ("Area mouse:", area_mou)
+            ini_area = 16*16  # 20*20
+            vel_x = (ini_area - area_mou)*0.0025
+            print ("Vel x", vel_x)
+            if vel_x > 0.6:
+                vel_x = 1.7
+                print ("Far mouse")
+            elif vel_x < -0.6:
+                vel_x = -1.7
+                print ("Near mouse")
 
-             if abs(vel_x) < (self.minError*3):
-                 bool_velX = False
+            if abs(vel_x) < (self.minError*3):
+                bool_velX = False
                 #  self.cmdvel.sendCMDVel(0,0,0,0,0,0)
-                 print ("mouse on x good")
-             else:
-                 bool_velX = True
+                print ("mouse on x good")
+            else:
+                bool_velX = True
                 #  self.cmdvel.sendCMDVel(vel_x,0,0,0,0,0)
-                 print ("Cambia x", vel_x)
+                print ("Cambia x", vel_x)
 
 # Enviamos el comando de cambio de velocidades
-             if (bool_velX == True and bool_velZ == True and bool_velYaw == True):
+            if (bool_velX == True and bool_velZ == True and bool_velYaw == True):
                 self.cmdvel.sendCMDVel(vel_x,vel_yaw,vel_z,0,0,0)
                 print("Cambio las tres velocidades")
                 print()
-             elif (bool_velX == True and bool_velYaw == True and (bool_velZ == False)):
+            elif (bool_velX == True and bool_velYaw == True and (bool_velZ == False)):
                 self.cmdvel.sendCMDVel(vel_x,vel_yaw,0,0,0,0)
                 print("Cambio VX y VY")
                 print()
-             elif (bool_velX == True and bool_velZ == True and (bool_velYaw == False)):
+            elif (bool_velX == True and bool_velZ == True and (bool_velYaw == False)):
                 self.cmdvel.sendCMDVel(vel_x,0,vel_z,0,0,0)
                 print("Cambio VX y VZ")
                 print()
-             elif (bool_velYaw == True and bool_velZ == True and (bool_velX == False)):
+            elif (bool_velYaw == True and bool_velZ == True and (bool_velX == False)):
                 self.cmdvel.sendCMDVel(0,vel_yaw,vel_z,0,0,0)
                 print("Cambio VY y VZ")
                 print()
-             elif(bool_velX == True and bool_velYaw == False and bool_velZ == False):
+            elif(bool_velX == True and bool_velYaw == False and bool_velZ == False):
                 self.cmdvel.sendCMDVel(vel_x,0,0,0,0,0)
                 print("Cambio VX")
                 print()
-             elif(bool_velYaw == True and bool_velX == False and bool_velZ == False):
+            elif(bool_velYaw == True and bool_velX == False and bool_velZ == False):
                 self.cmdvel.sendCMDVel(0,vel_yaw,0,0,0,0)
                 print("Cambio VY")
                 print()
-             elif(bool_velZ == True and bool_velYaw == False and bool_velX == False):
+            elif(bool_velZ == True and bool_velYaw == False and bool_velX == False):
                 self.cmdvel.sendCMDVel(0,0,vel_z,0,0,0)
                 print("Cambio VZ")
                 print()
-             else:
+            else:
                 self.cmdvel.sendCMDVel(0,0,0,0,0,0)
                 print("Raton quieto")
                 print()
