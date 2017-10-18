@@ -16,6 +16,23 @@ time_cycle = 80
 detect = False
 
 class MyAlgorithm(threading.Thread):
+    class pid(object):
+        def __init__(self, kp, kd, ki):
+            # Constant of PID control
+            self.kp = kp
+            self.kd = kd
+            self.ki = ki
+            self.error = 0
+            self.acumulate_error = 0
+
+        def calculateU(self, e):
+            proportional = self.kp * e
+            derivate = self.kd * (e - self.error)
+            self.acumulate_error = self.acumulate_error + e
+            integral = self.ki * (self.acumulate_error)
+            u = -(proportional) - (derivate) - (integral)
+            self.error = e
+            return u
 
     def __init__(self, camera, navdata, pose, cmdvel, extra):
         self.camera = camera
@@ -24,6 +41,10 @@ class MyAlgorithm(threading.Thread):
         self.cmdvel = cmdvel
         self.extra = extra
         self.minError=0.01
+
+        # Constructor PID
+        self.pidX = self.pid(2.655, 0.000112, 0.00029)
+        self.pidY = self.pid(2.655, 0.000112, 0.00029)
 
         self.stop_event = threading.Event()
         self.kill_event = threading.Event()
@@ -81,32 +102,93 @@ class MyAlgorithm(threading.Thread):
 
             bk_image = cv2.inRange(color_HSV, np.array([H_min,S_min,V_min]), np.array([H_max,S_max,V_max]))
 
-            bk_image_cp = np.copy(bk_image)
-            image, contours, hierarchy = cv2.findContours(bk_image_cp, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+            kernel = np.ones((19, 19), np.uint8)
+            image_HSV_close = cv2.morphologyEx(bk_image, cv2.MORPH_CLOSE, kernel)
+            self.camera.setThresoldImage(image_HSV_close)
+
+            image_HSV_cp = np.copy(image_HSV_close)
+            input_image_cp = np.copy(input_image)
+            image, contours, hierarchy = cv2.findContours(image_HSV_close, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
             if contours is not None:
                 cnt = contours[0]
                 approx = cv2.approxPolyDP(cnt,0.1*cv2.arcLength(cnt,True),True)
-                x,y,w,h = cv2.boundingRect(approx)
-                image_contour = cv2.rectangle(blur,(x,y),(x+w,y+h),(0,255,0),2)
-                self.camera.setColorImage(image_contour)
+                cnt_approx = cv2.approxPolyDP(cnt, 3, True);
+                x,y,w,h = cv2.boundingRect(cnt_approx)
+                image_contour = cv2.rectangle(input_image_cp,(x,y),(x+w,y+h),(0,255,0),2)
+                self.camera.setColorImage(input_image_cp)
                 detec = True
             else:
                 self.camera.setColorImage(blur)
 
         if (detec == True):
             print ("Turtle Detected")
-#           posicion central de la imagen en el filtro de color
-            ini_pos = np.array([160, -120])
-            print (ini_pos)
+            # posicion central de la imagen en el filtro de color
+            ini_pos = np.array([160, -90])
             coord_tur = np.array([x+w/2, -y+h/2])
             print (coord_tur)
-            vect_1 = coord_tur - ini_pos
-            vel_1 = vect_1*0.003
-            print (vel_1)
-            if abs(vel_1[0]) < self.minError and abs(vel_1[1]) < self.minError:
+            vect_1 = ini_pos - coord_tur
+            vel_x = vect_1[0]*0.01
+            vel_y = vect_1[1]*(-0.01)
+            print (vel_x, vel_y)
+
+            # ajuste de velocidades para que no se escape la tortuga
+            # if vel_x > 0.6:
+            #     vel_x = 1.8
+            # elif vel_x < -0.6:
+            #     vel_x = -1.8
+            #
+            # if vel_y > 0.6:
+            #     vel_y = 1.8
+            # elif vel_y < -0.6:
+            #     vel_y = -1.8
+
+            # envio de comandos de velocidades
+            if abs(vel_x) < self.minError and abs(vel_y) < self.minError:
                 self.cmdvel.sendCMDVel(0,0,0,0,0,0)
                 print ("Turtle Stop")
+            elif abs(vel_y) < self.minError and abs(vel_x) > self.minError:
+                self.cmdvel.sendCMDVel(0,vel_x,0,0,0,0)
+                print ("Following X")
+            elif abs(vel_x) < self.minError and abs(vel_y) > self.minError:
+                self.cmdvel.sendCMDVel(vel_y,0,0,0,0,0)
+                print ("Following Y")
             else:
-                self.cmdvel.sendCMDVel(vel_1[0],vel_1[1],0,0,0,0)
+                self.cmdvel.sendCMDVel(vel_y,vel_x,0,0,0,0)
                 print ("Following turtle")
+
+
+#             if self.turtlebot_visual_field(contours):
+#                 # Calculating the error
+#                 errorx = (center[0] - img_center[0]) / 320
+#                 errory = (center[1] - img_center[1]) / 320
+#
+#                 # Controlador PID
+#                 controladorX = self.pidX.calculateU(errorx)
+#                 controladorY = self.pidY.calculateU(errory)
+# #                print ("error", errorx, errory)
+# #                print ("controlador", controladorX, controladorY)
+#
+#                 # Correct position
+#                 if (abs(errorx) <= self.minError) and (abs(errory) >= self.minError):
+#                     self.cmdvel.sendCMDVel(1.5 * controladorY, 0, 0, 0, 0, 0)
+#                     print ("Following turtle on Y")
+#                 if (abs(errorx) >= self.minError) and (abs(errory) <= self.minError):
+#                     self.cmdvel.sendCMDVel(0, 1.5 * controladorX, 0, 0, 0, 0)
+#                     print ("Following turtle on X")
+#                 if (abs(errorx) >= self.minError) and (abs(errory) >= self.minError):
+#                     self.cmdvel.sendCMDVel(1.5 * controladorY, 1.5 * controladorX, 0, 0, 0, 0)
+#                     print ("Following turtle on X and Y")
+#                 elif (abs(errorx) <= self.minError) and (abs(errory) <= self.minError):
+#                     # If the margin is minimum, then we have got the target
+#                     # The acumulate error is zero
+#                     self.pidX.acumulate_error = 0
+#                     self.pidY.acumulate_error = 0
+#                     self.cmdvel.sendCMDVel(0, 0, 0, 0, 0, 0)
+#                     print ("Turtle Stop")
+#
+#             else:
+#                 # Climb up to see the turtlebot
+#                 self.cmdvel.sendCMDVel(0, 0, 0.2, 0, 0, 0)
+#                 pass
+#                 print ("Turtle not on image")
