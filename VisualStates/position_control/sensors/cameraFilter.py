@@ -34,11 +34,10 @@ class CameraFilter:
             self.trackImage = np.zeros((self.height, self.width,3), np.uint8)
             self.trackImage.shape = self.height, self.width, 3
 
-            self.thresoldImage = np.zeros((self.height,self. width,3), np.uint8)
-            self.thresoldImage.shape = self.height, self.width,3
+            self.thresholdImage = np.zeros((self.height,self. width,1), np.uint8)
+            self.thresholdImage.shape = self.height, self.width,
 
-            self.thresoldImage2 = np.zeros((self.height,self. width,3), np.uint8)
-            self.thresoldImage2.shape = self.height, self.width,3
+        
 
     
     def getImage(self):
@@ -64,54 +63,19 @@ class CameraFilter:
             self.trackImage.shape = image.shape
             self.lock.release()
 
-    def getThresoldImage(self):
+    def getThresholdImage(self):
         if self.client.hasproxy():
             self.lock.acquire()
             img = np.zeros((self.height, self.width,1), np.uint8)
-            img = self.thresoldImage
-            img.shape = self.thresoldImage.shape
+            img = self.thresholdImage
+            img.shape = self.thresholdImage.shape
             self.lock.release()
             return img
         return None
 
-    def getThresoldImage2(self):
+    def setThresholdImage(self,image):
         if self.client.hasproxy():
             self.lock.acquire()
-            img = np.zeros((self.height, self.width,1), np.uint8)
-            img = self.thresoldImage2
-            img.shape = self.thresoldImage2.shape
+            self.thresholdImage = image
+            self.thresholdImage.shape = image.shape
             self.lock.release()
-            return img
-        return None
-
-    def setThresoldImage(self,image):
-        '''
-        if self.client.hasproxy():
-            self.lock.acquire()
-            self.thresoldImage = image
-            self.thresoldImage.shape = image.shape
-            self.lock.release()
-        '''
-        if self.client.hasproxy():
-            self.lock.acquire()
-            self.thresoldImage = image
-            self.thresoldImage.shape = image.shape
-            self.lock.release()
-
-    def setThresoldImage2(self,image):
-        '''
-        if self.client.hasproxy():
-            self.lock.acquire()
-            self.thresoldImage = image
-            self.thresoldImage.shape = image.shape
-            self.lock.release()
-        '''
-        if self.client.hasproxy():
-            self.lock.acquire()
-            self.thresoldImage2 = image
-            self.thresoldImage2.shape = image.shape
-            self.lock.release()
-
-
-
-

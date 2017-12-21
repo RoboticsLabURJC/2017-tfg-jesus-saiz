@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
-  <model name='tag_takeoff'>
+  <model name='tag_land'>
     <link name='link_1'>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <inertial>
@@ -28,7 +28,7 @@
         <material>
           <script>
             <uri>file://tags_material/scripts/tags.material</uri>
-            <name>Tag_takeoff</name>
+            <name>Tag_land</name>
           </script>
         </material>
         <transparency>0</transparency>

@@ -49,6 +49,8 @@ turnland=0
 numIteracionesOrange=0
 numIteracionesGreen=0
 
+changeCam = False;
+
 class MyAlgorithm(threading.Thread):
 
     def __init__(self, camera, navdata, pose, cmdvel, machine, extra):
@@ -72,11 +74,13 @@ class MyAlgorithm(threading.Thread):
     def initBeacons(self):
         self.beacons.append(Beacon('despegue',jderobot.Pose3DData(0,0,2,0,0,0,0,0),False,False))
         self.beacons.append(Beacon('pos1',jderobot.Pose3DData(2,1,3,0,0,0,0,0),False,False))
+        self.beacons.append(Beacon('pos1',jderobot.Pose3DData(2,1,3,0,0,0,0,0),False,False))
+        self.beacons.append(Beacon('pos2',jderobot.Pose3DData(-5,2,3,0,0,0,0,0),False,False))
         self.beacons.append(Beacon('pos2',jderobot.Pose3DData(-5,2,3,0,0,0,0,0),False,False))
         self.beacons.append(Beacon('pos3',jderobot.Pose3DData(-5,9,3,0,0,0,0,0),False,False))
         self.beacons.append(Beacon('pos4',jderobot.Pose3DData(9,9,3,0,0,0,0,0),False,False))
         self.beacons.append(Beacon('pos5',jderobot.Pose3DData(9,2,3,0,0,0,0,0),False,False))
-        self.beacons.append(Beacon('aterrizaje',jderobot.Pose3DData(9,-7,3,0,0,0,0,0),False,False))
+        self.beacons.append(Beacon('aterrizaje',jderobot.Pose3DData(9,-3,3,0,0,0,0,0),False,False))
 
     def getNextBeacon(self):
         for beacon in self.beacons:
@@ -222,12 +226,18 @@ class MyAlgorithm(threading.Thread):
 
     def execute(self):
         global i
-        if (len(self.beacons) > i):
+        while (len(self.beacons) > i):
+            if i == 0:
+                self.extra.takeoff()
+                self.machine.setStateActive(0, True)
+                i = i+1
+            if i == 2:
+                self.extra.toggleCam()
+                i = i+1
             act_pos = np.array([self.pose.getPose3D().x, self.pose.getPose3D().y, self.pose.getPose3D().z])
             coord_b1 = np.array([self.beacons[i].getPose().x, self.beacons[i].getPose().y, self.beacons[i].getPose().z])
             vect_1 = coord_b1 - act_pos
             vel_1 = vect_1
-
             if abs(vect_1[0]) < self.minError and abs(vect_1[1]) < self.minError and abs(vect_1[2]) < self.minError :
                 self.cmdvel.sendCMDVel(0,0,0,0,0,0)
                 i = i+1
@@ -235,9 +245,10 @@ class MyAlgorithm(threading.Thread):
                     print (self.beacons[i].getId(), i)
                 else:
                     print ("Trayectoria Aterrizaje")
+                    self.extra.toggleCam()
             else:
                 self.cmdvel.sendCMDVel(vel_1[0],vel_1[1],vect_1[2],0,0,0)
-        elif (len(self.beacons) == i):
+        if (len(self.beacons) == i):
             input_image = self.camera.getImage()
             global initialTime
             global initTime
@@ -247,32 +258,33 @@ class MyAlgorithm(threading.Thread):
                 show_image=input_image+1-1
                 show_image2=input_image+1-1
                 # define range of orange and green color in HSV
-                H_max = 0.12*(180/(2*pi))
-                H_min = 0.08*(180/(2*pi))
-                S_max = 1.1*(255/1)
-                S_min = 0.8*(255/1)
-                V_max = 255
-                V_min = 0
-                lower_orange = np.array([H_min,S_min,V_min], dtype=np.uint8)                                         # 108,220,69 orange, CAMARA DELANTERA REAL 70,110,120 CAMARA ABAJO DRONE 100,100,80
-                upper_orange = np.array([H_max,S_max,V_max], dtype=np.uint8)                                     #120, 255,110 orange,   CAMARA DELANTERA REAL 120, 200,255 CAMARA ABAJO DRONE 150, 255,255
+                # H_max = 0.12*(180/(2*pi))
+                # H_min = 0.08*(180/(2*pi))
+                # S_max = 1.1*(255/1)
+                # S_min = 0.8*(255/1)
+                # V_max = 255
+                # V_min = 0
+                lower_orange = np.array([0,131,0], dtype=np.uint8)                                         # 108,220,69 orange, CAMARA DELANTERA REAL 70,110,120 CAMARA ABAJO DRONE 100,100,80
+                upper_orange = np.array([35,255,225], dtype=np.uint8)                                     #120, 255,110 orange,   CAMARA DELANTERA REAL 120, 200,255 CAMARA ABAJO DRONE 150, 255,255
                 maskOrange = cv2.inRange(hsv, lower_orange, upper_orange)
                 maskRGBOrange = cv2.bitwise_and(input_image,input_image, mask= maskOrange)
                 momentsOrange = cv2.moments(maskOrange)
                 areaOrange = momentsOrange['m00']
+                print("AO=", areaOrange)
 
-                H_max = 0.3*(180/(2*pi))
-                H_min = 0.2*(180/(2*pi))
-                S_max = 0.56*(255/1)
-                S_min = 0.3*(255/1)
-                V_max = 255
-                V_min = 0
-                lower_green = np.array([H_min,S_min,V_min], dtype=np.uint8) #20,193,65 DELANTERA REAL 10,20,0 ABAJO REAL 0,0,0
-                upper_green = np.array([H_max,S_max,V_max], dtype=np.uint8) #70, 227,100 DELANTERA REAL 40, 200,255 ABAJO REAL 140,100,255
+                # H_max = 0.3*(180/(2*pi))
+                # H_min = 0.2*(180/(2*pi))
+                # S_max = 0.56*(255/1)
+                # S_min = 0.3*(255/1)
+                # V_max = 255
+                # V_min = 0
+                lower_green = np.array([42,120,40], dtype=np.uint8) #20,193,65 DELANTERA REAL 10,20,0 ABAJO REAL 0,0,0
+                upper_green = np.array([70,255,255], dtype=np.uint8) #70, 227,100 DELANTERA REAL 40, 200,255 ABAJO REAL 140,100,255
                 maskGreen = cv2.inRange(hsv, lower_green, upper_green)
                 maskRGBGreen = cv2.bitwise_and(input_image,input_image, mask= maskGreen)
                 momentsGreen = cv2.moments(maskGreen)
                 areaGreen = momentsGreen['m00']
-
+                print("AG=", areaGreen)
 
                 kernel = np.ones((3,3),np.uint8)
 
@@ -297,11 +309,11 @@ class MyAlgorithm(threading.Thread):
                 global numIteracionesGreen
                 if(time.time()-landed>4.5 and landed!=0):
                     self.machine.setStateActive(5, True)
-                elif(-initialTime+time.time()<10 or initTime==0):
+                elif(-initialTime+time.time()<5 or initTime==0):
                     if(initTime==0):
                         initialTime=time.time()
                         initTime=1
-                        self.extra.takeoff()
+                        # self.extra.takeoff()
                         self.centroImagen(input_image, hsv)
 
                     momentsTot = cv2.moments(maskGreen+maskOrange)
@@ -347,8 +359,8 @@ class MyAlgorithm(threading.Thread):
                     else:
                         self.cmdvel.sendCMDVel(0,0,0,0,0,0)
     # cambio de la velocidad inicial para que no se vaya tan lejos
-                    self.machine.setStateActive(0, True)
-                elif(-initialTime+time.time()>10 and -initialTime+time.time()<25):
+                    # self.machine.setStateActive(0, True)
+                elif(-initialTime+time.time()>5 and -initialTime+time.time()<15):
 
                     self.cmdvel.sendCMDVel(0,0.5,0,0,0,0)
                     yanterior=0
@@ -360,10 +372,11 @@ class MyAlgorithm(threading.Thread):
                     global yanterior
                     global xanterior
                     global var_beacon_status
-                    if(areaOrange > 0 and areaGreen==0 and numIteracionesOrange<50):
+
+                    if(areaOrange > 0 and areaGreen == 0):
                         numIteracionesOrange=numIteracionesOrange+1
                         self.machine.setStateActive(2, True)
-
+                        print("orange")
                         xOrange = int(momentsOrange['m10']/momentsOrange['m00'])
                         yOrange = int(momentsOrange['m01']/momentsOrange['m00'])
 
@@ -399,7 +412,7 @@ class MyAlgorithm(threading.Thread):
                             areaTot = areaGreen + areaOrange
                             xTot = int(momentsTot['m10']/momentsTot['m00'])
                             yTot = int(momentsTot['m01']/momentsTot['m00'])
-
+                            print("green and orange")
 
                             if((abs(y_img-yTot)<=6 and abs(x_img-xTot)<=6)):
                                 global turnland
@@ -527,12 +540,16 @@ class MyAlgorithm(threading.Thread):
                         numIteracionesGreen=numIteracionesGreen+1
                         self.machine.setStateActive(2, True)
                         var_beacon_status = 1
+                        print("green")
+
                         xGreen = int(momentsGreen['m10']/momentsGreen['m00'])
                         yGreen = int(momentsGreen['m01']/momentsGreen['m00'])
                         if(yanterior==0 and xanterior==0):
                             yanterior = (y_img-yGreen)*0.02
                             xanterior = (x_img-xGreen)*0.02
                             self.cmdvel.sendCMDVel(yanterior,xanterior,0,0,0,0)
+                            vely = yanterior
+                            velx = xanterior
                         else:
                             vely = (y_img-yGreen)
                             velx = (x_img-xGreen)
@@ -577,7 +594,6 @@ class MyAlgorithm(threading.Thread):
                             self.cmdvel.sendCMDVel(1.8+wSearch,0,0,0,0,1.5 - wSearch)
 
 
-                self.camera.setColorImage(show_image)
-
+                # self.camera.setColorImage(maskGreen)
 
         pass
