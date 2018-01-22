@@ -1,0 +1,459 @@
+<?xml version="1.0" ?>
+<VisualStates>
+  <config type="0">
+    <interfaces>
+      <interface>
+        <serverType>ice</serverType>
+        <name>myCamera</name>
+        <topic></topic>
+        <proxyName>Camera</proxyName>
+        <ip>localhost</ip>
+        <port>9000</port>
+        <interfaceName>Camera</interfaceName>
+      </interface>
+      <interface>
+        <serverType>ice</serverType>
+        <name>myCMDVel</name>
+        <topic></topic>
+        <proxyName>CMDVel</proxyName>
+        <ip>localhost</ip>
+        <port>9000</port>
+        <interfaceName>CMDVel</interfaceName>
+      </interface>
+      <interface>
+        <serverType>ice</serverType>
+        <name>myPose3d</name>
+        <topic></topic>
+        <proxyName>Pose3D</proxyName>
+        <ip>localhost</ip>
+        <port>9000</port>
+        <interfaceName>Pose3d</interfaceName>
+      </interface>
+      <interface>
+        <serverType>ice</serverType>
+        <name>myDroneExtra</name>
+        <topic></topic>
+        <proxyName>Extra</proxyName>
+        <ip>localhost</ip>
+        <port>9000</port>
+        <interfaceName>ArDroneExtra</interfaceName>
+      </interface>
+    </interfaces>
+  </config>
+  <functions></functions>
+  <variables>self.one_points = [[0,0], [1,1], [1,-4]]
+self.zero_points = [[2,-4], [4,-4], [4,1], [2,1]]
+self.closing_loop = False
+self.beacons = [[0,0,2], [2,1,3], [-5,2,3], [-5,9,3], [9,9,3], [9,2,3], [9,-3,3]]
+
+time_cycle = 80
+numVuelta=50
+wSearch=0
+timerW=10
+initTime=0
+initialTime=0
+yanterior=0
+xanterior=0
+yanteriorTot=0
+xanteriorTot=0
+m=0
+x_img=0
+y_img=0
+landed=0
+turnland=0
+numIteracionesOrange=0
+numIteracionesGreen=0
+</variables>
+  <libraries>
+    <library>cv2</library>
+    <library>math</library>
+    <library>jderobot</library>
+    <library>colorsys</library>
+    <library>numpy as np</library>
+  </libraries>
+  <state id="0" initial="True">
+    <posx>0.0</posx>
+    <posy>0.0</posy>
+    <name>root</name>
+    <code></code>
+    <timestep>100</timestep>
+    <state id="1" initial="True">
+      <posx>831.0</posx>
+      <posy>926.0</posy>
+      <name>Takeoff</name>
+      <code>self.interfaces.myDroneExtra.takeoff()</code>
+      <timestep>100</timestep>
+      <transition id="14">
+        <type>0</type>
+        <time>5000</time>
+        <posx>907.5</posx>
+        <posy>879.5</posy>
+        <name>transition 14</name>
+        <originid>1</originid>
+        <destinationid>8</destinationid>
+        <code></code>
+      </transition>
+    </state>
+    <state id="7" initial="False">
+      <posx>1138.0</posx>
+      <posy>930.0</posy>
+      <name>Land</name>
+      <code># self.interfaces.myDroneExtra.land()
+
+input_image = self.interfaces.myCamera.getImage()
+global initialTime
+global initTime
+if input_image is not None:
+    hsv = cv2.cvtColor(input_image, cv2.COLOR_BGR2HSV)
+    show_image=input_image+1-1
+    show_image2=input_image+1-1
+	
+    lower_orange = np.array([0,131,0], dtype=np.uint8)                                         # 108,220,69 orange, CAMARA DELANTERA REAL 70,110,120 CAMARA ABAJO DRONE 100,100,80
+    upper_orange = np.array([35,255,225], dtype=np.uint8)                                     #120, 255,110 orange,   CAMARA DELANTERA REAL 120, 200,255 CAMARA ABAJO DRONE 150, 255,255
+    maskOrange = cv2.inRange(hsv, lower_orange, upper_orange)
+    maskRGBOrange = cv2.bitwise_and(input_image,input_image, mask= maskOrange)
+    momentsOrange = cv2.moments(maskOrange)
+    areaOrange = momentsOrange['m00']
+    print(&quot;AO=&quot;, areaOrange)
+
+    lower_green = np.array([42,120,40], dtype=np.uint8) #20,193,65 DELANTERA REAL 10,20,0 ABAJO REAL 0,0,0
+    upper_green = np.array([70,255,255], dtype=np.uint8) #70, 227,100 DELANTERA REAL 40, 200,255 ABAJO REAL 140,100,255
+    maskGreen = cv2.inRange(hsv, lower_green, upper_green)
+    maskRGBGreen = cv2.bitwise_and(input_image,input_image, mask= maskGreen)
+    momentsGreen = cv2.moments(maskGreen)
+    areaGreen = momentsGreen['m00']
+    print(&quot;AG=&quot;, areaGreen)
+
+    kernel = np.ones((3,3),np.uint8)
+
+    maskRGBOrange = cv2.erode(maskRGBOrange,kernel,iterations = 4)
+    maskRGBOrange = cv2.dilate(maskRGBOrange,kernel,iterations = 3)
+
+    maskRGBGreen = cv2.erode(maskRGBGreen,kernel,iterations = 4)
+    maskRGBGreen = cv2.dilate(maskRGBGreen,kernel,iterations = 3)
+
+    kp=0.01
+    kd=0.003
+
+    maskRGBTot = maskRGBOrange+maskRGBGreen
+    global x_img
+    global y_img
+    global yanterior
+    global xanterior
+    global landed
+    global yanteriorTot
+    global xanteriorTot
+    global numIteracionesOrange
+    global numIteracionesGreen
+
+    if(-initialTime+time.time()&lt;5 or initTime==0):
+        if(initTime==0):
+            initialTime=time.time()
+            initTime=1
+            self.centroImagen(input_image, hsv)
+
+        momentsTot = cv2.moments(maskGreen+maskOrange)
+        areaTot = areaGreen + areaOrange
+# para que no divida entre cero si no empiza desde encima del coche le sumo 0.001
+        xTot = int(momentsTot['m10']/(momentsTot['m00']+0.001))
+        yTot = int(momentsTot['m01']/(momentsTot['m00']+0.001))
+        swi=show_image+1-1
+        getImage,f = self.center(show_image,maskRGBOrange,maskRGBGreen)
+        positionXarr=[]
+        if(len(f)&gt;0):
+            positionXarr,positionYarr,show_image = self.printAndCoord(getImage,swi,f)
+        if(len(positionXarr)&gt;0):
+            if(positionXarr[0] != -20 and positionYarr[0]!=-20):
+                vely = (y_img-positionYarr[0])
+                velx = (x_img-positionXarr[0])
+
+                vytot= vely*kp #0.01
+                vxtot= velx*kp #0.01
+
+                velxa=1-abs(xanterior-velx)/50 #10
+                if(velxa&lt;0.1):
+                    velxa=0.1
+
+                velya=1-abs(yanterior-vely)/50 #10
+                if(velya&lt;0.1):
+                    velya=0.1
+
+                if(y_img-positionYarr[0]&lt;25):
+                    vy=0
+                else:
+                    vy=vytot*velya*1.4
+
+                if(x_img-positionXarr[0]&lt;25):
+                    vx=0
+                else:
+                    vx=vxtot*velxa*1.4
+    # cambio de la velocidad inicial para que no se vaya tan lejos
+                self.cmdvel.sendCMDVel(vy*0.001,vx*0.001,0,0,0,0)
+            else:
+                self.cmdvel.sendCMDVel(0,0,0,0,0,0)
+        else:
+            self.cmdvel.sendCMDVel(0,0,0,0,0,0)
+    # cambio de la velocidad inicial para que no se vaya tan lejos
+                    # self.machine.setStateActive(0, True)
+    elif(-initialTime+time.time()&gt;5 and -initialTime+time.time()&lt;15):
+        self.cmdvel.sendCMDVel(0,0.5,0,0,0,0)
+        yanterior=0
+        xanterior=0
+    else:
+        global wSearch
+        global numVuelta
+        global timerW
+        global yanterior
+        global xanterior
+        global var_beacon_status
+
+        if(areaOrange &gt; 0 and areaGreen == 0):
+            numIteracionesOrange=numIteracionesOrange+1
+            print(&quot;orange&quot;)
+            xOrange = int(momentsOrange['m10']/momentsOrange['m00'])
+            yOrange = int(momentsOrange['m01']/momentsOrange['m00'])
+
+            vely = (y_img-yOrange)
+            velx = (x_img-xOrange)
+
+            vytot= vely*kp
+            vxtot= velx*kp
+
+            velxa=abs(xanterior-velx)*kd
+            velya=abs(yanterior-vely)*kd
+
+            vytot=(vytot+velya)
+            vxtot=(vxtot+velxa)
+
+            if(abs(vxtot-xanteriorTot)&gt;0.3):
+                if(vxtot&lt;xanteriorTot):
+                    vxtot = xanteriorTot-0.3
+                else:
+                    vxtot = xanteriorTot+0.3
+
+                if(abs(vytot-yanteriorTot)&gt;0.3):
+                    if(vytot&lt;yanteriorTot):
+                        vytot = yanteriorTot-0.3
+                    else:
+                        vytot = yanteriorTot+0.3
+                    yanteriorTot=vytot
+                    xanteriorTot=vxtot
+                    self.cmdvel.sendCMDVel(vytot,vxtot,0,0,0,0)
+
+        elif(areaOrange &gt; 0 and areaGreen&gt;0):
+            momentsTot = cv2.moments(maskGreen+maskOrange)
+            areaTot = areaGreen + areaOrange
+            xTot = int(momentsTot['m10']/momentsTot['m00'])
+            yTot = int(momentsTot['m01']/momentsTot['m00'])
+            print(&quot;green and orange&quot;)
+
+            if((abs(y_img-yTot)&lt;=6 and abs(x_img-xTot)&lt;=6)):
+                global turnland
+                self.extra.land()
+                if(turnland==0):
+                    if(areaTot&gt;19272135.0):
+                        turnland=1
+                        landed=time.time()
+                    else:
+                        self.cmdvel.sendCMDVel(0,0,-0.5,0,0,0)
+            elif(landed==0):
+                kernel = np.ones((3,3),np.uint8)
+                maskRGBTot = cv2.erode(maskRGBTot,kernel,iterations =2)
+                maskRGBTot = cv2.dilate(maskRGBTot,kernel,iterations =2)
+
+                vely = (y_img-yTot)
+                velx = (x_img-xTot)
+
+                vytot= vely*kp
+                vxtot= velx*kp
+
+                velxa=1-abs(xanterior-velx)/10
+                if(velxa&lt;0.1):
+                    velxa=0.1
+
+                velya=1-abs(yanterior-vely)/10
+                if(velya&lt;0.1):
+                    velya=0.1
+
+                yanterior = y_img-yTot
+                xanterior = x_img-xTot
+
+                swi=show_image+1-1
+                getImage,f = self.center(show_image,maskRGBOrange,maskRGBGreen)
+                show_image4=getImage
+                positionXarr=[]
+                if(len(f) &gt;0):
+                    positionXarr,positionYarr,show_image = self.printAndCoord(getImage,swi,f)
+
+                blank_image = np.zeros((y_img*2,x_img*2,3), np.uint8)
+
+                positionX = -20
+                positionY = -20
+                if(len(positionXarr)&gt;0):
+                    positionX=positionXarr[0]
+                    positionY=positionYarr[0]
+
+                    if(positionX != 0 ):
+                        vely = (y_img-positionYarr[0])
+                        velx = (x_img-positionXarr[0])
+
+                        vytot= vely*kp
+                        vxtot= velx*kp
+
+                        velxa=abs(xanterior-velx)*kd
+                        velya=abs(yanterior-vely)*kd
+
+                        if(abs(vxtot-xanteriorTot)&gt;0.3):
+                            if(vxtot&lt;xanteriorTot):
+                                vxtot = xanteriorTot-0.3
+                            else:
+                                vxtot = xanteriorTot+0.3
+
+                        if(abs(vytot-yanteriorTot)&gt;0.3):
+                            if(vytot&lt;yanteriorTot):
+                                vytot = yanteriorTot-0.3
+                            else:
+                                vytot = yanteriorTot+0.3
+                        yanterior=velya
+                        xanterior=velxa
+                        self.cmdvel.sendCMDVel(vytot,vxtot,0,0,0,0)
+                        yanteriorTot=vytot
+                        xanteriorTot=vxtot
+                    else:
+                        if(abs(vxtot-xanteriorTot)&gt;0.3):
+                            if(vxtot&lt;xanteriorTot):
+                                vxtot = xanteriorTot-0.3
+                            else:
+                                vxtot = xanteriorTot+0.3
+
+                        if(abs(vytot-yanteriorTot)&gt;0.3):
+                            if(vytot&lt;yanteriorTot):
+                                vytot = yanteriorTot-0.3
+                            else:
+                                vytot = yanteriorTot+0.3
+                        yanterior=velya
+                        xanterior=velxa
+                        self.cmdvel.sendCMDVel(vytot,vxtot,0,0,0,0)
+                        yanteriorTot=vytot
+                        xanteriorTot=vxtot
+
+                else:
+                    velxa=abs(xanterior-velx)*kd
+                    velya=abs(yanterior-vely)*kd
+                    print(vytot+velya)
+                    vytot=(vytot+velya)
+                    vxtot=(vxtot+velxa)
+
+                    if(abs(vxtot-xanteriorTot)&gt;0.3):
+                        if(vxtot&lt;xanteriorTot):
+                            vxtot = xanteriorTot-0.3
+                        else:
+                            vxtot = xanteriorTot+0.3
+
+                    if(abs(vytot-yanteriorTot)&gt;0.3):
+                        if(vytot&lt;yanteriorTot):
+                            vytot = yanteriorTot-0.3
+                        else:
+                            vytot = yanteriorTot+0.3
+                    yanteriorTot=vytot
+                    xanteriorTot=vxtot
+                    self.cmdvel.sendCMDVel(vytot,vxtot,0,0,0,0)
+        elif(areaOrange == 0 and areaGreen&gt;0):
+            numIteracionesGreen=numIteracionesGreen+1
+            var_beacon_status = 1
+            print(&quot;green&quot;)
+
+            xGreen = int(momentsGreen['m10']/momentsGreen['m00'])
+            yGreen = int(momentsGreen['m01']/momentsGreen['m00'])
+            if(yanterior==0 and xanterior==0):
+                yanterior = (y_img-yGreen)*0.02
+                xanterior = (x_img-xGreen)*0.02
+                self.cmdvel.sendCMDVel(yanterior,xanterior,0,0,0,0)
+                vely = yanterior
+                velx = xanterior
+            else:
+                vely = (y_img-yGreen)
+                velx = (x_img-xGreen)
+
+            vytot= vely*kp
+            vxtot= velx*kp
+
+            velxa=abs(xanterior-velx)*kd
+            velya=abs(yanterior-vely)*kd
+
+            vytot=(vytot+velya)
+            vxtot=(vxtot+velxa)
+
+            if(abs(vxtot-xanteriorTot)&gt;0.3):
+                if(vxtot&lt;xanteriorTot):
+                    vxtot = xanteriorTot-0.3
+                else:
+                    vxtot = xanteriorTot+0.3
+
+                if(abs(vytot-yanteriorTot)&gt;0.3):
+                    if(vytot&lt;yanteriorTot):
+                        vytot = yanteriorTot-0.3
+                    else:
+                        vytot = yanteriorTot+0.3
+                    yanteriorTot=vytot
+                    xanteriorTot=vxtot
+                    self.cmdvel.sendCMDVel(vytot,vxtot,0,0,0,0)
+
+        else:
+            numVuelta=numVuelta+1
+            if(numVuelta&gt;100 and numVuelta &lt; 120):
+                self.cmdvel.sendCMDVel(1.8+wSearch,0,0,0,0,-1.5)
+                timerW=timerW+(timerW/8)
+                if(numVuelta==119):
+                    numVuelta=0
+                if(wSearch&lt;1 and numVuelta==101):
+                    wSearch=wSearch+0.2
+                    numIteracionesGreen=0
+                    numIteracionesOrange=0
+                else:
+                    self.cmdvel.sendCMDVel(1.8+wSearch,0,0,0,0,1.5 - wSearch)
+
+pass</code>
+      <timestep>100</timestep>
+    </state>
+    <state id="8" initial="False">
+      <posx>984.0</posx>
+      <posy>833.0</posy>
+      <name>Beacons</name>
+      <code>i = 0
+minError = 0.01
+changeCam = True
+while (len(self.interfaces.beacons) &gt; i):
+    if i == 2 and changeCam:
+        self.interfaces.myDroneExtra.toggleCam()
+        changeCam = False
+    act_pos = self.interfaces.myPose3d.getPose3d()
+    coord_b = self.interfaces.beacons[i]
+    vect_x = coord_b[0] - act_pos.x
+    vect_y = coord_b[1] - act_pos.y
+    vect_z = coord_b[2] - act_pos.z
+    vel_1 = [vect_x, vect_y, vect_z]
+    if abs(vect_x) &lt; minError and abs(vect_y) &lt; minError and abs(vect_z) &lt; minError :
+        self.interfaces.myCMDVel.sendCMDVel(0,0,0,0,0,0)
+        i = i+1
+        if (i &lt; len(self.interfaces.beacons)):
+            print (&quot;Baliza&quot;, i)
+        else:
+            print (&quot;Trayectoria Aterrizaje&quot;)
+        self.interfaces.myDroneExtra.toggleCam()
+    else:
+        self.interfaces.myCMDVel.sendCMDVel(vel_1[0],vel_1[1],vel_1[2],0,0,0)</code>
+      <timestep>100</timestep>
+      <transition id="15">
+        <type>0</type>
+        <time>5000</time>
+        <posx>1061.0</posx>
+        <posy>881.5</posy>
+        <name>transition 15</name>
+        <originid>8</originid>
+        <destinationid>7</destinationid>
+        <code></code>
+      </transition>
+    </state>
+  </state>
+</VisualStates>
