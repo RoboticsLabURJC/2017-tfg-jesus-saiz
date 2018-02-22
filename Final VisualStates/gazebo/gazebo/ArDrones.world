@@ -1,0 +1,141 @@
+<!-- Luces para las balizas
+    <light name='point_light0' type='point'>
+      <pose frame=''>-0.5 1 1 0 0 0</pose>
+      <diffuse>204 204 204 255</diffuse>
+      <specular>51 51 51 255</specular>
+      <attenuation>
+        <range>400</range>
+        <linear>0.01</linear>
+        <constant>0.5</constant>
+        <quadratic>0.00</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+    </light>
+    <light name='point_light1' type='point'>
+      <pose frame=''>-6 4.5 2 0 0 0</pose>
+      <diffuse>127 127 127 255</diffuse>
+      <specular>25 25 25 255</specular>
+      <attenuation>
+        <range>40</range>
+        <linear>0.01</linear>
+        <constant>0.5</constant>
+        <quadratic>0.00</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+    </light>
+    <light name='point_light2' type='point'>
+      <pose frame=''>7.7 7 1 0 0 0</pose>
+      <diffuse>127 127 127 255</diffuse>
+      <specular>25 25 25 255</specular>
+      <attenuation>
+        <range>40</range>
+        <linear>0.01</linear>
+        <constant>0.5</constant>
+        <quadratic>0.00</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+    </light>
+    <light name='point_light3' type='point'>
+      <pose frame=''>-3.5 10.5 1 0 0 0</pose>
+      <diffuse>127 127 127 255</diffuse>
+      <specular>25 25 25 255</specular>
+      <attenuation>
+        <range>40</range>
+        <linear>0.01</linear>
+        <constant>0.5</constant>
+        <quadratic>0.00</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+-->
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <!-- Ground -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <light name='point_light0' type='point'>
+      <pose frame=''>-5 1 1.5 0 0 0</pose>
+      <diffuse>204 204 204 255</diffuse>
+      <specular>51 51 51 255</specular>
+      <attenuation>
+        <range>400</range>
+        <linear>0.01</linear>
+        <constant>0.5</constant>
+        <quadratic>0.00</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+    </light>
+    <light name='point_light1' type='point'>
+      <pose frame=''>-6 8 2.5 0 0 0</pose>
+      <diffuse>127 127 127 255</diffuse>
+      <specular>25 25 25 255</specular>
+      <attenuation>
+        <range>40</range>
+        <linear>0.01</linear>
+        <constant>0.5</constant>
+        <quadratic>0.00</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+    </light>
+    <light name='point_light2' type='point'>
+      <pose frame=''>7.7 7 1 0 0 0</pose>
+      <diffuse>127 127 127 255</diffuse>
+      <specular>25 25 25 255</specular>
+      <attenuation>
+        <range>40</range>
+        <linear>0.01</linear>
+        <constant>0.5</constant>
+        <quadratic>0.00</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+    </light>
+    <light name='point_light3' type='point'>
+      <pose frame=''>5 12 2 0 0 0</pose>
+      <diffuse>127 127 127 255</diffuse>
+      <specular>25 25 25 255</specular>
+      <attenuation>
+        <range>40</range>
+        <linear>0.01</linear>
+        <constant>0.5</constant>
+        <quadratic>0.00</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+    </light>
+    <!-- My robots -->
+    <include>
+      <uri>model://ArDrone2</uri>
+      <pose>0 0 0.7 0 0 0</pose>
+    </include>
+    <!-- A global light source
+    <include>
+      <uri>model://sun</uri>
+    </include> -->
+    <include>
+      <uri>model://house_2</uri>
+      <pose>3 6.43 0 0 0 0</pose>
+      <view>transparent</view>
+    </include>
+    <!-- Zona Despegue y aterrizaje -->
+    <include>
+      <uri>model://tag_land</uri>
+      <pose>6 -0.5 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://tag_takeoff</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://posAprilTags</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+  </world>
+</sdf>

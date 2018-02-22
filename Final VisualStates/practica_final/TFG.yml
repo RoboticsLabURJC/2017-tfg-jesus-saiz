@@ -1,0 +1,23 @@
+TFG:
+  NodeName: TFG
+  myCMDVel:
+    Name: myCMDVel
+    Proxy: CMDVel:default -h localhost -p 9000
+    Server: 1
+    Topic: ''
+  myCamera:
+    Format: RGB8
+    Name: myCamera
+    Proxy: Camera:default -h localhost -p 9000
+    Server: 1
+    Topic: ''
+  myDroneExtra:
+    Name: myDroneExtra
+    Proxy: Extra:default -h localhost -p 9000
+    Server: 1
+    Topic: ''
+  myPose3d:
+    Name: myPose3d
+    Proxy: Pose3D:default -h localhost -p 8998
+    Server: 1
+    Topic: ''

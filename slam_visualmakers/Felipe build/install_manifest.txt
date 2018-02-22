@@ -1,0 +1,4 @@
+/home/f/URJC/URJC/TFM/cam_autoloc_integrado/build/ardrone_slam.glade
+/home/f/URJC/URJC/TFM/cam_autoloc_integrado/build/introrob.glade
+/home/f/URJC/URJC/TFM/cam_autoloc_integrado/build/markers.txt
+/home/f/URJC/URJC/TFM/cam_autoloc_integrado/build/configuration.cfg

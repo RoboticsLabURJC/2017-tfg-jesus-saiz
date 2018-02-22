@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+<VisualStates>
+  <config type="0">
+    <interfaces>
+      <interface>
+        <serverType>ice</serverType>
+        <name>myCamera</name>
+        <topic></topic>
+        <proxyName>Camera</proxyName>
+        <ip>localhost</ip>
+        <port>9000</port>
+        <interfaceName>Camera</interfaceName>
+      </interface>
+      <interface>
+        <serverType>ice</serverType>
+        <name>myCMDVel</name>
+        <topic></topic>
+        <proxyName>CMDVel</proxyName>
+        <ip>localhost</ip>
+        <port>9000</port>
+        <interfaceName>CMDVel</interfaceName>
+      </interface>
+      <interface>
+        <serverType>ice</serverType>
+        <name>myPose3d</name>
+        <topic></topic>
+        <proxyName>Pose3D</proxyName>
+        <ip>localhost</ip>
+        <port>9000</port>
+        <interfaceName>Pose3d</interfaceName>
+      </interface>
+      <interface>
+        <serverType>ice</serverType>
+        <name>myDroneExtra</name>
+        <topic></topic>
+        <proxyName>Extra</proxyName>
+        <ip>localhost</ip>
+        <port>9000</port>
+        <interfaceName>ArDroneExtra</interfaceName>
+      </interface>
+    </interfaces>
+  </config>
+  <functions></functions>
+  <variables>self.one_points = [[0,0], [1,1], [1,-4]]
+self.zero_points = [[2,-4], [4,-4], [4,1], [2,1]]
+self.closing_loop = False
+self.beacons = [[0,0,2], [2,1,3], [-5,2,3], [-5,9,3], [9,9,3], [9,2,3], [9,-3,3]]
+
+time_cycle = 80
+numVuelta=50
+wSearch=0
+timerW=10
+initTime=0
+initialTime=0
+yanterior=0
+xanterior=0
+yanteriorTot=0
+xanteriorTot=0
+m=0
+x_img=0
+y_img=0
+landed=0
+turnland=0
+numIteracionesOrange=0
+numIteracionesGreen=0
+</variables>
+  <libraries>
+    <library>cv2</library>
+    <library>math</library>
+    <library>jderobot</library>
+    <library>colorsys</library>
+    <library>numpy as np</library>
+  </libraries>
+  <state id="0" initial="True">
+    <posx>0.0</posx>
+    <posy>0.0</posy>
+    <name>root</name>
+    <code></code>
+    <timestep>100</timestep>
+    <state id="1" initial="True">
+      <posx>831.0</posx>
+      <posy>926.0</posy>
+      <name>Takeoff</name>
+      <code>self.interfaces.myDroneExtra.takeoff()</code>
+      <timestep>100</timestep>
+      <transition id="16">
+        <type>0</type>
+        <time>5000</time>
+        <posx>984.5</posx>
+        <posy>928.0</posy>
+        <name>transition 16</name>
+        <originid>1</originid>
+        <destinationid>7</destinationid>
+        <code></code>
+      </transition>
+    </state>
+    <state id="7" initial="False">
+      <posx>1138.0</posx>
+      <posy>930.0</posy>
+      <name>Color Filter</name>
+      <code># self.interfaces.myDroneExtra.land()
+
+input_image = self.interfaces.myCamera.getImage()
+global initialTime
+global initTime
+if input_image is not None:
+    hsv = cv2.cvtColor(input_image, cv2.COLOR_BGR2HSV)
+    show_image=input_image+1-1
+    show_image2=input_image+1-1
+	
+    lower_orange = np.array([0,131,0], dtype=np.uint8)                                         # 108,220,69 orange, CAMARA DELANTERA REAL 70,110,120 CAMARA ABAJO DRONE 100,100,80
+    upper_orange = np.array([35,255,225], dtype=np.uint8)                                     #120, 255,110 orange,   CAMARA DELANTERA REAL 120, 200,255 CAMARA ABAJO DRONE 150, 255,255
+    maskOrange = cv2.inRange(hsv, lower_orange, upper_orange)
+    maskRGBOrange = cv2.bitwise_and(input_image,input_image, mask= maskOrange)
+    momentsOrange = cv2.moments(maskOrange)
+    areaOrange = momentsOrange['m00']
+    print(&quot;AO=&quot;, areaOrange)
+
+    lower_green = np.array([42,120,40], dtype=np.uint8) #20,193,65 DELANTERA REAL 10,20,0 ABAJO REAL 0,0,0
+    upper_green = np.array([70,255,255], dtype=np.uint8) #70, 227,100 DELANTERA REAL 40, 200,255 ABAJO REAL 140,100,255
+    maskGreen = cv2.inRange(hsv, lower_green, upper_green)
+    maskRGBGreen = cv2.bitwise_and(input_image,input_image, mask= maskGreen)
+    momentsGreen = cv2.moments(maskGreen)
+    areaGreen = momentsGreen['m00']
+    print(&quot;AG=&quot;, areaGreen)
+</code>
+      <timestep>100</timestep>
+    </state>
+  </state>
+</VisualStates>
