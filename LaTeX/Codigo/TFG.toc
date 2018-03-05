@@ -1,0 +1,36 @@
+\select@language {spanish}
+\contentsline {chapter}{\IeC {\'I}ndice de figuras}{V}{chapter*.4}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Rob\IeC {\'o}tica actual}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Clasificaci\IeC {\'o}n}{2}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Visi\IeC {\'o}n Artificial, Enrutamiento y Autolocalizaci\IeC {\'o}n}{5}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Rob\IeC {\'o}tica A\IeC {\'e}rea}{7}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Rob\IeC {\'o}tica a\IeC {\'e}rea Espa\IeC {\~n}ola}{11}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Rob\IeC {\'o}tica \IeC {\'a}erea en la URJC}{14}{subsection.1.2.2}
+\contentsline {chapter}{\numberline {2}Objetivos}{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}Objetivo Inicial}{15}{section.2.1}
+\contentsline {section}{\numberline {2.2}Problemas a abordar}{15}{section.2.2}
+\contentsline {section}{\numberline {2.3}Expectativa de validaci\IeC {\'o}n}{15}{section.2.3}
+\contentsline {section}{\numberline {2.4}Metodolog\IeC {\'\i }a}{15}{section.2.4}
+\contentsline {section}{\numberline {2.5}Plan de trabajo}{15}{section.2.5}
+\contentsline {chapter}{\numberline {3}Infraestructura}{16}{chapter.3}
+\contentsline {section}{\numberline {3.1}Jderobot (todo lo utilizado)}{16}{section.3.1}
+\contentsline {section}{\numberline {3.2}Gazebo}{16}{section.3.2}
+\contentsline {section}{\numberline {3.3}Visual States}{16}{section.3.3}
+\contentsline {section}{\numberline {3.4}Bibliotecas}{16}{section.3.4}
+\contentsline {section}{\numberline {3.5}Antecedentes}{16}{section.3.5}
+\contentsline {chapter}{\numberline {4}Desarrollo}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}JDeRobotAcademy}{17}{section.4.1}
+\contentsline {section}{\numberline {4.2}Dise\IeC {\~n}o (mundos y visual)}{17}{section.4.2}
+\contentsline {section}{\numberline {4.3}Primer problema abordado (drone simple)}{17}{section.4.3}
+\contentsline {section}{\numberline {4.4}Creaci\IeC {\'o}n de rutas (posicion dada)}{17}{section.4.4}
+\contentsline {section}{\numberline {4.5}Aterrizaje visual}{17}{section.4.5}
+\contentsline {section}{\numberline {4.6}Anexionar lo anterior en un solo programa}{17}{section.4.6}
+\contentsline {section}{\numberline {4.7}Crearlo con VisualStates}{17}{section.4.7}
+\contentsline {section}{\numberline {4.8}Cambiar localicalizaci\IeC {\'o}n dada por slam-visualmarkers}{17}{section.4.8}
+\contentsline {section}{\numberline {4.9}Dividirlo en autolocalizaci\IeC {\'o}n y control ?}{17}{section.4.9}
+\contentsline {chapter}{\numberline {5}Experimentos (de momento todos simulados)}{18}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusiones}{19}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusiones}{19}{section.6.1}
+\contentsline {section}{\numberline {6.2}Trabajos futuros}{19}{section.6.2}
+\contentsline {chapter}{\numberline {7}Bibliograf\IeC {\'\i }a}{20}{chapter.7}

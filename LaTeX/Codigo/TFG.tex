@@ -1,0 +1,134 @@
+\documentclass[a4paper, 12pt, oneside]{book}
+% Dimensiones y márgenes----------------------------------------------
+\usepackage[%
+    left=1.2in,%
+    right=1.2in,%
+    top=1.2in,%
+    bottom=1.5in,%
+    paperheight=11in,%
+    paperwidth=8.5in%
+]{geometry}
+\parindent=0mm
+% Otros paquetes -----------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{layout}
+\usepackage{emptypage}
+\usepackage{fancyhdr}
+
+\usepackage{cite}
+\usepackage{caption}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage[all]{xy}
+\usepackage{listings}
+\usepackage[spanish]{babel}
+\usepackage{url}
+\usepackage{float}
+\usepackage{eurosym}
+\usepackage{multirow}
+\usepackage{rotating} 
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage[spanish]{babel}
+\usepackage{enumerate}
+\usepackage{subfig}
+\usepackage{afterpage}
+\usepackage[acronym, nonumberlist]{glossaries}
+\lstset{escapeinside={<@}{@>}}
+\makeglossaries
+\makeatletter
+\renewcommand{\baselinestretch}{1.4}
+\setlength{\headheight}{16pt} 
+\captionsetup{justification=justified}
+\pretolerance=1000
+
+%---------------------------------------------------------------------
+\begin{document}
+\begin{titlepage}
+	\begin{center}
+		\vspace*{1mm}
+		\begin{center}
+			\includegraphics[width=0.8\linewidth]{img/logo.jpg}
+		\end{center}
+		\vspace{6.5mm}
+		
+		\fontsize{15.5}{14}\selectfont ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA DE TELECOMUNICACIÓN
+		\vspace{8mm}
+		
+		\fontsize{14}{14}\selectfont GRADO EN INGENIERÍA AEROESPACIAL EN AERONAVEGACIÓN
+		
+		\vspace{60pt}
+		
+		\fontfamily{lmss}\fontsize{15.7}{14}\selectfont \textbf{TRABAJO FIN DE GRADO} 
+		
+		\vspace{20mm}
+		\begin{huge}
+			Drones 
+		\end{huge}
+		
+		\vspace{20mm}
+		
+		\begin{large}
+			Autor: Jesús Saiz Colomina
+			
+			Tutor: José María Cañas Plaza
+			
+			\vspace{7mm}
+		\end{large}
+		\begin{normalsize}
+			Curso académico 2017/2018		
+		\end{normalsize}
+	\end{center}
+\end{titlepage}
+
+\thispagestyle{empty}
+\afterpage{\null\newpage}
+\newpage
+
+\chapter*{Agradecimientos}
+\pagenumbering{Roman}
+\hspace{1cm} Hola
+
+\chapter*{Resumen}
+\hspace{1cm} Cada día podemos observar el gran crecimiento que se esta llevando a cabo con los drones, tanto a nivel de ventas de robots aereos como a nivel de software y capacidades que pueden llevar a cabo los mismos. No por esto quiere decir que sea un nuevo robot ya que estos tienen mucha historia, se empezaron a utilizar con fines belicos, sus primeras misiones fueron de localizacion y destruccion remota y luego como medio de espionaje contra el enemigo en la primera guerra mundial (1916 primera aparición).
+
+\hspace{1cm} En este Trabajo de Fin de Grado se abordan diferentes capacidades de los drones implementandolas todas ellas en un solo uso para rear un programa que permita tanto el uso sencillo de softwares de navegacion y guiado utilizando autolocalizacion visual e implementanto herramientas de aterrzaje y despegue guiado mendiante algoritmos de navegacion visual. Con ello se crea una navegacion y guiado de un dron completmente autonoma unicamente utilizando balizas de aterrrizaje y despegue y localizadores (AprilTags). Todas estas funcionalizades de implementan en un unico programa con la herramienta Visual States, la cual permite dividir el conjunto de capacidades en diferentes apartados.
+
+\hspace{1cm} Con este trabajo quiero adentrarme en este nuevo mundo y llegar a conocer de lo que son capaces los robots aéreos, gracias a los avances de las nuevas tecnologias y a la posibilidade de implementación en los drones. Para ello se ha implementado una nueva funcionalidad para los drones mediante un nuevo software y la utilización de funciones ya creadas en JdeRobot. El componente final se ha implementado con el lenguaje de programación Python, en la version JdeRobot 5.6 y con el simulador Gazebo, en el que se han realizado las simulaciones.
+
+\renewcommand{\tablename}{Tabla}
+\tableofcontents % indice de contenido
+
+\listoffigures % indice de figuras
+\addcontentsline{toc}{chapter}{Índice de figuras}
+\cleardoublepage
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setlength{\parindent}{6mm}
+
+%\lhead[]{CAPÍTULO \thechapter. INTRODUCCIÓN}
+\include{1-Introduccion}
+%\lhead[]{CAPÍTULO \thechapter. OBJETIVOS}
+\include{2-Objetivos}
+%\lhead[]{CAPÍTULO \thechapter. INFRAESTRUCTURA}
+\include{3-Infraestructura}
+%\lhead[]{CAPÍTULO \thechapter. ALGORITMO}
+\include{4-Desarrollo}
+%\lhead[]{CAPÍTULO \thechapter. EXPERIMENTOS}
+\include{5-Experimentos}
+%\lhead[]{CAPÍTULO \thechapter. Conclusiones}
+\include{6-Conclusiones}
+
+\chapter{Bibliografía}
+http://www.elai.upm.es/moodle/mod/resource/view.php?id=131
+
+http://blog.sandglasspatrol.com/index.php/articulos/41-militar/758-uavs-clasificacion-tendencias-y-normativa-de-espacio-aereo
+
+https://www.boe.es/boe/dias/2017/12/29/pdfs/BOE-A-2017-15721.pdf
+
+
+\end{document}
