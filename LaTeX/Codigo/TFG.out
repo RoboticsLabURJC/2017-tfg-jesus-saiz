@@ -7,29 +7,28 @@
 \BOOKMARK [2][-]{subsection.1.2.1}{Rob\363tica a\351rea Espa\361ola}{section.1.2}% 7
 \BOOKMARK [2][-]{subsection.1.2.2}{Rob\363tica \341erea en la URJC}{section.1.2}% 8
 \BOOKMARK [0][-]{chapter.2}{Objetivos}{}% 9
-\BOOKMARK [1][-]{section.2.1}{Objetivo Inicial}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.2}{Problemas a abordar}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.3}{Expectativa de validaci\363n}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.4}{Metodolog\355a}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.5}{Plan de trabajo}{chapter.2}% 14
-\BOOKMARK [0][-]{chapter.3}{Infraestructura}{}% 15
-\BOOKMARK [1][-]{section.3.1}{Jderobot \(todo lo utilizado\)}{chapter.3}% 16
-\BOOKMARK [1][-]{section.3.2}{Gazebo}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.3}{Visual States}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.4}{Bibliotecas}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.5}{Antecedentes}{chapter.3}% 20
-\BOOKMARK [0][-]{chapter.4}{Desarrollo}{}% 21
-\BOOKMARK [1][-]{section.4.1}{JDeRobotAcademy}{chapter.4}% 22
-\BOOKMARK [1][-]{section.4.2}{Dise\361o \(mundos y visual\)}{chapter.4}% 23
-\BOOKMARK [1][-]{section.4.3}{Primer problema abordado \(drone simple\)}{chapter.4}% 24
-\BOOKMARK [1][-]{section.4.4}{Creaci\363n de rutas \(posicion dada\)}{chapter.4}% 25
-\BOOKMARK [1][-]{section.4.5}{Aterrizaje visual}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.6}{Anexionar lo anterior en un solo programa}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.7}{Crearlo con VisualStates}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.8}{Cambiar localicalizaci\363n dada por slam-visualmarkers}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.9}{Dividirlo en autolocalizaci\363n y control ?}{chapter.4}% 30
-\BOOKMARK [0][-]{chapter.5}{Experimentos \(de momento todos simulados\)}{}% 31
-\BOOKMARK [0][-]{chapter.6}{Conclusiones}{}% 32
-\BOOKMARK [1][-]{section.6.1}{Conclusiones}{chapter.6}% 33
-\BOOKMARK [1][-]{section.6.2}{Trabajos futuros}{chapter.6}% 34
-\BOOKMARK [0][-]{chapter.7}{Bibliograf\355a}{}% 35
+\BOOKMARK [1][-]{section.2.1}{Problemas a abordar}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Requisitos}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{Metodolog\355a}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.4}{Plan de trabajo}{chapter.2}% 13
+\BOOKMARK [0][-]{chapter.3}{Infraestructura}{}% 14
+\BOOKMARK [1][-]{section.3.1}{Jderobot \(todo lo utilizado\)}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.2}{Gazebo}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.3}{Visual States}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.4}{Bibliotecas}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.5}{Antecedentes}{chapter.3}% 19
+\BOOKMARK [0][-]{chapter.4}{Desarrollo}{}% 20
+\BOOKMARK [1][-]{section.4.1}{JDeRobotAcademy}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.2}{Dise\361o \(mundos y visual\)}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.3}{Primer problema abordado \(drone simple\)}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.4}{Creaci\363n de rutas \(posicion dada\)}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.5}{Aterrizaje visual}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.6}{Anexionar lo anterior en un solo programa}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.7}{Crearlo con VisualStates}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.8}{Cambiar localicalizaci\363n dada por slam-visualmarkers}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.9}{Dividirlo en autolocalizaci\363n y control ?}{chapter.4}% 29
+\BOOKMARK [0][-]{chapter.5}{Experimentos \(de momento todos simulados\)}{}% 30
+\BOOKMARK [0][-]{chapter.6}{Conclusiones}{}% 31
+\BOOKMARK [1][-]{section.6.1}{Conclusiones}{chapter.6}% 32
+\BOOKMARK [1][-]{section.6.2}{Trabajos futuros}{chapter.6}% 33
+\BOOKMARK [0][-]{chapter.7}{Bibliograf\355a}{}% 34
