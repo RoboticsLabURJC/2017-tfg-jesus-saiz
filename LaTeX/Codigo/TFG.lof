@@ -6,19 +6,29 @@
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Rover Curiosity en Marte}}}{2}{subfigure.1.3}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Robot ASIMO realizando acciones cotidianas.\relax }}{3}{figure.caption.6}
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Robot PEPPER en un aula como complemento educador.\relax }}{4}{figure.caption.7}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Nanorobots para combatir enfermedades.\relax }}{5}{figure.caption.8}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Visi\IeC {\'o}n artificial de un autom\IeC {\'o}vil.\relax }}{7}{figure.caption.9}
-\contentsline {figure}{\numberline {1.6}{\ignorespaces AAI RQ-2 Pioneer - Uno de los primeros Robots A\IeC {\'e}reos.\relax }}{10}{figure.caption.10}
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Drone ala fija Vs Drone ala m\IeC {\'o}vil\relax }}{11}{figure.caption.11}
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Movimiento del Drone seg\IeC {\'u}n sus rotores.\relax }}{13}{figure.caption.12}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Rotores en cruz +}}}{13}{subfigure.8.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Rotores en aspa x}}}{13}{subfigure.8.2}
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Dron contra incendios.\relax }}{16}{figure.caption.13}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Robot DaVinci utilizado en hospitales.\relax }}{5}{figure.caption.8}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces AAI RQ-2 Pioneer - Uno de los primeros Robots A\IeC {\'e}reos.\relax }}{8}{figure.caption.9}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Drone ala fija Vs Drone ala m\IeC {\'o}vil\relax }}{9}{figure.caption.10}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Movimiento del Drone seg\IeC {\'u}n sus rotores.\relax }}{11}{figure.caption.11}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Rotores en cruz +}}}{11}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Rotores en aspa x}}}{11}{subfigure.7.2}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Dron contra incendios.\relax }}{14}{figure.caption.12}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Visi\IeC {\'o}n artificial de un autom\IeC {\'o}vil.\relax }}{15}{figure.caption.13}
 \contentsline {figure}{\numberline {1.10}{\ignorespaces TFM Alberto Mart\IeC {\'\i }n.\relax }}{17}{figure.caption.14}
 \contentsline {figure}{\numberline {1.11}{\ignorespaces TFG Manuel Zafra.\relax }}{18}{figure.caption.15}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Representaci\IeC {\'o}n del desarrollo en espiral.\relax }}{22}{figure.caption.16}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ejemplo de Pose3DData\relax }}{26}{figure.caption.17}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Datos de Pose3DData}}}{26}{subfigure.1.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Representaci\IeC {\'o}n de los datos}}}{26}{subfigure.1.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Matriz de Conversi\IeC {\'o}n Angular}}}{26}{subfigure.1.3}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Entorno de Simulaci\IeC {\'o}n Gazebo.\relax }}{28}{figure.caption.18}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Herramienta Visual States sobre Gazebo\relax }}{29}{figure.caption.19}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Ejemplos de AprilTags.\relax }}{30}{figure.caption.20}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Ejemplo de algoritmo con OpenCV.\relax }}{31}{figure.caption.21}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces GUI de Slam-Visualmarkers.\relax }}{32}{figure.caption.22}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Interfaces Slam-Visualmarkers.\relax }}{33}{figure.caption.23}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
