@@ -1,5 +1,5 @@
 \select@language {spanish}
-\contentsline {chapter}{\IeC {\'I}ndice de figuras}{V}{chapter*.4}
+\contentsline {chapter}{\IeC {\'I}ndice de figuras}{VI}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Rob\IeC {\'o}tica actual}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Clasificaci\IeC {\'o}n}{2}{subsection.1.1.1}
@@ -29,17 +29,18 @@
 \contentsline {section}{\numberline {3.6}Slam-Visualmakers}{31}{section.3.6}
 \contentsline {section}{\numberline {3.7}NumPy}{33}{section.3.7}
 \contentsline {chapter}{\numberline {4}Desarrollo}{34}{chapter.4}
-\contentsline {section}{\numberline {4.1}JDeRobotAcademy}{34}{section.4.1}
-\contentsline {section}{\numberline {4.2}Dise\IeC {\~n}o (mundos y visual)}{34}{section.4.2}
-\contentsline {section}{\numberline {4.3}Primer problema abordado (drone simple)}{34}{section.4.3}
-\contentsline {section}{\numberline {4.4}Creaci\IeC {\'o}n de rutas (posicion dada)}{34}{section.4.4}
-\contentsline {section}{\numberline {4.5}Aterrizaje visual}{34}{section.4.5}
-\contentsline {section}{\numberline {4.6}Anexionar lo anterior en un solo programa}{34}{section.4.6}
-\contentsline {section}{\numberline {4.7}Crearlo con VisualStates}{34}{section.4.7}
-\contentsline {section}{\numberline {4.8}Cambiar localicalizaci\IeC {\'o}n dada por slam-visualmarkers}{34}{section.4.8}
-\contentsline {section}{\numberline {4.9}Dividirlo en autolocalizaci\IeC {\'o}n y control ?}{34}{section.4.9}
-\contentsline {chapter}{\numberline {5}Experimentos (de momento todos simulados)}{35}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusiones}{36}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusiones}{36}{section.6.1}
-\contentsline {section}{\numberline {6.2}Trabajos futuros}{36}{section.6.2}
-\contentsline {chapter}{\numberline {7}Bibliograf\IeC {\'\i }a}{37}{chapter.7}
+\contentsline {section}{\numberline {4.1}Dise\IeC {\~n}o}{34}{section.4.1}
+\contentsline {section}{\numberline {4.2}M\IeC {\'o}dulo de Control}{36}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Componente de control de pilotaje}{37}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Componente de control de aterrizaje y despegue}{41}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}M\IeC {\'o}dulo de Autolozalizaci\IeC {\'o}n}{43}{section.4.3}
+\contentsline {section}{\numberline {4.4}Integraci\IeC {\'o}n en el Algoritmo Final}{45}{section.4.4}
+\contentsline {chapter}{\numberline {5}Experimentos}{46}{chapter.5}
+\contentsline {section}{\numberline {5.1}A-Calidad del Controlador}{46}{section.5.1}
+\contentsline {section}{\numberline {5.2}B-Calidad de la Autolocalizaci\IeC {\'o}n}{46}{section.5.2}
+\contentsline {section}{\numberline {5.3}C-Calidad del Algoritmo completo}{46}{section.5.3}
+\contentsline {section}{\numberline {5.4}Visi\IeC {\'o}n Artificial y Autolocalizaci\IeC {\'o}n}{46}{section.5.4}
+\contentsline {chapter}{\numberline {6}Conclusiones}{47}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusiones}{47}{section.6.1}
+\contentsline {section}{\numberline {6.2}Trabajos futuros}{47}{section.6.2}
+\contentsline {chapter}{\numberline {7}Bibliograf\IeC {\'\i }a}{48}{chapter.7}
