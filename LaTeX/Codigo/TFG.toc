@@ -30,17 +30,15 @@
 \contentsline {section}{\numberline {3.7}NumPy}{33}{section.3.7}
 \contentsline {chapter}{\numberline {4}Desarrollo}{34}{chapter.4}
 \contentsline {section}{\numberline {4.1}Dise\IeC {\~n}o}{34}{section.4.1}
-\contentsline {section}{\numberline {4.2}M\IeC {\'o}dulo de Control}{36}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Componente de control de pilotaje}{37}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Componente de control de aterrizaje y despegue}{41}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}M\IeC {\'o}dulo de Autolozalizaci\IeC {\'o}n}{43}{section.4.3}
-\contentsline {section}{\numberline {4.4}Integraci\IeC {\'o}n en el Algoritmo Final}{45}{section.4.4}
+\contentsline {section}{\numberline {4.2}Componente de Autolozalizaci\IeC {\'o}n}{36}{section.4.2}
+\contentsline {section}{\numberline {4.3}Componente de Control basado en estados}{38}{section.4.3}
+\contentsline {section}{\numberline {4.4}Estados de despegue y aterrizaje}{39}{section.4.4}
+\contentsline {section}{\numberline {4.5}Estado de seguimiento de ruta}{41}{section.4.5}
 \contentsline {chapter}{\numberline {5}Experimentos}{46}{chapter.5}
-\contentsline {section}{\numberline {5.1}A-Calidad del Controlador}{46}{section.5.1}
-\contentsline {section}{\numberline {5.2}B-Calidad de la Autolocalizaci\IeC {\'o}n}{46}{section.5.2}
-\contentsline {section}{\numberline {5.3}C-Calidad del Algoritmo completo}{46}{section.5.3}
-\contentsline {section}{\numberline {5.4}Visi\IeC {\'o}n Artificial y Autolocalizaci\IeC {\'o}n}{46}{section.5.4}
-\contentsline {chapter}{\numberline {6}Conclusiones}{47}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusiones}{47}{section.6.1}
-\contentsline {section}{\numberline {6.2}Trabajos futuros}{47}{section.6.2}
-\contentsline {chapter}{\numberline {7}Bibliograf\IeC {\'\i }a}{48}{chapter.7}
+\contentsline {section}{\numberline {5.1}Pruebas unitarias Autolocalizaci\IeC {\'o}n}{46}{section.5.1}
+\contentsline {section}{\numberline {5.2}Pruebas unitarias Pilotaje}{46}{section.5.2}
+\contentsline {section}{\numberline {5.3}Pruebas integrales del sistema}{47}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusiones}{48}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusiones}{48}{section.6.1}
+\contentsline {section}{\numberline {6.2}Trabajos futuros}{48}{section.6.2}
+\contentsline {chapter}{\numberline {7}Bibliograf\IeC {\'\i }a}{49}{chapter.7}
