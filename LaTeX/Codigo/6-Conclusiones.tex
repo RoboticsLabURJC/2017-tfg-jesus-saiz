@@ -1,3 +1,30 @@
 \chapter{Conclusiones}\label{cap.conclusiones}
+\hspace{1cm} Una vez expuesto el desarrollo fundamental de este trabajo, en este capitulo vamos a analizar si los objetivos planteados anteriormente se han cumplido. A su vez comentaremos las posibles lineas de desarrollo que partan de este trabajo. Como visión global podemos decir que el trabajo ha sido satisfactorio, ya que se ha conseguido un algoritmo que permita al drone despegar, realizar una ruta y aterrizar, todo ello de manera completamente autónoma, como se deseaba en un primer momento. 
+
 \section{Conclusiones}
+\hspace{1cm} Antes de extraer las conclusiones sobre los objetivos en el capítulo \ref{cap.objetivos}, mencionar que para conseguirlos se ha hecho uso de un gran número de herramientas y tecnologías que han tenido que ser comprendidas y adaptadas para el propósito buscado. Con ello se ha conseguido validar el funcionamiento integral del sistema desarrollado en simulación como un sistema estable y aunque el ruido de las medidas y el comportamiento de los soportes
+físicos pueden afectar el comportamiento del sistema, este ha probado ser lo suficientemente
+robusto para satisfacer las metas propuestas dentro de entornos reales.
+
+\hspace{1cm} En cuanto al análisis de los objetivos vamos a extraer conclusiones sobre cada uno de ellos superado:
+
+\begin{enumerate}
+	\item{\textbf{Utilización de la herramienta Visual States:} Se ha logrado desarrollar completamente el algoritmo dentro de esta herramienta, con ello queremos decir que se ha creado la jerarquía necesaria para poder pasar de un estado a otro mediante transiciones controladas. También se ha conseguido crear la interfaz gráfica de forma que sea sencillo para el usuario saber cual es el comportamiento del robot y distinguir en que estado se encuentra.}
+	\item{\textbf{Adaptación e integración del componente Slam-Visualmarkers:} Se ha conseguido introducir con éxito dentro de Visual States la nueva aplicación de JdeRobot implementada en ROS y utilizando sus nuevas variables creadas junto con este trabajo para mejorar la herramienta y ayudarnos a hacer el algoritmo mas robusto.}	
+	\item{\textbf{Recodificación e integración del despegue y aterrizaje visual:} En el nuevo algoritmo el drone podrá despegar desde cualquier altura siempre que se encuentre sobre su baliza, para así centrarse sobre ella con el nuevo sistema de despegue controlado y poder iniciar la ruta deseada con la certeza de que el drone esta completamente nivelado. También mencionar que el aterrizaje se ha simplificado para eliminar los temporizadores y la maquina virtual de estados, introduciéndolo correctamente en el nuevo algoritmo.}
+	\item{\textbf{Desarrollo de dos componentes de navegación basados en la posición absoluta del drone:} Éxito para ambos controles de pilotaje ya que hemos logrado desarrollar y comprobar que, tanto el método de pilotaje por puntos, como el pilotaje por trayectorias, funcionan correctamente, con errores mínimos y con una robustez elevada en cualquier tipo de situaciones, demostrando así que se ha creado una mejora con respecto a los anteriores sistemas de pilotaje creados.}
+	\item{\textbf{Validación experimental en entorno simulado Gazebo:} Todos los resultados obtenidos en el capítulo \ref{cap.experimentos} se han extraído a partir de las pruebas realizadas dentro de los mundos creados en este entorno de simulación tridimensional. Creando así por tanto ejemplos visuales de la robustez del algoritmo completo, con la utilización de todos los módulos para dotar al sistema de autonomía completa.}
+\end{enumerate}
+
+\hspace{1cm} Al cumplir el objetivo principal de la aplicación y todos los subobjetivos que se extrajeron del mismo para dividirlo podemos decir que se ha conseguido algo diferente a lo que se encuentra en los repositorios de JdeRobot ya que ahora cuenta con un algoritmo que permite a un drone navegar de forma completamente autónoma desde el despegue hasta el aterrizaje, siguiendo una ruta previamente establecida y utilizando una autolocaclización propia, únicamente colocando una serie de balizas y pulsando el botón de inicio.
+
+\hspace{1cm} Todas las pruebas y los avances que se han ido desarrollando y validando se pueden ver en la wiki oficial del proyecto: \url{http://jderobot.org/Jsaizc-tfg}
+
 \section{Trabajos futuros}
+\hspace{1cm} Como comentamos en la introducción, el mundo de la robotica, de la vision artificial y dentro de ambos de los drones, esta en constante desarrollo por lo que cada día surgen nuevas necesidades y aplicaciones posibles para este tipo de robots, por lo que pienso que es interesante continuar la línea de este proyecto. A continuación se detallan algunas de estas lineas de mejora, que han surgido al investigar las herramientas, las nuevas aplicaciones y desarrollar nuestro propio algoritmo.
+
+\begin{itemize}
+	\item Lo primero sería probar el algoritmo en situaciones reales, ya que, aunque hemos comprobado la robustez de algoritmo en entornos simulados y suponemos la misma dentro de entornos reales con las funcionas creadas para tales propósitos, no hemos podido comprobar situaciones como la deriva propia del vehículo, que añade un mayor grado de complejidad al sistema de control; los sistemas de estabilización establecidos por el fabricante, que en ocasiones entran en conflicto con el control proporcionado por el componente; y el ruido de los sensores.
+	\item Otra posible linea de investigación seria el cambio del sistema de autolocaclización visual basado en marcadores por una autolocalización basada en un sistema de odometría visual, evitando así el uso de balizas y localizándonos gracias a la percepción de objetos a nuestro alrededor pudiendo crear incluso mapas en 3D de lo que se encuentra a nuestro alrededor.
+	\item Por último nombrar algunas mejoras sobre nuestro propio algoritmo para adaptarlo a otras necesidades reales como, por ejemplo, capturas de fotografías de puntos estratégicos. Esto puede ser de gran utilidad para su representación posterior en 3D y creación de mapas u objetos e incluso para tareas de vigilancia o monitorización de espacios.
+\end{itemize}

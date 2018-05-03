@@ -1,11 +1,77 @@
 \chapter{Infraestructura}\label{cap.infraestructura}
-\hspace{1cm} Una vez vistos los objetivos de este trabajo, en este capítulo se mostraran las diferentes infraestructuras sobre software en el que nos hemos apoyado para la creación de este TFG. También se explicara el funcionamiento de los distintos componentes que lo forman.
+\hspace{1cm} Una vez vistos los objetivos de este trabajo, en este capítulo se mostrarán las diferentes infraestructuras en las que nos hemos apoyado para la programación de la aplicación robótica de este TFG. También se explicara el funcionamiento de algunos componentes previos que hemos integrado.
+
+\section{Gazebo}
+\hspace{1cm} El simulador Gazebo es un programa open source distribuido bajo la licencia Apache 2.0 que se utiliza sobretodo para la investigación en robótica e Inteligencia Artificial.
+
+\hspace{1cm} Este simulador ofrece la capacidad de simular de una forma eficiente y precisa cualquier tipo de robot en entornos complejos tanto de exterior como de interior. Sus características principales son sus motores de físicas, el motor de renderizado avanzado, el repositorio con la mayoría de robots comerciales y una gran gama de sensores y cámaras que permiten simular la mayoría de entornos reales.
+
+\hspace{1cm} Al tratarse de un programa OpenSource su comunidad crece a diario lo que permite que cada ve existan más plugins, esto unido a la fácil integración en ROS e ICE permite que podamos tener el software base para simular los robots reales.
+\\
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{imag/IMG18.png}
+				\caption{Entorno de Simulación Gazebo.} 
+	\label{fig:Gazebo.}	
+	\end{center}
+\end{figure}
+
+\hspace{1cm} En nuestro TFG hemos trabajado con la versión Gazebo 7.9. Los mundos creados en esta aplicación se pueden lanzar sin GUI o con GUI y se definen con la extensión '.world' y escritos mediante SDF \textit{(Simulation Description Format)}.
+
+\section{Balizas visuales AprilTags}
+\hspace{1cm} AprilTags \cite{AprilTags2} es una biblioteca para el sistema de visión por computador que permite detectar balizas visuales contenidas en una imagen. Es útil en una amplia variedad de tareas que incluyen la realidad aumentada, la robótica y la calibración de cámaras.
+
+\hspace{1cm} Las balizas se basan en el concepto de los códigos QR, aunque éstas están diseñadas para contener muchos menos bits de información(4-12 bits). Además, presenta un nuevo sistema de codificación que aborda problemas específicos de los códigos de barras 2D como es la robustez frente a la rotación y a los falsos positivos que pueden dar las imágenes naturales. EL software de detección AprilTag calcula la posición, orientación e identidad 3D precisa de las etiquetas en relación con la cámara, además de su correspondiente ID. Eso lo realiza mediante un algoritmo de segmentación basado en gradientes locales que consigue que las líneas se estimen con precisión, el cual se implementa en C sin dependencias externas. Esto provoca una tasa de falsos negativos muy bajos, aunque aumenta la probabilidad de falsos positivos. Sin embargo, gracias a la codificación de las balizas esta probabilidad es reducida hasta niveles aceptables.
+\\
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{imag/IMG25.png}
+				\caption{Ejemplos de AprilTags.} 
+	\label{fig:AprilTags.}	
+	\end{center}
+\end{figure}
+
+\hspace{1cm} Esta biblioteca la hemos utilizado como ayuda al sistema de autolocalización de Slam-VisualMarkers y su el código en C++ desarollado primero por Edwin Olson y posteriormente por Michael Kaess se puede obtener gratuitamente en su página \footnote{\url{http://people.csail.mit.edu/kaess/apriltags/}}, nosotros hemos utilizado su versión 2.1.
+
+\section{Biblioteca OpenCV}
+\hspace{1cm} OpenCV \footnote{\url{https://opencv.org/}} es una biblioteca \textit{open-source} de visión artificial que se desarrolló inicialmente por Intel, tiene un conjunto de funciones que van desde sistemas de seguridad con detección de movimiento hasta centros de procesamiento con reconocimiento de objetos. Está programada en C/C++ y en nuestro TFG para el procesamiento de imágenes nos hemos apoyado principalmente sobre ésta, trabajando en la versión 3.4. 
+
+\hspace{1cm} Gracias a OpenCV, al obtener la imagen que transmite el drone se puede tanto detectar objetos como aplicar cambios sobre ella, para marcar las zonas de interés o diferentes objetos. Permite la realización de filtros de color, para eliminar objetos no deseados dependiendo el momento. Además permite el uso de operadores morfológicos (erosión y dilatación) gracias a los cuales se evitan imperfecciones en las imágenes como puede ser el ruido, que clasifica objetos inexistentes o de no interés como objetos de interés. En nuestro caso, nos ha servido tanto para la localización de las balizas de despegue y aterrizaje, como para la clasificación de las balizas AprilTag según la distancia a la que se encuentran del drone y por tanto el peso que tienen a la hora de calcular la posición.
+\\
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{imag/IMG26.png}
+				\caption{Ejemplo de algoritmo con OpenCV.} 
+	\label{fig:OpenCV.}	
+	\end{center}
+\end{figure}
+
+\section{Biblioteca NumPy}
+\hspace{1cm} Como hemos dicho este TFG está escrito en el lenguaje de programación Python y NumPy \footnote{\url{http://www.numpy.org/}} es una extensión \textit{open-source} de este lenguaje. Es el paquete fundamental para la informática científica con Python. Contiene, entre otras cosas un poderoso objeto de matriz N-dimensional, herramientas para integrar el código C/C++ y Fortran, álgebra lineal útil, transformadas de Fourier y capacidad de trabajo sobre números aleatorios. 
+
+\hspace{1cm} Además de sus usos científicos obvios, NumPy también se puede usar como un contenedor multidimensional de datos genéricos. A su vez se pueden definir tipos de datos arbitrarios, lo que permite a NumPy integrarse de manera rápida y sin problemas con una amplia variedad de bases de datos. NumPy está licenciado bajo la licencia BSD \textit{(Berkeley Software Distribution)}, lo que permite su reutilización con pocas restricciones.
 
 \section{Entorno JdeRobot}
-\hspace{1cm} JdeRobot \footnote{\url{http://jderobot.org/Main_Page}} es un paquete de software libre para desarrollar aplicaciones de robótica y visión por computación. Estos dominios incluyen sensores cómo cámaras, actuadores y software inteligente en el medio. Está escrito principalmente en los lenguajes C++ y Python, y proporciona un entorno de programación basado en componentes. Pueden ejecutarse en diferentes ordenadores y se conectan mediante el middleware de comunicación ICE o los mensajes ROS. Los componentes interoperan a través de interfaces explícitas. Es el software principal con le que he trabajado y esta mantenido por el grupo de robótica de la Universidad Rey Juan Carlos.
+\hspace{1cm} JdeRobot \footnote{\url{http://jderobot.org/Main_Page}} es un paquete de software libre para desarrollar aplicaciones de robótica y visión por computación. Estos dominios incluyen sensores como cámaras, actuadores y software inteligente en el medio. Está escrito principalmente en los lenguajes C++ y Python, y proporciona un entorno de programación basado en componentes. Pueden ejecutarse en diferentes ordenadores y se conectan mediante el middleware de comunicación ICE o los mensajes ROS. Los componentes interoperan a través de interfaces explícitas. Es el software principal con le que he trabajado y esta mantenido por el grupo de robótica de la Universidad Rey Juan Carlos.
+
+\hspace{1cm} Para nuestro trabaja hemos utilizado la versión mas reciente del repositorio, JdeRobot-5.6.3(Febrero 2018) \footnote{\url{https://jderobot.org/Installation}}. Nos ha servido como herramienta para comprender los componentes previos que hemos utilizado del repositorio y la aplicación final es un conjunto de nodos desarrollados en el ecosistema JdeRobot.
 
 \subsection{Herramienta ColorTuner}
-\hspace{1cm} Es una aplicación para configurar filtros de color personalizados en espacios de color HSV, RGB o YUV, y así poder obtener la gama de color que nos interesa o realizar un filtro sobre una imagen o vídeo. Utiliza un interfaz ICE donde se representan dos imágenes, una la real y otra la filtrada, en esta se pueden variar los parámetros para ver que colores cumplen las características, quedándose los otros en negro.
+\hspace{1cm} Es una aplicación para configurar filtros de color personalizados en espacios de color HSV, RGB o YUV, y así poder obtener la gama de color que nos interesa o realizar un filtro sobre una imagen o vídeo. Utiliza un interfaz ICE donde se representan dos imágenes, una la real y otra la filtrada, en esta se pueden variar los parámetros para ver que colores cumplen las características, quedándose los otros en negro. Se ha utilizado para extraer los colores de las balizas de aterrizaje y despegue y así poner su gama de colores correctamente en la aplicación final para que el drone las encuentre sin problemas.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{imag/IMG27.png}
+				\caption{Herramienta ColorTuner.} 
+	\label{fig:ColorTuner.}	
+	\end{center}
+\end{figure}
+
+\subsection{Plugin ArDrone2 en Gazebo}
+\hspace{1cm} Hemos empleado para el desarrollo del proyecto el ArDrone 2.0 o más bien su modelo en el entorno de simulación Gazebo. Este plugin implementa un control realista y optimizado en simulación del drone, por lo que nos permite trabajar con los distintos sensores. Este drone cuenta cuenta con sensores IMU y con dos camaras una frontal y ora ventral, con ello y gracias al simulador Gazebo es capaz de ofrecer datos como pa posicion del drone o las imagenes que ve el mismo. También cuenta con una brújula, un altímetro y cuatro motores cada uno con su correspondiente hélice lo que nos permite enviar al drone una serie de comandos mediante el plugin \textit{CMDVel} para dirigir sus movimientos y saber en todo momento en que posición se encuentra.
 
 \subsection{Interfaz Pose3D}
 \hspace{1cm} Pose3D es la interfaz que se emplea en JdeRobot para obtener la posición y orientación en un espacio 3D de un objeto, en nuestro caso un drone. Se implementa mediante la función \emph{Pose3Ddata} y esta compuesta por un punto en 3D el cual indica la situación de un objeto mediante la posición en coordenadas cartesianas y la orientación mediante los cuaterniones, a partir de estos podremos obtener los ángulos de roll, pitch y yaw.
@@ -25,41 +91,10 @@
  \label{f:Ejemplo de Pose3DData}
 \end{figure} 
 
-\subsection{Plugin ArDrone2 en Gazebo}
-\hspace{1cm} Hemos empleado para el desarrollo del proyecto el ArDrone 2.0 o mas bien su modelo en el entorno de simulación Gazebo. Este plugin implementa un control realista y optimizado en simulación del drone, por lo que nos permite trabajar con los distintos sensores (cámara, IMU, sonar...).
-
-\subsection{Práctica Navegación por control de posición}
-\hspace{1cm} De esta practica se ha conocido el funcionamiento del drone en un entorno simulado y así saber como poder manejarlo mediante un controlador de velocidades simple. Este control es el interfaz CMDVel el cual nos permite enviar información de velocidades al drone para poder guiarlo dentro del entorno de simulación Gazebo. 
-
-\hspace{1cm} Esta práctica se encuentra en el GitHub de Jderobot Academy  \url{https://github.com/JdeRobot/Academy/tree/master/src/position_control} 
-
-\subsection{Práctica drones Gato-Ratón}
-\hspace{1cm} El objetivo de esta práctica era utilizar algunas de las capacidades del drone junto con las herramientas de JdeRobot. Desde filtros de color obtenidos mediante ColorTuner hasta interfaces como Pose3D o CMDVel. Con todo esto esto se puede control de forma remota el drone y ver el estado de sus sensores. Una vez realizada esta práctica se pudo observar las capacidades completas del drone y como podíamos desarrollar nuestro algoritmo.
-
-\hspace{1cm} Esta práctica se encuentra en el GitHub de Jderobot Academy  \url{https://github.com/JdeRobot/Academy/tree/master/src/drone_cat_mouse} 
-
-\section{Gazebo}
-\hspace{1cm} El simulador Gazebo es un programa open source distribuido bajo la licencia Apache 2.0 que se utiliza sobretodo para la investigación en robótica e Inteligencia Artificial.
-
-\hspace{1cm} Este simulador ofrece la capacidad de simular de una forma eficiente y precisa cualquier tipo de robot en entornos complejos tanto de exterior como de interior. Sus características principales son sus motores de físicas, el motor de renderizado avanzado, el repositorio con la mayoría de robots comerciales y una gran gama de sensores y cámaras que permiten simular la mayoría de entornos reales.
-
-\hspace{1cm} Al tratarse de un programa OpenSource su comunidad crece a diario lo que permite que cada ve existan mas plugins, esto unido a la fácil integración en ROS e ICE permite que podamos tener el software base para simular los robots reales.
-\\
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=1\textwidth]{imag/IMG18.png}
-				\caption{Entorno de Simulación Gazebo.} 
-	\label{fig:Gazebo.}	
-	\end{center}
-\end{figure}
-
-\hspace{1cm} En nuestro TFG hemos trabajado con la versión Gazebo 7.9. Los mundos creados en esta aplicación se definen con la extensión '.world' y escritos mediante SDF \textit{(Simulation Description Format)}. para este trabajo he creado el \emph{ArDones2.world} el cual utiliza el plugin ArDonre2, junto con la estructura de una casa y diversas balizas \textit{AprilTags}.
-
 \section{Visual States}
-\hspace{1cm} VisualStates es una herramienta para la programación de comportamientos de robots que utilizan máquinas de estados finitos jerárquicas \textit{(HFSM - Hierarchichal Finite State Machine)}. Representa el comportamiento del robot gráficamente en una hoja en blanco compuesto por estados y transiciones. Cuando el autómata está en un cierto estado, pasará a otro dependiendo de las condiciones establecidas en las transiciones. Esta representación gráfica permite un mayor nivel de abstracción para el usuario, ya que solo tiene que preocuparse por programar las acciones actuales del robot y seleccionar qué componentes puede necesitar de la interfaz del robot.
+\hspace{1cm} VisualStates es una herramienta para la programación de comportamientos de robots que utilizan máquinas de estados finitos jerárquicas \textit{(HFSM - Hierarchichal Finite State Machine)} que permite el diseño gráfico de la inteligencia de un robot expresándola como estados y transiciones, además genera automáticamente un nodo JdeRobot en python que lo materializa. Representa el comportamiento del robot gráficamente en una hoja en blanco compuesto por estados y transiciones. Cuando el autómata está en un cierto estado, pasará a otro dependiendo de las condiciones establecidas en las transiciones. Esta representación gráfica permite un mayor nivel de abstracción para el usuario, ya que solo tiene que preocuparse por programar las acciones actuales del robot y seleccionar qué componentes puede necesitar de la interfaz del robot.
 
-\hspace{1cm} Esta herramienta cuenta con dos interfaces de usuario diferentes: la GUI visualStates y la GUI de tiempo de ejecución de python. La GUI de visualStates permite el diseño de autómatas y la GUI de tiempo de ejecución de python proporciona una visualización del autómata en ejecución. 
+\hspace{1cm} Esta herramienta cuenta con una interfaz de usuario, la cual varia según estemos modificando el código o ejecutándolo. La GUI de visualStates permite el diseño de autómatas y la GUI de tiempo de ejecución de python proporciona una visualización del autómata en ejecución. 
 \\
 
 \begin{figure}[H]
@@ -70,36 +105,10 @@
 	\end{center}
 \end{figure}
 
-\section{Balizas visuales AprilTags}
-\hspace{1cm} AprilTags \cite{AprilTags2} es un sistema de visión por computador que permite detectar balizas visuales contenidas en una imagen. Es útil en una amplia variedad de tareas que incluyen la realidad aumentada, la robótica y la calibración de cámaras.
-
-\hspace{1cm} Las balizas se basan en el concepto de los códigos QR, aunque éstas están diseñadas para contener muchos menos bits de información(4-12 bits). Además, presenta un nuevo sistema de codificación que aborda problemas específicos de los códigos de barras 2D como es la robustez frente a la rotación y a los falsos positivos que pueden dar las imágenes naturales. EL software de detección AprilTag calcula la posición, orientación e identidad 3D precisa de las etiquetas en relación con la cámara, además de su correspondiente ID. Eso lo realiza mediante un algoritmo de segmentación basado en gradientes locales que consigue que las líneas se estimen con precisión, el cual se implementa en C sin dependencias externas. Esto provoca una tasa de falsos negativos muy bajos, aunque aumenta la probabilidad de falsos positivos. Sin embargo, gracias a la codificación de las balizas esta probabilidad es reducida hasta niveles aceptables.
-\\
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.8\textwidth]{imag/IMG25.png}
-				\caption{Ejemplos de AprilTags.} 
-	\label{fig:AprilTags.}	
-	\end{center}
-\end{figure}
-
-\section{Biblioteca OpenCV}
-\hspace{1cm} OpenCV \footnote{\url{https://opencv.org/}} es una biblioteca \textit{open-source} de visión artificial que se desarrollo inicialmente por Intel, tiene un conjunto de funciones que van desde sistemas de seguridad con detección de movimiento hasta centros de procesamiento con reconocimiento de objetos. Está programada en C/C++ y en nuestro TFG para el procesamiento de imágenes nos hemos apoyado principalmente sobre ésta, trabajando en la versión 3.4. 
-
-\hspace{1cm} Gracias a OpenCV, al obtener la imagen que transmite el drone se puede tanto detectar objetos como aplicar cambios sobre ella, para marcar las zonas de interés o diferentes objetos. Permite la realización de filtros de color, para eliminar objetos no deseados dependiendo el momento. Además permite el uso de operadores morfológicos (erosión y dilatación) gracias a los cuales se evitan imperfecciones en las imágenes como puede ser el ruido, que clasifica objetos inexistentes o de no interés como objetos de interés.
-\\
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.8\textwidth]{imag/IMG26.png}
-				\caption{Ejemplo de algoritmo con OpenCV.} 
-	\label{fig:OpenCV.}	
-	\end{center}
-\end{figure}
+\hspace{1cm} En nuestro TFG hemos utilizado esta herramienta para la creación de nuestro propio autómata, gracias a ello hemos podido dividir el problema final en subapartados y así solucionarlos poco a apoco hasta llegar al algoritmo final. Se puede encontrar una guia de la herramienta en \footnote{\url{https://jderobot.org/Tutorials\#VisualStates_tool}}.
 
 \section{Slam-Visualmakers}
-\hspace{1cm} Como su propio nombre indica SLAM \textit{(Simultaneous Localization and Mapping)} algoritmos capaces de generar un mapa y localizar al sensor de forma simultánea a partir de balizas visuales, \textit{Visualmarkers}. Es una aplicación desarrollada por Felipe Pérez Molina \footnote{\url{http://jderobot.org/Flperezz-tfm}} en su Trabajo Fin de Máster que ha ido creando paralelamente a este TFG. Su trabajo esta desarrollado en la plataforma JdeRobot y está programada en C++. 
+\hspace{1cm} Es un nodo disponible en el ecosistema de JdeRobot que  mediante una serie de algoritmos capaces de localizar al sensor de forma simultánea a partir de balizas visuales proporciona la capacidad de autolocalización. Es una aplicación desarrollada por Felipe Pérez Molina \footnote{\url{http://jderobot.org/Flperezz-tfm}} en su Trabajo Fin de Máster que ha ido creando paralelamente a este TFG. Su trabajo esta desarrollado en la plataforma JdeRobot y está programada en C++. 
 
 \begin{figure}[H]
 	\begin{center}
@@ -118,12 +127,7 @@
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.6\textwidth]{imag/IMG23.png}
-				\caption{Interfaces Slam-Visualmarkers.} 
-	\label{fig:Interfaces Slam-Visualmarkers.}	
+				\caption{Entradas y Salidas del nodo.} 
+	\label{fig:Entradas y Salidas del nodo.}	
 	\end{center}
 \end{figure}
-
-\section{NumPy}
-\hspace{1cm} Como hemos dicho este TFG está escrito en el lenguaje de programación Python y NumPy es una extensión \textit{open-source} de este lenguaje. Es el paquete fundamental para la informática científica con Python. Contiene, entre otras cosas un poderoso objeto de matriz N-dimensional, herramientas para integrar el código C/C++ y Fortran, álgebra lineal útil, transformadas de Fourier y capacidad de trabajo sobre números aleatorios. 
-
-\hspace{1cm} Además de sus usos científicos obvios, NumPy también se puede usar como un contenedor multidimensional de datos genéricos. A su vez se pueden definir tipos de datos arbitrarios, lo que permite a NumPy integrarse de manera rápida y sin problemas con una amplia variedad de bases de datos. NumPy está licenciado bajo la licencia BSD \textit{(Berkeley Software Distribution)}, lo que permite su reutilización con pocas restricciones.
