@@ -6,37 +6,38 @@
 \contentsline {subsection}{\numberline {1.1.2}Aplicaciones}{3}{subsection.1.1.2}
 \contentsline {section}{\numberline {1.2}Rob\IeC {\'o}tica A\IeC {\'e}rea}{7}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Componentes}{9}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Movimiento de cuadric\IeC {\'o}pteros}{10}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.2}Movimiento de cuadric\IeC {\'o}pteros}{11}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Marco legislativo espa\IeC {\~n}ol para drones}{11}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Competiciones con robots a\IeC {\'e}reos}{14}{subsection.1.2.4}
 \contentsline {section}{\numberline {1.3}Visi\IeC {\'o}n Artificial y Autolocalizaci\IeC {\'o}n}{15}{section.1.3}
-\contentsline {section}{\numberline {1.4}Rob\IeC {\'o}tica a\IeC {\'e}rea con JdeRobot}{16}{section.1.4}
-\contentsline {chapter}{\numberline {2}Objetivos}{19}{chapter.2}
-\contentsline {section}{\numberline {2.1}Problemas a abordar}{19}{section.2.1}
-\contentsline {section}{\numberline {2.2}Requisitos}{21}{section.2.2}
-\contentsline {section}{\numberline {2.3}Metodolog\IeC {\'\i }a}{21}{section.2.3}
-\contentsline {section}{\numberline {2.4}Plan de trabajo}{23}{section.2.4}
-\contentsline {chapter}{\numberline {3}Infraestructura}{25}{chapter.3}
-\contentsline {section}{\numberline {3.1}Gazebo}{25}{section.3.1}
-\contentsline {section}{\numberline {3.2}Balizas visuales AprilTags}{26}{section.3.2}
-\contentsline {section}{\numberline {3.3}Biblioteca OpenCV}{27}{section.3.3}
-\contentsline {section}{\numberline {3.4}Biblioteca NumPy}{28}{section.3.4}
-\contentsline {section}{\numberline {3.5}Entorno JdeRobot}{29}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Herramienta ColorTuner}{29}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Plugin ArDrone2 en Gazebo}{30}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Interfaz Pose3D}{31}{subsection.3.5.3}
-\contentsline {section}{\numberline {3.6}Visual States}{31}{section.3.6}
-\contentsline {section}{\numberline {3.7}Slam-Visualmakers}{33}{section.3.7}
-\contentsline {chapter}{\numberline {4}Navegaci\IeC {\'o}n aut\IeC {\'o}noma para seguimiento de rutas 3D}{35}{chapter.4}
-\contentsline {section}{\numberline {4.1}Dise\IeC {\~n}o}{35}{section.4.1}
-\contentsline {section}{\numberline {4.2}Componente de Autolocazalizaci\IeC {\'o}n}{37}{section.4.2}
-\contentsline {section}{\numberline {4.3}Componente de Control basado en estados}{39}{section.4.3}
-\contentsline {section}{\numberline {4.4}Estados de despegue y aterrizaje}{41}{section.4.4}
-\contentsline {section}{\numberline {4.5}Estado de seguimiento de ruta}{43}{section.4.5}
-\contentsline {chapter}{\numberline {5}Experimentos}{47}{chapter.5}
-\contentsline {section}{\numberline {5.1}Pruebas unitarias Autolocalizaci\IeC {\'o}n}{48}{section.5.1}
-\contentsline {section}{\numberline {5.2}Pruebas unitarias Pilotaje}{51}{section.5.2}
-\contentsline {section}{\numberline {5.3}Pruebas integrales del sistema}{55}{section.5.3}
-\contentsline {chapter}{\numberline {6}Conclusiones}{59}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusiones}{59}{section.6.1}
-\contentsline {section}{\numberline {6.2}Trabajos futuros}{61}{section.6.2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{63}{section.6.2}
+\contentsline {section}{\numberline {1.4}Rob\IeC {\'o}tica a\IeC {\'e}rea con JdeRobot}{17}{section.1.4}
+\contentsline {chapter}{\numberline {2}Objetivos}{20}{chapter.2}
+\contentsline {section}{\numberline {2.1}Problemas a abordar}{20}{section.2.1}
+\contentsline {section}{\numberline {2.2}Requisitos}{22}{section.2.2}
+\contentsline {section}{\numberline {2.3}Metodolog\IeC {\'\i }a}{22}{section.2.3}
+\contentsline {section}{\numberline {2.4}Plan de trabajo}{24}{section.2.4}
+\contentsline {chapter}{\numberline {3}Infraestructura}{26}{chapter.3}
+\contentsline {section}{\numberline {3.1}Gazebo}{26}{section.3.1}
+\contentsline {section}{\numberline {3.2}Balizas visuales AprilTags}{27}{section.3.2}
+\contentsline {section}{\numberline {3.3}Biblioteca OpenCV}{28}{section.3.3}
+\contentsline {section}{\numberline {3.4}Biblioteca NumPy}{29}{section.3.4}
+\contentsline {section}{\numberline {3.5}Entorno JdeRobot}{30}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Herramienta ColorTuner}{30}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Plugin ArDrone2 en Gazebo}{31}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Interfaz Pose3D}{32}{subsection.3.5.3}
+\contentsline {section}{\numberline {3.6}Visual States}{32}{section.3.6}
+\contentsline {section}{\numberline {3.7}Slam-Visualmakers}{34}{section.3.7}
+\contentsline {chapter}{\numberline {4}Navegaci\IeC {\'o}n aut\IeC {\'o}noma para seguimiento de rutas 3D}{36}{chapter.4}
+\contentsline {section}{\numberline {4.1}Dise\IeC {\~n}o}{36}{section.4.1}
+\contentsline {section}{\numberline {4.2}Componente de Autolocazalizaci\IeC {\'o}n}{38}{section.4.2}
+\contentsline {section}{\numberline {4.3}Componente de Control basado en estados}{40}{section.4.3}
+\contentsline {section}{\numberline {4.4}Estados de despegue y aterrizaje}{42}{section.4.4}
+\contentsline {section}{\numberline {4.5}Estado de seguimiento de ruta}{44}{section.4.5}
+\contentsline {chapter}{\numberline {5}Experimentos}{48}{chapter.5}
+\contentsline {section}{\numberline {5.1}Pruebas unitarias Autolocalizaci\IeC {\'o}n}{49}{section.5.1}
+\contentsline {section}{\numberline {5.2}Pruebas unitarias Pilotaje}{52}{section.5.2}
+\contentsline {section}{\numberline {5.3}Pruebas integrales del sistema}{56}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusiones}{60}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusiones}{60}{section.6.1}
+\contentsline {section}{\numberline {6.2}Trabajos futuros}{62}{section.6.2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{64}{section.6.2}

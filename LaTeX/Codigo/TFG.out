@@ -7,35 +7,36 @@
 \BOOKMARK [2][-]{subsection.1.2.1}{Componentes}{section.1.2}% 7
 \BOOKMARK [2][-]{subsection.1.2.2}{Movimiento de cuadric\363pteros}{section.1.2}% 8
 \BOOKMARK [2][-]{subsection.1.2.3}{Marco legislativo espa\361ol para drones}{section.1.2}% 9
-\BOOKMARK [1][-]{section.1.3}{Visi\363n Artificial y Autolocalizaci\363n}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.4}{Rob\363tica a\351rea con JdeRobot}{chapter.1}% 11
-\BOOKMARK [0][-]{chapter.2}{Objetivos}{}% 12
-\BOOKMARK [1][-]{section.2.1}{Problemas a abordar}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.2}{Requisitos}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.3}{Metodolog\355a}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.4}{Plan de trabajo}{chapter.2}% 16
-\BOOKMARK [0][-]{chapter.3}{Infraestructura}{}% 17
-\BOOKMARK [1][-]{section.3.1}{Gazebo}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.2}{Balizas visuales AprilTags}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.3}{Biblioteca OpenCV}{chapter.3}% 20
-\BOOKMARK [1][-]{section.3.4}{Biblioteca NumPy}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.5}{Entorno JdeRobot}{chapter.3}% 22
-\BOOKMARK [2][-]{subsection.3.5.1}{Herramienta ColorTuner}{section.3.5}% 23
-\BOOKMARK [2][-]{subsection.3.5.2}{Plugin ArDrone2 en Gazebo}{section.3.5}% 24
-\BOOKMARK [2][-]{subsection.3.5.3}{Interfaz Pose3D}{section.3.5}% 25
-\BOOKMARK [1][-]{section.3.6}{Visual States}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.7}{Slam-Visualmakers}{chapter.3}% 27
-\BOOKMARK [0][-]{chapter.4}{Navegaci\363n aut\363noma para seguimiento de rutas 3D}{}% 28
-\BOOKMARK [1][-]{section.4.1}{Dise\361o}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.2}{Componente de Autolocazalizaci\363n}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.3}{Componente de Control basado en estados}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.4}{Estados de despegue y aterrizaje}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.5}{Estado de seguimiento de ruta}{chapter.4}% 33
-\BOOKMARK [0][-]{chapter.5}{Experimentos}{}% 34
-\BOOKMARK [1][-]{section.5.1}{Pruebas unitarias Autolocalizaci\363n}{chapter.5}% 35
-\BOOKMARK [1][-]{section.5.2}{Pruebas unitarias Pilotaje}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.3}{Pruebas integrales del sistema}{chapter.5}% 37
-\BOOKMARK [0][-]{chapter.6}{Conclusiones}{}% 38
-\BOOKMARK [1][-]{section.6.1}{Conclusiones}{chapter.6}% 39
-\BOOKMARK [1][-]{section.6.2}{Trabajos futuros}{chapter.6}% 40
-\BOOKMARK [0][-]{section.6.2}{Bibliograf\355a}{}% 41
+\BOOKMARK [2][-]{subsection.1.2.4}{Competiciones con robots a\351reos}{section.1.2}% 10
+\BOOKMARK [1][-]{section.1.3}{Visi\363n Artificial y Autolocalizaci\363n}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.4}{Rob\363tica a\351rea con JdeRobot}{chapter.1}% 12
+\BOOKMARK [0][-]{chapter.2}{Objetivos}{}% 13
+\BOOKMARK [1][-]{section.2.1}{Problemas a abordar}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.2}{Requisitos}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.3}{Metodolog\355a}{chapter.2}% 16
+\BOOKMARK [1][-]{section.2.4}{Plan de trabajo}{chapter.2}% 17
+\BOOKMARK [0][-]{chapter.3}{Infraestructura}{}% 18
+\BOOKMARK [1][-]{section.3.1}{Gazebo}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.2}{Balizas visuales AprilTags}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.3}{Biblioteca OpenCV}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.4}{Biblioteca NumPy}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.5}{Entorno JdeRobot}{chapter.3}% 23
+\BOOKMARK [2][-]{subsection.3.5.1}{Herramienta ColorTuner}{section.3.5}% 24
+\BOOKMARK [2][-]{subsection.3.5.2}{Plugin ArDrone2 en Gazebo}{section.3.5}% 25
+\BOOKMARK [2][-]{subsection.3.5.3}{Interfaz Pose3D}{section.3.5}% 26
+\BOOKMARK [1][-]{section.3.6}{Visual States}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.7}{Slam-Visualmakers}{chapter.3}% 28
+\BOOKMARK [0][-]{chapter.4}{Navegaci\363n aut\363noma para seguimiento de rutas 3D}{}% 29
+\BOOKMARK [1][-]{section.4.1}{Dise\361o}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{Componente de Autolocazalizaci\363n}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.3}{Componente de Control basado en estados}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.4}{Estados de despegue y aterrizaje}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.5}{Estado de seguimiento de ruta}{chapter.4}% 34
+\BOOKMARK [0][-]{chapter.5}{Experimentos}{}% 35
+\BOOKMARK [1][-]{section.5.1}{Pruebas unitarias Autolocalizaci\363n}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.2}{Pruebas unitarias Pilotaje}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.3}{Pruebas integrales del sistema}{chapter.5}% 38
+\BOOKMARK [0][-]{chapter.6}{Conclusiones}{}% 39
+\BOOKMARK [1][-]{section.6.1}{Conclusiones}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.2}{Trabajos futuros}{chapter.6}% 41
+\BOOKMARK [0][-]{section.6.2}{Bibliograf\355a}{}% 42

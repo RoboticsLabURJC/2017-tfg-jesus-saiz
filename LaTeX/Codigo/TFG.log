@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.10)  3 MAY 2018 19:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.10)  14 MAY 2018 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1292,7 +1292,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-<imag/logo.jpg, id=167, 632.3625pt x 321.2pt>
+<imag/logo.jpg, id=171, 632.3625pt x 321.2pt>
 File: imag/logo.jpg Graphic file (type jpg)
  <use imag/logo.jpg>
 Package pdftex.def Info: imag/logo.jpg used on input line 52.
@@ -1345,19 +1345,19 @@ LaTeX Info: Redefining \% on input line 105.
 
  (./1-Introduccion.tex
 Cap\'{\i }tulo 1.
-<imag/IMG1.jpeg, id=325, 259.97125pt x 194.7275pt>
+<imag/IMG1.jpeg, id=334, 259.97125pt x 194.7275pt>
 File: imag/IMG1.jpeg Graphic file (type jpg)
  <use imag/IMG1.jpeg>
 Package pdftex.def Info: imag/IMG1.jpeg used on input line 14.
 (pdftex.def)             Requested size: 145.48045pt x 108.96939pt.
 
-<imag/IMG2.jpeg, id=326, 803.0pt x 486.81876pt>
+<imag/IMG2.jpeg, id=335, 803.0pt x 486.81876pt>
 File: imag/IMG2.jpeg Graphic file (type jpg)
  <use imag/IMG2.jpeg>
 Package pdftex.def Info: imag/IMG2.jpeg used on input line 17.
 (pdftex.def)             Requested size: 145.48045pt x 88.19556pt.
 
-<imag/IMG3.jpeg, id=327, 1204.5pt x 803.25093pt>
+<imag/IMG3.jpeg, id=336, 1204.5pt x 803.25093pt>
 File: imag/IMG3.jpeg Graphic file (type jpg)
  <use imag/IMG3.jpeg>
 Package pdftex.def Info: imag/IMG3.jpeg used on input line 20.
@@ -1390,7 +1390,7 @@ l.23 \end{figure}
 LaTeX Info: Redefining \. on input line 34.
 LaTeX Info: Redefining \% on input line 34.
  [2 <./imag/IMG1.jpeg> <./imag/IMG2.jpeg> <./imag/IMG3.jpeg>] <imag/IMG11.jpeg,
- id=340, 259.97125pt x 194.7275pt>
+ id=350, 259.97125pt x 194.7275pt>
 File: imag/IMG11.jpeg Graphic file (type jpg)
  <use imag/IMG11.jpeg>
 Package pdftex.def Info: imag/IMG11.jpeg used on input line 40.
@@ -1398,176 +1398,214 @@ Package pdftex.def Info: imag/IMG11.jpeg used on input line 40.
 LaTeX Info: Redefining \. on input line 50.
 LaTeX Info: Redefining \% on input line 50.
 
-[3 <./imag/IMG11.jpeg>] <imag/IMG12.jpeg, id=346, 303.1325pt x 167.62625pt>
+[3 <./imag/IMG11.jpeg>] <imag/IMG12.jpeg, id=355, 303.1325pt x 167.62625pt>
 File: imag/IMG12.jpeg Graphic file (type jpg)
 
 <use imag/IMG12.jpeg>
 Package pdftex.def Info: imag/IMG12.jpeg used on input line 54.
 (pdftex.def)             Requested size: 396.76001pt x 219.40526pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--58
+
+ []
+
 LaTeX Info: Redefining \. on input line 62.
 LaTeX Info: Redefining \% on input line 62.
- [4 <./imag/IMG12.jpeg>]
-<imag/IMG13.jpeg, id=351, 1204.5pt x 899.36pt>
+[4 <./imag/IMG12.jpeg>] <imag/IMG13.jpeg, id=360, 1204.5pt x 899.36pt>
 File: imag/IMG13.jpeg Graphic file (type jpg)
- <use imag/IMG13.jpeg>
+
+<use imag/IMG13.jpeg>
 Package pdftex.def Info: imag/IMG13.jpeg used on input line 66.
-(pdftex.def)             Requested size: 264.51115pt x 197.503pt.
+(pdftex.def)             Requested size: 238.05466pt x 177.74173pt.
 LaTeX Info: Redefining \. on input line 73.
 LaTeX Info: Redefining \% on input line 73.
  [5 <./imag/IMG13.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 74--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--77
-
- []
-
-LaTeX Info: Redefining \. on input line 81.
-LaTeX Info: Redefining \% on input line 81.
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
-
- []
-
-<imag/IMG14.jpeg, id=361, 293.095pt x 173.64874pt>
+<imag/IMG29.jpg, id=366, 856.19875pt x 1284.8pt>
+File: imag/IMG29.jpg Graphic file (type jpg)
+ <use imag/IMG29.jpg>
+Package pdftex.def Info: imag/IMG29.jpg used on input line 77.
+(pdftex.def)             Requested size: 110.21185pt x 165.36348pt.
+LaTeX Info: Redefining \. on input line 84.
+LaTeX Info: Redefining \% on input line 84.
+ [6 <./imag/IMG29.jpg>]
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
+ [7] <imag/IMG14.jpeg, id=376, 293.095pt x 173.64874pt>
 File: imag/IMG14.jpeg Graphic file (type jpg)
- <use imag/IMG14.jpeg>
-Package pdftex.def Info: imag/IMG14.jpeg used on input line 93.
+
+<use imag/IMG14.jpeg>
+Package pdftex.def Info: imag/IMG14.jpeg used on input line 98.
 (pdftex.def)             Requested size: 308.59187pt x 182.82939pt.
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
-
-[7]
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
- [8 <./imag/IMG14.jpeg>] <imag/IMG15.jpeg, id=371, 853.1875pt x 602.25pt>
+LaTeX Info: Redefining \. on input line 108.
+LaTeX Info: Redefining \% on input line 108.
+ [8 <./imag/IMG14.jpeg>]
+<imag/IMG15.jpeg, id=381, 853.1875pt x 602.25pt>
 File: imag/IMG15.jpeg Graphic file (type jpg)
-
-<use imag/IMG15.jpeg>
-Package pdftex.def Info: imag/IMG15.jpeg used on input line 112.
+ <use imag/IMG15.jpeg>
+Package pdftex.def Info: imag/IMG15.jpeg used on input line 117.
 (pdftex.def)             Requested size: 199.17119pt x 113.80379pt.
- <imag/IMG16.jpeg, id=372, 1008.76875pt x 477.785pt>
-File: imag/IMG16.jpeg Graphic file (type jpg)
 
-<use imag/IMG16.jpeg>
-Package pdftex.def Info: imag/IMG16.jpeg used on input line 113.
+<imag/IMG16.jpeg, id=382, 1008.76875pt x 477.785pt>
+File: imag/IMG16.jpeg Graphic file (type jpg)
+ <use imag/IMG16.jpeg>
+Package pdftex.def Info: imag/IMG16.jpeg used on input line 118.
 (pdftex.def)             Requested size: 199.16423pt x 113.81047pt.
-LaTeX Info: Redefining \. on input line 120.
-LaTeX Info: Redefining \% on input line 120.
- [9 <./imag/IMG15.jpeg> <./imag/IMG16.jpeg>]
-LaTeX Info: Redefining \. on input line 130.
-LaTeX Info: Redefining \% on input line 130.
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
+
+[9 <./imag/IMG15.jpeg> <./imag/IMG16.jpeg>]
+LaTeX Info: Redefining \. on input line 135.
+LaTeX Info: Redefining \% on input line 135.
  [10]
-<imag/IMG5.png, id=382, 595.22375pt x 314.17375pt>
+<imag/IMG5.png, id=392, 595.22375pt x 314.17375pt>
 File: imag/IMG5.png Graphic file (type png)
  <use imag/IMG5.png>
-Package pdftex.def Info: imag/IMG5.png used on input line 135.
+Package pdftex.def Info: imag/IMG5.png used on input line 140.
 (pdftex.def)             Requested size: 233.6486pt x 123.32304pt.
 
-<imag/IMG6.png, id=384, 529.98pt x 439.6425pt>
+<imag/IMG6.png, id=394, 529.98pt x 439.6425pt>
 File: imag/IMG6.png Graphic file (type png)
  <use imag/IMG6.png>
-Package pdftex.def Info: imag/IMG6.png used on input line 138.
+Package pdftex.def Info: imag/IMG6.png used on input line 143.
 (pdftex.def)             Requested size: 167.52419pt x 138.97112pt.
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
- [11 <./imag/IMG5.png> <./imag/IMG6.png>]
 LaTeX Info: Redefining \. on input line 152.
 LaTeX Info: Redefining \% on input line 152.
+ [11 <./imag/IMG5.png> <./imag/IMG6.png>]
+LaTeX Info: Redefining \. on input line 155.
+LaTeX Info: Redefining \% on input line 155.
  [12]
-LaTeX Info: Redefining \. on input line 161.
-LaTeX Info: Redefining \% on input line 161.
+LaTeX Info: Redefining \. on input line 164.
+LaTeX Info: Redefining \% on input line 164.
  [13]
-<imag/IMG7.jpeg, id=405, 1144.7568pt x 873.0216pt>
+Underfull \hbox (badness 10000) in paragraph at lines 167--169
+
+ []
+
+<imag/IMG7.jpeg, id=415, 1144.7568pt x 873.0216pt>
 File: imag/IMG7.jpeg Graphic file (type jpg)
  <use imag/IMG7.jpeg>
-Package pdftex.def Info: imag/IMG7.jpeg used on input line 167.
-(pdftex.def)             Requested size: 220.42372pt x 168.10046pt.
+Package pdftex.def Info: imag/IMG7.jpeg used on input line 172.
+(pdftex.def)             Requested size: 308.59187pt x 235.33266pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 173.
+(Font)              <10> on input line 178.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 173.
+(Font)              <7> on input line 178.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 173.
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 173
+(Font)              <5> on input line 178.
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 178
 .
 
 (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \. on input line 178.
-LaTeX Info: Redefining \% on input line 178.
+LaTeX Info: Redefining \. on input line 179.
+LaTeX Info: Redefining \% on input line 179.
  [14 <./imag/IMG7.jpeg>]
-<imag/IMG4.png, id=416, 1204.5pt x 600.2425pt>
+<imag/IMG4.png, id=422, 1204.5pt x 600.2425pt>
 File: imag/IMG4.png Graphic file (type png)
  <use imag/IMG4.png>
-Package pdftex.def Info: imag/IMG4.png used on input line 181.
+Package pdftex.def Info: imag/IMG4.png used on input line 186.
 (pdftex.def)             Requested size: 396.76001pt x 197.71428pt.
-LaTeX Info: Redefining \. on input line 188.
-LaTeX Info: Redefining \% on input line 188.
+LaTeX Info: Redefining \. on input line 193.
+LaTeX Info: Redefining \% on input line 193.
  [15 <./imag/IMG4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 189--191
+Underfull \hbox (badness 10000) in paragraph at lines 194--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--197
+Underfull \hbox (badness 10000) in paragraph at lines 194--199
 
  []
 
-LaTeX Info: Redefining \. on input line 197.
-LaTeX Info: Redefining \% on input line 197.
-[16] <imag/IMG8.png, id=431, 804.00375pt x 511.9125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--199
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--199
+
+ []
+
+LaTeX Info: Redefining \. on input line 202.
+LaTeX Info: Redefining \% on input line 202.
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
+
+ []
+
+<imag/IMG8.png, id=439, 804.00375pt x 511.9125pt>
 File: imag/IMG8.png Graphic file (type png)
  <use imag/IMG8.png>
-Package pdftex.def Info: imag/IMG8.png used on input line 200.
+Package pdftex.def Info: imag/IMG8.png used on input line 208.
 (pdftex.def)             Requested size: 308.59187pt x 196.48155pt.
-LaTeX Info: Redefining \. on input line 212.
-LaTeX Info: Redefining \% on input line 212.
 
-[17 <./imag/IMG8.png>] <imag/IMG9.png, id=455, 501.875pt x 301.125pt>
-File: imag/IMG9.png Graphic file (type png)
+Underfull \hbox (badness 10000) in paragraph at lines 214--217
 
-<use imag/IMG9.png>
-Package pdftex.def Info: imag/IMG9.png used on input line 218.
-(pdftex.def)             Requested size: 199.16888pt x 113.81297pt.
- <imag/IMG10.png, id=456, 501.875pt x 301.125pt>
-File: imag/IMG10.png Graphic file (type png)
+ []
 
-<use imag/IMG10.png>
-Package pdftex.def Info: imag/IMG10.png used on input line 219.
-(pdftex.def)             Requested size: 199.16888pt x 113.81297pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--217
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--220
+
+ []
+
+LaTeX Info: Redefining \. on input line 220.
+LaTeX Info: Redefining \% on input line 220.
+[17 <./imag/IMG8.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 224--226
 
  []
 
+<imag/IMG9.png, id=462, 501.875pt x 301.125pt>
+File: imag/IMG9.png Graphic file (type png)
+ <use imag/IMG9.png>
+Package pdftex.def Info: imag/IMG9.png used on input line 229.
+(pdftex.def)             Requested size: 213.39743pt x 170.72406pt.
+
+<imag/IMG10.png, id=463, 501.875pt x 301.125pt>
+File: imag/IMG10.png Graphic file (type png)
+ <use imag/IMG10.png>
+Package pdftex.def Info: imag/IMG10.png used on input line 230.
+(pdftex.def)             Requested size: 213.39743pt x 170.72406pt.
+LaTeX Info: Redefining \. on input line 236.
+LaTeX Info: Redefining \% on input line 236.
+ [18 <./imag/IMG9.png> <./imag/IMG10.png>]
+<imag/IMG50.png, id=479, 1302.8675pt x 743.77875pt>
+File: imag/IMG50.png Graphic file (type png)
+ <use imag/IMG50.png>
+Package pdftex.def Info: imag/IMG50.png used on input line 239.
+(pdftex.def)             Requested size: 352.6793pt x 201.33365pt.
 )
 LaTeX Info: Redefining \. on input line 112.
 LaTeX Info: Redefining \% on input line 112.
- [18 <./imag/IMG9.png> <./imag/IMG10.png>]
+
+[19 <./imag/IMG50.png>]
 \openout2 = `2-Objetivos.aux'.
 
  (./2-Objetivos.tex
 Cap\'{\i }tulo 2.
-[19
+[20
 
 
 
 ]
 LaTeX Info: Redefining \. on input line 19.
 LaTeX Info: Redefining \% on input line 19.
- [20]
+ [21]
 LaTeX Info: Redefining \. on input line 38.
 LaTeX Info: Redefining \% on input line 38.
- [21] <imag/IMG17.png, id=488, 1003.75pt x 836.12375pt>
+ [22] <imag/IMG17.png, id=505, 1003.75pt x 836.12375pt>
 File: imag/IMG17.png Graphic file (type png)
 
 <use imag/IMG17.png>
@@ -1575,13 +1613,13 @@ Package pdftex.def Info: imag/IMG17.png used on input line 43.
 (pdftex.def)             Requested size: 264.51115pt x 220.33418pt.
 LaTeX Info: Redefining \. on input line 54.
 LaTeX Info: Redefining \% on input line 54.
- [22 <./imag/IMG17.png>]
+ [23 <./imag/IMG17.png>]
 LaTeX Info: Redefining \. on input line 61.
 LaTeX Info: Redefining \% on input line 61.
- [23])
+ [24])
 LaTeX Info: Redefining \. on input line 114.
 LaTeX Info: Redefining \% on input line 114.
- [24]
+ [25]
 \openout2 = `3-Infraestructura.aux'.
 
 
@@ -1592,12 +1630,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--11
 
  []
 
-<imag/IMG18.png, id=503, 1304.875pt x 746.79pt>
+<imag/IMG18.png, id=520, 1304.875pt x 746.79pt>
 File: imag/IMG18.png Graphic file (type png)
  <use imag/IMG18.png>
 Package pdftex.def Info: imag/IMG18.png used on input line 14.
 (pdftex.def)             Requested size: 440.84746pt x 252.29852pt.
- [25
+ [26
 
 
 
@@ -1608,7 +1646,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--27
 
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
-[26 <./imag/IMG18.png>] <imag/IMG25.png, id=514, 2051.665pt x 393.47pt>
+[27 <./imag/IMG18.png>] <imag/IMG25.png, id=531, 2051.665pt x 393.47pt>
 File: imag/IMG25.png Graphic file (type png)
 
 <use imag/IMG25.png>
@@ -1621,7 +1659,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--43
 
 LaTeX Info: Redefining \. on input line 43.
 LaTeX Info: Redefining \% on input line 43.
-[27 <./imag/IMG25.png>] <imag/IMG26.png, id=526, 773.89125pt x 363.60844pt>
+[28 <./imag/IMG25.png>] <imag/IMG26.png, id=543, 773.89125pt x 363.60844pt>
 File: imag/IMG26.png Graphic file (type png)
 
 <use imag/IMG26.png>
@@ -1629,11 +1667,11 @@ Package pdftex.def Info: imag/IMG26.png used on input line 46.
 (pdftex.def)             Requested size: 352.6793pt x 165.70285pt.
 LaTeX Info: Redefining \. on input line 54.
 LaTeX Info: Redefining \% on input line 54.
- [28 <./imag/IMG26.png>]
+ [29 <./imag/IMG26.png>]
 LaTeX Info: Redefining \. on input line 64.
 LaTeX Info: Redefining \% on input line 64.
- [29]
-<imag/IMG27.png, id=546, 1304.875pt x 745.78625pt>
+ [30]
+<imag/IMG27.png, id=563, 1304.875pt x 745.78625pt>
 File: imag/IMG27.png Graphic file (type png)
  <use imag/IMG27.png>
 Package pdftex.def Info: imag/IMG27.png used on input line 67.
@@ -1641,19 +1679,19 @@ Package pdftex.def Info: imag/IMG27.png used on input line 67.
 LaTeX Info: Redefining \. on input line 75.
 LaTeX Info: Redefining \% on input line 75.
 
-[30 <./imag/IMG27.png>] <imag/IMG20.png, id=551, 256.96pt x 205.76875pt>
+[31 <./imag/IMG27.png>] <imag/IMG20.png, id=568, 256.96pt x 205.76875pt>
 File: imag/IMG20.png Graphic file (type png)
 
 <use imag/IMG20.png>
 Package pdftex.def Info: imag/IMG20.png used on input line 83.
 (pdftex.def)             Requested size: 110.21185pt x 88.2559pt.
- <imag/IMG21.png, id=552, 445.665pt x 229.85875pt>
+ <imag/IMG21.png, id=569, 445.665pt x 229.85875pt>
 File: imag/IMG21.png Graphic file (type png)
 
 <use imag/IMG21.png>
 Package pdftex.def Info: imag/IMG21.png used on input line 86.
 (pdftex.def)             Requested size: 154.29929pt x 79.58192pt.
- <imag/IMG22.png, id=553, 272.01625pt x 91.34125pt>
+ <imag/IMG22.png, id=570, 272.01625pt x 91.34125pt>
 File: imag/IMG22.png Graphic file (type png)
 
 <use imag/IMG22.png>
@@ -1661,12 +1699,12 @@ Package pdftex.def Info: imag/IMG22.png used on input line 89.
 (pdftex.def)             Requested size: 154.29929pt x 51.81557pt.
 LaTeX Info: Redefining \. on input line 96.
 LaTeX Info: Redefining \% on input line 96.
- [31 <./imag/IMG20.png> <./imag/IMG21.png> <./imag/IMG22.png>]
+ [32 <./imag/IMG20.png> <./imag/IMG21.png> <./imag/IMG22.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
 
-<imag/IMG19.png, id=561, 1303.87125pt x 747.79375pt>
+<imag/IMG19.png, id=578, 1303.87125pt x 747.79375pt>
 File: imag/IMG19.png Graphic file (type png)
  <use imag/IMG19.png>
 Package pdftex.def Info: imag/IMG19.png used on input line 102.
@@ -1674,7 +1712,7 @@ Package pdftex.def Info: imag/IMG19.png used on input line 102.
 LaTeX Info: Redefining \. on input line 112.
 LaTeX Info: Redefining \% on input line 112.
 
-[32 <./imag/IMG19.png>] <imag/IMG24.png, id=571, 903.375pt x 669.50125pt>
+[33 <./imag/IMG19.png>] <imag/IMG24.png, id=589, 903.375pt x 669.50125pt>
 File: imag/IMG24.png Graphic file (type png)
 
 <use imag/IMG24.png>
@@ -1682,8 +1720,8 @@ Package pdftex.def Info: imag/IMG24.png used on input line 115.
 (pdftex.def)             Requested size: 264.51115pt x 196.03009pt.
 LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
- [33 <./imag/IMG24.png>]
-<imag/IMG23.png, id=577, 461.725pt x 325.215pt>
+ [34 <./imag/IMG24.png>]
+<imag/IMG23.png, id=595, 461.725pt x 325.215pt>
 File: imag/IMG23.png Graphic file (type png)
  <use imag/IMG23.png>
 Package pdftex.def Info: imag/IMG23.png used on input line 129.
@@ -1691,16 +1729,16 @@ Package pdftex.def Info: imag/IMG23.png used on input line 129.
 )
 LaTeX Info: Redefining \. on input line 116.
 LaTeX Info: Redefining \% on input line 116.
- [34 <./imag/IMG23.png (PNG copy)>]
+ [35 <./imag/IMG23.png (PNG copy)>]
 \openout2 = `4-Desarrollo.aux'.
 
  (./4-Desarrollo.tex
 Cap\'{\i }tulo 4.
-[35
+[36
 
 
 
-] <imag/IMG31.PNG, id=589, 515.67656pt x 372.64218pt>
+] <imag/IMG31.PNG, id=606, 515.67656pt x 372.64218pt>
 File: imag/IMG31.PNG Graphic file (type png)
  <use imag/IMG31.PNG>
 Package pdftex.def Info: imag/IMG31.PNG used on input line 17.
@@ -1718,7 +1756,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36 <./imag/IMG31.PNG>]
+[37 <./imag/IMG31.PNG>]
 LaTeX Info: Redefining \. on input line 31.
 LaTeX Info: Redefining \% on input line 31.
 
@@ -1728,7 +1766,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37] <imag/IMG35.png, id=599, 1285.80376pt x 746.79pt>
+[38] <imag/IMG35.png, id=616, 1285.80376pt x 746.79pt>
 File: imag/IMG35.png Graphic file (type png)
  <use imag/IMG35.png>
 Package pdftex.def Info: imag/IMG35.png used on input line 36.
@@ -1742,7 +1780,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38]
+[39]
 LaTeX Info: Redefining \. on input line 48.
 LaTeX Info: Redefining \% on input line 48.
 
@@ -1752,7 +1790,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[39 <./imag/IMG35.png>] <imag/IMG32.png, id=610, 803.0pt x 743.77875pt>
+[40 <./imag/IMG35.png>] <imag/IMG32.png, id=627, 803.0pt x 743.77875pt>
 File: imag/IMG32.png Graphic file (type png)
 
 <use imag/IMG32.png>
@@ -1767,7 +1805,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[40 <./imag/IMG32.png>] <imag/IMG33.png, id=617, 102.3825pt x 99.37125pt>
+[41 <./imag/IMG32.png>] <imag/IMG33.png, id=635, 102.3825pt x 99.37125pt>
 File: imag/IMG33.png Graphic file (type png)
 
 <use imag/IMG33.png>
@@ -1782,7 +1820,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[41 <./imag/IMG33.png>] <imag/IMG34.png, id=624, 1140.26pt x 632.3625pt>
+[42 <./imag/IMG33.png>] <imag/IMG34.png, id=641, 1140.26pt x 632.3625pt>
 File: imag/IMG34.png Graphic file (type png)
 
 <use imag/IMG34.png>
@@ -1797,7 +1835,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[42 <./imag/IMG34.png>]
+[43 <./imag/IMG34.png>]
 LaTeX Font Info:    Try loading font information for OML+lmr on input line 102.
 
  (/usr/share/texmf/tex/latex/lm/omllmr.fd
@@ -1814,7 +1852,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[43]
+[44]
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 103.
 
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
@@ -1831,7 +1869,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[44]
+[45]
 LaTeX Info: Redefining \. on input line 141.
 LaTeX Info: Redefining \% on input line 141.
 
@@ -1841,7 +1879,7 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[45])
+[46])
 LaTeX Info: Redefining \. on input line 118.
 LaTeX Info: Redefining \% on input line 118.
 
@@ -1851,16 +1889,16 @@ Package Fancyhdr Warning: \headheight is too small (16.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[46]
+[47]
 \openout2 = `5-Experimentos.aux'.
 
  (./5-Experimentos.tex
 Cap\'{\i }tulo 5.
-[47
+[48
 
 
 
-] <imag/IMG28.png, id=681, 1304.875pt x 745.78625pt>
+] <imag/IMG28.png, id=698, 1304.875pt x 745.78625pt>
 File: imag/IMG28.png Graphic file (type png)
  <use imag/IMG28.png>
 Package pdftex.def Info: imag/IMG28.png used on input line 10.
@@ -1868,7 +1906,7 @@ Package pdftex.def Info: imag/IMG28.png used on input line 10.
 LaTeX Info: Redefining \. on input line 19.
 LaTeX Info: Redefining \% on input line 19.
 
-[48 <./imag/IMG28.png>] <imag/IMG36.png, id=686, 905.3825pt x 465.74pt>
+[49 <./imag/IMG28.png>] <imag/IMG36.png, id=704, 905.3825pt x 465.74pt>
 File: imag/IMG36.png Graphic file (type png)
 
 <use imag/IMG36.png>
@@ -1876,8 +1914,8 @@ Package pdftex.def Info: imag/IMG36.png used on input line 25.
 (pdftex.def)             Requested size: 440.84746pt x 226.77196pt.
 LaTeX Info: Redefining \. on input line 32.
 LaTeX Info: Redefining \% on input line 32.
- [49 <./imag/IMG36.png>]
-<imag/IMG37.png, id=692, 928.21782pt x 481.04718pt>
+ [50 <./imag/IMG36.png>]
+<imag/IMG37.png, id=710, 928.21782pt x 481.04718pt>
 File: imag/IMG37.png Graphic file (type png)
  <use imag/IMG37.png>
 Package pdftex.def Info: imag/IMG37.png used on input line 35.
@@ -1885,8 +1923,8 @@ Package pdftex.def Info: imag/IMG37.png used on input line 35.
 LaTeX Info: Redefining \. on input line 42.
 LaTeX Info: Redefining \% on input line 42.
 
-[50 <./imag/IMG37.png (PNG copy)>]
-<imag/IMG47.png, id=698, 1029.09468pt x 490.08093pt>
+[51 <./imag/IMG37.png (PNG copy)>]
+<imag/IMG47.png, id=716, 1029.09468pt x 490.08093pt>
 File: imag/IMG47.png Graphic file (type png)
  <use imag/IMG47.png>
 Package pdftex.def Info: imag/IMG47.png used on input line 48.
@@ -1894,7 +1932,7 @@ Package pdftex.def Info: imag/IMG47.png used on input line 48.
 LaTeX Info: Redefining \. on input line 53.
 LaTeX Info: Redefining \% on input line 53.
 
-[51] <imag/IMG40.png, id=704, 1029.09468pt x 471.26062pt>
+[52] <imag/IMG40.png, id=721, 1029.09468pt x 471.26062pt>
 File: imag/IMG40.png Graphic file (type png)
  <use imag/IMG40.png>
 Package pdftex.def Info: imag/IMG40.png used on input line 60.
@@ -1902,14 +1940,14 @@ Package pdftex.def Info: imag/IMG40.png used on input line 60.
 LaTeX Info: Redefining \. on input line 64.
 LaTeX Info: Redefining \% on input line 64.
 
-[52 <./imag/IMG47.png (PNG copy)>]
-<imag/IMG45.png, id=709, 931.48pt x 452.69125pt>
+[53 <./imag/IMG47.png (PNG copy)>]
+<imag/IMG45.png, id=727, 931.48pt x 452.69125pt>
 File: imag/IMG45.png Graphic file (type png)
  <use imag/IMG45.png>
 Package pdftex.def Info: imag/IMG45.png used on input line 70.
 (pdftex.def)             Requested size: 220.42372pt x 107.12155pt.
 
-<imag/IMG46.png, id=710, 927.465pt x 450.68375pt>
+<imag/IMG46.png, id=728, 927.465pt x 450.68375pt>
 File: imag/IMG46.png Graphic file (type png)
  <use imag/IMG46.png>
 Package pdftex.def Info: imag/IMG46.png used on input line 73.
@@ -1921,20 +1959,20 @@ Overfull \hbox (7.8332pt too wide) in paragraph at lines 70--74
 
 LaTeX Info: Redefining \. on input line 79.
 LaTeX Info: Redefining \% on input line 79.
-[53 <./imag/IMG40.png (PNG copy)> <./imag/IMG45.png> <./imag/IMG46.png>]
-<imag/IMG41.png, id=720, 1029.09468pt x 490.08093pt>
+[54 <./imag/IMG40.png (PNG copy)> <./imag/IMG45.png> <./imag/IMG46.png>]
+<imag/IMG41.png, id=737, 1029.09468pt x 490.08093pt>
 File: imag/IMG41.png Graphic file (type png)
  <use imag/IMG41.png>
 Package pdftex.def Info: imag/IMG41.png used on input line 82.
 (pdftex.def)             Requested size: 440.84746pt x 209.9455pt.
 
-<imag/IMG38.png, id=721, 741.77126pt x 391.4625pt>
+<imag/IMG38.png, id=738, 741.77126pt x 391.4625pt>
 File: imag/IMG38.png Graphic file (type png)
  <use imag/IMG38.png>
 Package pdftex.def Info: imag/IMG38.png used on input line 92.
 (pdftex.def)             Requested size: 220.42372pt x 116.32265pt.
 
-<imag/IMG39.png, id=722, 740.7675pt x 391.4625pt>
+<imag/IMG39.png, id=739, 740.7675pt x 391.4625pt>
 File: imag/IMG39.png Graphic file (type png)
  <use imag/IMG39.png>
 Package pdftex.def Info: imag/IMG39.png used on input line 95.
@@ -1946,8 +1984,8 @@ Overfull \hbox (7.8332pt too wide) in paragraph at lines 92--96
 
 LaTeX Info: Redefining \. on input line 101.
 LaTeX Info: Redefining \% on input line 101.
-[54 <./imag/IMG41.png (PNG copy)> <./imag/IMG38.png> <./imag/IMG39.png>]
-<imag/IMG42.png, id=733, 1029.09468pt x 490.08093pt>
+[55 <./imag/IMG41.png (PNG copy)> <./imag/IMG38.png> <./imag/IMG39.png>]
+<imag/IMG42.png, id=750, 1029.09468pt x 490.08093pt>
 File: imag/IMG42.png Graphic file (type png)
  <use imag/IMG42.png>
 Package pdftex.def Info: imag/IMG42.png used on input line 107.
@@ -1955,7 +1993,7 @@ Package pdftex.def Info: imag/IMG42.png used on input line 107.
 LaTeX Info: Redefining \. on input line 112.
 LaTeX Info: Redefining \% on input line 112.
 
-[55] <imag/IMG43.png, id=738, 1029.09468pt x 490.08093pt>
+[56] <imag/IMG43.png, id=755, 1029.09468pt x 490.08093pt>
 File: imag/IMG43.png Graphic file (type png)
  <use imag/IMG43.png>
 Package pdftex.def Info: imag/IMG43.png used on input line 115.
@@ -1963,8 +2001,8 @@ Package pdftex.def Info: imag/IMG43.png used on input line 115.
 LaTeX Info: Redefining \. on input line 122.
 LaTeX Info: Redefining \% on input line 122.
 
-[56 <./imag/IMG42.png (PNG copy)> <./imag/IMG43.png (PNG copy)>]
-<imag/IMG44.png, id=745, 827.09pt x 461.725pt>
+[57 <./imag/IMG42.png (PNG copy)> <./imag/IMG43.png (PNG copy)>]
+<imag/IMG44.png, id=762, 827.09pt x 461.725pt>
 File: imag/IMG44.png Graphic file (type png)
  <use imag/IMG44.png>
 Package pdftex.def Info: imag/IMG44.png used on input line 125.
@@ -1972,28 +2010,28 @@ Package pdftex.def Info: imag/IMG44.png used on input line 125.
 )
 LaTeX Info: Redefining \. on input line 120.
 LaTeX Info: Redefining \% on input line 120.
- [57 <./imag/IMG44.png>]
+ [58 <./imag/IMG44.png>]
 LaTeX Info: Redefining \. on input line 120.
 LaTeX Info: Redefining \% on input line 120.
- [58]
+ [59]
 \openout2 = `6-Conclusiones.aux'.
 
  (./6-Conclusiones.tex
 Cap\'{\i }tulo 6.
-[59
+[60
 
 
 
 ]
 LaTeX Info: Redefining \. on input line 17.
 LaTeX Info: Redefining \% on input line 17.
- [60]
+ [61]
 LaTeX Info: Redefining \. on input line 29.
 LaTeX Info: Redefining \% on input line 29.
- [61])
+ [62])
 LaTeX Info: Redefining \. on input line 122.
 LaTeX Info: Redefining \% on input line 122.
- [62] [63
+ [63] [64
 
 
 ]
@@ -2010,7 +2048,7 @@ This document will not have a glossary.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
 LaTeX Info: Redefining \. on input line 151.
 LaTeX Info: Redefining \% on input line 151.
-[64]
+[65]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
  (./TFG.aux
 LaTeX Info: Redefining \. on input line 30.
@@ -2021,7 +2059,7 @@ LaTeX Info: Redefining \% on input line 30.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
 Package rerunfilecheck Info: File `TFG.out' has not changed.
-(rerunfilecheck)             Checksum: 0618748F3F21267630A4890E3112C540;2760.
+(rerunfilecheck)             Checksum: D01A1F14E72BCEF5A5051912BF15910A;2848.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2029,10 +2067,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
  ) 
 Here is how much of TeX's memory you used:
- 19349 strings out of 493029
- 279674 string characters out of 6136234
- 511090 words of memory out of 5000000
- 22165 multiletter control sequences out of 15000+600000
+ 19366 strings out of 493029
+ 279953 string characters out of 6136234
+ 511209 words of memory out of 5000000
+ 22176 multiletter control sequences out of 15000+600000
  81046 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  46i,13n,89p,3235b,1940s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2053,10 +2091,10 @@ usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr
 /share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/pub
 lic/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
-Output written on TFG.pdf (72 pages, 7203812 bytes).
+Output written on TFG.pdf (73 pages, 7404765 bytes).
 PDF statistics:
- 913 PDF objects out of 1000 (max. 8388607)
- 757 compressed objects within 8 object streams
- 222 named destinations out of 1000 (max. 500000)
- 559 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 933 PDF objects out of 1000 (max. 8388607)
+ 774 compressed objects within 8 object streams
+ 226 named destinations out of 1000 (max. 500000)
+ 577 words of extra memory for PDF output out of 10000 (max. 10000000)
 
