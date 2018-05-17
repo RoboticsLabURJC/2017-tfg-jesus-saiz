@@ -27,7 +27,7 @@
 \contentsline {subsection}{\numberline {3.5.3}Interfaz Pose3D}{32}{subsection.3.5.3}
 \contentsline {section}{\numberline {3.6}Visual States}{32}{section.3.6}
 \contentsline {section}{\numberline {3.7}Slam-Visualmakers}{34}{section.3.7}
-\contentsline {chapter}{\numberline {4}Navegaci\IeC {\'o}n aut\IeC {\'o}noma para seguimiento de rutas 3D}{36}{chapter.4}
+\contentsline {chapter}{\numberline {4}Navegaci\IeC {\'o}n aut\IeC {\'o}noma en seguimiento de rutas 3D}{36}{chapter.4}
 \contentsline {section}{\numberline {4.1}Dise\IeC {\~n}o}{36}{section.4.1}
 \contentsline {section}{\numberline {4.2}Componente de Autolocazalizaci\IeC {\'o}n}{38}{section.4.2}
 \contentsline {section}{\numberline {4.3}Componente de Control basado en estados}{40}{section.4.3}
