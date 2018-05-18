@@ -20,24 +20,24 @@
 \contentsline {section}{\numberline {3.1}Gazebo}{26}{section.3.1}
 \contentsline {section}{\numberline {3.2}Balizas visuales AprilTags}{27}{section.3.2}
 \contentsline {section}{\numberline {3.3}Biblioteca OpenCV}{28}{section.3.3}
-\contentsline {section}{\numberline {3.4}Biblioteca NumPy}{29}{section.3.4}
+\contentsline {section}{\numberline {3.4}Biblioteca NumPy}{30}{section.3.4}
 \contentsline {section}{\numberline {3.5}Entorno JdeRobot}{30}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Herramienta ColorTuner}{30}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Plugin ArDrone2 en Gazebo}{31}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.1}Herramienta ColorTuner}{31}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Plugin ArDrone2 en Gazebo}{32}{subsection.3.5.2}
 \contentsline {subsection}{\numberline {3.5.3}Interfaz Pose3D}{32}{subsection.3.5.3}
-\contentsline {section}{\numberline {3.6}Visual States}{32}{section.3.6}
+\contentsline {section}{\numberline {3.6}Visual States}{33}{section.3.6}
 \contentsline {section}{\numberline {3.7}Slam-Visualmakers}{34}{section.3.7}
-\contentsline {chapter}{\numberline {4}Navegaci\IeC {\'o}n aut\IeC {\'o}noma en seguimiento de rutas 3D}{36}{chapter.4}
-\contentsline {section}{\numberline {4.1}Dise\IeC {\~n}o}{36}{section.4.1}
-\contentsline {section}{\numberline {4.2}Componente de Autolocazalizaci\IeC {\'o}n}{38}{section.4.2}
-\contentsline {section}{\numberline {4.3}Componente de Control basado en estados}{40}{section.4.3}
-\contentsline {section}{\numberline {4.4}Estados de despegue y aterrizaje}{42}{section.4.4}
-\contentsline {section}{\numberline {4.5}Estado de seguimiento de ruta}{44}{section.4.5}
-\contentsline {chapter}{\numberline {5}Experimentos}{48}{chapter.5}
-\contentsline {section}{\numberline {5.1}Pruebas unitarias Autolocalizaci\IeC {\'o}n}{49}{section.5.1}
-\contentsline {section}{\numberline {5.2}Pruebas unitarias Pilotaje}{52}{section.5.2}
-\contentsline {section}{\numberline {5.3}Pruebas integrales del sistema}{56}{section.5.3}
-\contentsline {chapter}{\numberline {6}Conclusiones}{60}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusiones}{60}{section.6.1}
-\contentsline {section}{\numberline {6.2}Trabajos futuros}{62}{section.6.2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{64}{section.6.2}
+\contentsline {chapter}{\numberline {4}Navegaci\IeC {\'o}n aut\IeC {\'o}noma en seguimiento de rutas 3D}{37}{chapter.4}
+\contentsline {section}{\numberline {4.1}Dise\IeC {\~n}o}{37}{section.4.1}
+\contentsline {section}{\numberline {4.2}Componente de Autolocazalizaci\IeC {\'o}n}{39}{section.4.2}
+\contentsline {section}{\numberline {4.3}Componente de Control basado en estados}{41}{section.4.3}
+\contentsline {section}{\numberline {4.4}Estados de despegue y aterrizaje}{43}{section.4.4}
+\contentsline {section}{\numberline {4.5}Estado de seguimiento de ruta}{45}{section.4.5}
+\contentsline {chapter}{\numberline {5}Experimentos}{49}{chapter.5}
+\contentsline {section}{\numberline {5.1}Pruebas unitarias Autolocalizaci\IeC {\'o}n}{50}{section.5.1}
+\contentsline {section}{\numberline {5.2}Pruebas unitarias Pilotaje}{53}{section.5.2}
+\contentsline {section}{\numberline {5.3}Pruebas integrales del sistema}{57}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusiones}{61}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusiones}{61}{section.6.1}
+\contentsline {section}{\numberline {6.2}Trabajos futuros}{63}{section.6.2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{65}{section.6.2}

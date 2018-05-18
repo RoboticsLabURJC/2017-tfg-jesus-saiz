@@ -29,29 +29,29 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Datos de Pose3DData}}}{32}{subfigure.5.1}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Representaci\IeC {\'o}n de los datos}}}{32}{subfigure.5.2}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Matriz de Conversi\IeC {\'o}n Angular}}}{32}{subfigure.5.3}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Herramienta Visual States sobre Gazebo\relax }}{33}{figure.caption.24}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces GUI de Slam-Visualmarkers.\relax }}{34}{figure.caption.25}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Entradas y Salidas del nodo.\relax }}{35}{figure.caption.26}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Herramienta VisualStates sobre Gazebo\relax }}{34}{figure.caption.24}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces GUI de Slam-Visualmarkers.\relax }}{35}{figure.caption.25}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Entradas y Salidas del nodo Slam-VisualMarkers.\relax }}{36}{figure.caption.26}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Esquema representativo de la aplicaci\IeC {\'o}n.\relax }}{37}{figure.caption.27}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Entorno de la aplicaci\IeC {\'o}n Slam VisualMarkers\relax }}{40}{figure.caption.28}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Esquema de los componentes de Visual States.\relax }}{41}{figure.caption.29}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Baliza utilizada en Gazebo.\relax }}{42}{figure.caption.30}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Ejemplo de los estados en Visual States\relax }}{43}{figure.caption.31}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esquema representativo de la aplicaci\IeC {\'o}n.\relax }}{38}{figure.caption.27}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Entorno de la aplicaci\IeC {\'o}n Slam VisualMarkers\relax }}{41}{figure.caption.28}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Esquema de los componentes de Visual States.\relax }}{42}{figure.caption.29}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Baliza utilizada en Gazebo.\relax }}{43}{figure.caption.30}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Ejemplo de los estados en Visual States\relax }}{44}{figure.caption.31}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Mundo Gazebo ArDones1.\relax }}{49}{figure.caption.32}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces C\IeC {\'a}lculo de errores de distancia y de \IeC {\'a}ngulos\relax }}{50}{figure.caption.33}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces C\IeC {\'a}lculo de posici\IeC {\'o}n de Slam-VisualMarkers\relax }}{51}{figure.caption.34}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Error asociado al pilotaje.\relax }}{53}{figure.caption.35}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Ruta sencilla en el pilotaje por trayectorias.\relax }}{54}{figure.caption.36}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Comparaci\IeC {\'o}n del error entre ambos pilotos en ruta sencilla.\relax }}{54}{figure.caption.37}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Piloto Nuevo}}}{54}{subfigure.6.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Piloto Antiguo}}}{54}{subfigure.6.2}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Ruta compleja en el pilotaje por trayectorias.\relax }}{55}{figure.caption.38}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Comparaci\IeC {\'o}n del error entre ambos pilotos en ruta compleja.\relax }}{55}{figure.caption.39}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Piloto Nuevo}}}{55}{subfigure.8.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Piloto Antiguo}}}{55}{subfigure.8.2}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Prueba integral de ruta por puntos.\relax }}{57}{figure.caption.40}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Prueba integral de ruta por trayectoria.\relax }}{57}{figure.caption.41}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Error de distancia a la ruta deseada en la prueba integral del sistema\relax }}{58}{figure.caption.42}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Mundo Gazebo ArDones1.\relax }}{50}{figure.caption.32}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces C\IeC {\'a}lculo de errores de distancia y de \IeC {\'a}ngulos\relax }}{51}{figure.caption.33}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces C\IeC {\'a}lculo de posici\IeC {\'o}n de Slam-VisualMarkers\relax }}{52}{figure.caption.34}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Error asociado al pilotaje.\relax }}{54}{figure.caption.35}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Ruta sencilla en el pilotaje por trayectorias.\relax }}{55}{figure.caption.36}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Comparaci\IeC {\'o}n del error entre ambos pilotos en ruta sencilla.\relax }}{55}{figure.caption.37}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Piloto Nuevo}}}{55}{subfigure.6.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Piloto Antiguo}}}{55}{subfigure.6.2}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Ruta compleja en el pilotaje por trayectorias.\relax }}{56}{figure.caption.38}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Comparaci\IeC {\'o}n del error entre ambos pilotos en ruta compleja.\relax }}{56}{figure.caption.39}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Piloto Nuevo}}}{56}{subfigure.8.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Piloto Antiguo}}}{56}{subfigure.8.2}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Prueba integral de ruta por puntos.\relax }}{58}{figure.caption.40}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Prueba integral de ruta por trayectoria.\relax }}{58}{figure.caption.41}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Error de distancia a la ruta deseada en la prueba integral del sistema\relax }}{59}{figure.caption.42}
 \addvspace {10\p@ }
