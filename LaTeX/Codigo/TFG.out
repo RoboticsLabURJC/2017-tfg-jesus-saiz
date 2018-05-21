@@ -30,13 +30,17 @@
 \BOOKMARK [1][-]{section.4.1}{Dise\361o}{chapter.4}% 30
 \BOOKMARK [1][-]{section.4.2}{Componente de Autolocazalizaci\363n}{chapter.4}% 31
 \BOOKMARK [1][-]{section.4.3}{Componente de Control basado en estados}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.4}{Estados de despegue y aterrizaje}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.5}{Estado de seguimiento de ruta}{chapter.4}% 34
-\BOOKMARK [0][-]{chapter.5}{Experimentos}{}% 35
-\BOOKMARK [1][-]{section.5.1}{Pruebas unitarias Autolocalizaci\363n}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.2}{Pruebas unitarias Pilotaje}{chapter.5}% 37
-\BOOKMARK [1][-]{section.5.3}{Pruebas integrales del sistema}{chapter.5}% 38
-\BOOKMARK [0][-]{chapter.6}{Conclusiones}{}% 39
-\BOOKMARK [1][-]{section.6.1}{Conclusiones}{chapter.6}% 40
-\BOOKMARK [1][-]{section.6.2}{Trabajos futuros}{chapter.6}% 41
-\BOOKMARK [0][-]{section.6.2}{Bibliograf\355a}{}% 42
+\BOOKMARK [2][-]{subsection.4.3.1}{Estado de despegue}{section.4.3}% 33
+\BOOKMARK [2][-]{subsection.4.3.2}{Estado de seguimiento de ruta por puntos de paso}{section.4.3}% 34
+\BOOKMARK [2][-]{subsection.4.3.3}{Estado de seguimiento de ruta por trayectoria continua}{section.4.3}% 35
+\BOOKMARK [2][-]{subsection.4.3.4}{Estado de aterrizaje}{section.4.3}% 36
+\BOOKMARK [0][-]{chapter.5}{Experimentos}{}% 37
+\BOOKMARK [1][-]{section.5.1}{Pruebas unitarias de autolocalizaci\363n}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.2}{Pruebas unitarias de pilotaje}{chapter.5}% 39
+\BOOKMARK [2][-]{subsection.5.2.1}{Pilotaje por puntos de paso}{section.5.2}% 40
+\BOOKMARK [2][-]{subsection.5.2.2}{Pilotaje por puntos de paso}{section.5.2}% 41
+\BOOKMARK [1][-]{section.5.3}{Pruebas integrales del sistema}{chapter.5}% 42
+\BOOKMARK [0][-]{chapter.6}{Conclusiones}{}% 43
+\BOOKMARK [1][-]{section.6.1}{Conclusiones}{chapter.6}% 44
+\BOOKMARK [1][-]{section.6.2}{Trabajos futuros}{chapter.6}% 45
+\BOOKMARK [0][-]{section.6.2}{Bibliograf\355a}{}% 46
