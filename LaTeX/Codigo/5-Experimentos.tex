@@ -65,20 +65,22 @@ y lo que hemos definido como el \textit{error angular}:
 	\end{center}
 \end{figure}
 
-\subsection{Pilotaje por puntos de paso}
+\subsection{Pilotaje por trayectorias continuas}
 \hspace{1cm} Después de validar el correcto funcionamiento del piloto por puntos se observó que este piloto sólo sería valido para ciertas situaciones concretas de espacios abiertos, por lo que se desarrolló un segundo piloto, el piloto por trayectorias continuas que permite un control más fino de las posiciones del drone. Éste es más complejo ya que tiene variaciones de velocidad lineal y angular (en el ángulo de \textit{yaw}), al introducir giros el sistema presenta comportamientos inestables. Para solucionar este comportamiento se realizó un estudio de relaciones de velocidades y se observó que el rango de velocidades para el funcionamiento estable del sistema de navegación era de [0.3-3.2]m/s. Del mismo modo, los valores de ganancia de giro debían estar comprendidos entre el rango [0.14-0.36]. Esta ganancia de giro era muy importante ya que valores muy altos significaban comportamientos inestables y valores muy bajos no permitían ajustar el giro de forma correcta. 
 
 \hspace{1cm} A continuación se muestran diferentes ejemplos de rutas sencillas y complejas, en los cuales se ha comparado con un piloto anterior, el del PFC de Manuel Zafra \cite{ManuelZafra}, de trayectorias para observar la mejora conseguida tanto reduciendo los errores de distancias a la ruta como acortando el tiempo de realización de rutas.
-
-\hspace{1cm} Empezando con rutas sencillas, en la Figura \ref{fig:Ruta sencilla en trayectoria.} se distinguen: la trayectoria deseada (verde), que es la que se introduce al programa; la trayectoria que realiza el piloto antiguo (azul); y por último, la trayectoria que realiza nuestro piloto (rojo).
+\\
+\\
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1.0\textwidth]{imag/IMG40.png}
+		\includegraphics[width=1.1\textwidth]{imag/IMG40.png}
 				\caption{Ruta sencilla en el pilotaje por trayectorias.}
 		\label{fig:Ruta sencilla en trayectoria.}	
 	\end{center}
 \end{figure}
+
+\hspace{1cm} Empezando con rutas sencillas, en la Figura \ref{fig:Ruta sencilla en trayectoria.} se distinguen: la trayectoria deseada (verde), que es la que se introduce al programa; la trayectoria que realiza el piloto antiguo (azul); y por último, la trayectoria que realiza nuestro piloto (rojo).
 
 \hspace{1cm} En la imagen \ref{fig:Ruta sencilla en trayectoria.} se puede observar cómo ambos pilotos son muy exactos a la hora de realizar las trayectorias deseadas suaves, que no cuentan con cambios de dirección muy bruscos ni con curvas muy cerradas, sobre todo en las partes rectas de las mismas donde se ve como el ajuste es prácticamente perfecto.
 
@@ -104,6 +106,8 @@ y lo que hemos definido como el \textit{error angular}:
 	\end{center}
 \end{figure}
 
+\hspace{1cm} En cuanto a rutas complejas, para observar mejor el error en distancia, pedimos a los pilotos a una trayectoria con curvas mucho más pronunciadas y con cambios de altitud bruscos. Esta trayectoria se puede observar en la imagen \ref{fig:Ruta compleja en trayectoria.} donde tenemos la trayectoria deseada en verde, el piloto nuevo en azul y el piloto antiguo en rojo. En esta imagen se ve con mayor claridad cómo el piloto nuevo se ajusta mucho más a la ruta deseada. Estas mejores prestaciones se corroboran con los datos de las gráficas de la Figura \ref{f:Comparativa del error compleja.}, en los cuales el error medio del piloto nuevo es de 0.106m y el error máximo es de 0.356m mientras que el error medio del piloto antiguo es de 0.119m con un error máximo de 0.559m. A su vez el nuevo piloto tarda 59.85 segundos en realizar la ruta mientras que el antiguo lo hace en 84.82 segundos reduciendo en este caso el tiempo de ruta en un 29.44\% por lo que en rutas complejas el nuevo piloto se desenvuelve mejor que el antiguo en todos los aspectos.
+
 \begin{figure}[H]
  \centering
   \subfloat[Piloto Antiguo]{
@@ -116,14 +120,12 @@ y lo que hemos definido como el \textit{error angular}:
  \label{f:Comparativa del error compleja.}
 \end{figure} 
 
-\hspace{1cm} En cuanto a rutas complejas, para observar mejor el error en distancia, pedimos a los pilotos a una trayectoria con curvas mucho más pronunciadas y con cambios de altitud bruscos. Esta trayectoria se puede observar en la imagen \ref{fig:Ruta compleja en trayectoria.} donde tenemos la trayectoria deseada en verde, el piloto nuevo en azul y el piloto antiguo en rojo. En esta imagen se ve con mayor claridad cómo el piloto nuevo se ajusta mucho más a la ruta deseada. Estas mejores prestaciones se corroboran con los datos de las gráficas de la Figura \ref{f:Comparativa del error compleja.}, en los cuales el error medio del piloto nuevo es de 0.106m y el error máximo es de 0.356m mientras que el error medio del piloto antiguo es de 0.119m con un error máximo de 0.559m. A su vez el nuevo piloto tarda 59.85 segundos en realizar la ruta mientras que el antiguo lo hace en 84.82 segundos reduciendo en este caso el tiempo de ruta en un 29.44\% por lo que en rutas complejas el nuevo piloto se desenvuelve mejor que el antiguo en todos los aspectos.
-
 \section{Pruebas integrales del sistema}
 \hspace{1cm} Una vez conseguido que los componentes por separado funcionasen correctamente, se integraron ambos componentes conjuntamente y se realizaron las pruebas finales del sistema. Con ellas se valida experimentalmente la aplicación completa de navegación desarrollada. Pese a la complejidad de unir los dos componentes ya que cada uno utilizaba unas velocidades máximas del drone y unos datos diferentes de posicionamiento, cuando se consiguió combinar y al haber realizado las pruebas por separado con buenos resultados, se esperaba que al unirlos los resultados siguiesen siendo óptimos. El buen funcionamiento del sistema se corroboró con los experimentos tanto de la ruta por puntos de paso (en la Figura \ref{fig:Prueba integral de ruta por puntos.}) donde tenemos en verde la ruta deseada, en rojo la posición estimada y en azul la ruta realizada, como de la ruta por trayectorias continuas (en la Figura \ref{fig:Prueba integral de ruta por trayectoria.}). En ambos se ve como el drone seguía la ruta de forma estable y con un margen de error prácticamente nulo, siempre y cuando estén a la vista del vehículo aéreo las balizas AprilTags para su autolocalización. 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{imag/IMG42.png}
+		\includegraphics[width=1.1\textwidth]{imag/IMG42.png}
 				\caption{Prueba integral de ruta por puntos.}
 		\label{fig:Prueba integral de ruta por puntos.}	
 	\end{center}
@@ -131,7 +133,7 @@ y lo que hemos definido como el \textit{error angular}:
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{imag/IMG43.png}
+		\includegraphics[width=1.1\textwidth]{imag/IMG43.png}
 				\caption{Prueba integral de ruta por trayectoria.}
 		\label{fig:Prueba integral de ruta por trayectoria.}	
 	\end{center}
