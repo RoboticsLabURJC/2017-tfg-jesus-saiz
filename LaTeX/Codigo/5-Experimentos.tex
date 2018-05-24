@@ -49,6 +49,10 @@ y lo que hemos definido como el \textit{error angular}:
 
 \hspace{1cm} Una vez realizados los cálculos del error se comprobó como cuando el componente pierde de vista las AprilTags los errores de posicionamiento aumentan considerablemente como se puede observar en la Figura \ref{fig:Comparativa Slam-Visualmarkers.}, en la cual tenemos la ruta realizada en azul y la ruta estimada por el componente en rojo. Para evitar esto se habló con el desarrollador de Slam VisualMarkers y se añadió más información a su interfaz de salida en ROS de modo que ya indicaba el número de balizas que se estaban viendo. Esta caracterización experimental de la autolocalización permitió acotar los márgenes de error con los que tenía que lidiar el nodo de pilotaje y permitió mejorar la navegación autónoma contemplando la situación en la que el drone se perdía. Con esto se pudo crear un nuevo comportamiento que permite que cuando el drone no esté viendo ninguna baliza no siga la ruta, sino que gire sobre sí mismo realizando círculos, cada vez mayores, sobre el último punto donde veía alguna baliza, para así poder volver a encontrarla y posicionarse correctamente. Esto ayudó a que el drone no se perdiese de la ruta y siguiese moviéndose cuando no encontraba ninguna baliza, ya que ahora si da tres vueltas y seguía sin encontrar ninguna baliza, el drone aterriza. Con esta nueva función mejoramos la integridad de la aplicación de navegación autónoma y nos aseguramos de que el cuadricóptero no se aleje excesivamente de la ruta definida, preparándolo para los experimentos reales.
 
+\section{Pruebas unitarias de despegue}
+
+
+
 \section{Pruebas unitarias de pilotaje}
 \hspace{1cm} A diferencia de las pruebas anteriores, en estas pruebas se suministraba al piloto la posición verdadera del drone en todo momento, extraida del simulador. Así, los errores entre la ruta deseada y la realmente conseguida son exclusivamente achacables al pilotaje, no a la autolocalización. 
 
