@@ -14,7 +14,7 @@
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1.1\textwidth]{imag/IMG31.PNG}
+		\includegraphics[width=1.1\textwidth]{imag/IMG80.PNG}
 				\caption{Diseño del sistema de navegación autónoma en 3D.}
 		\label{fig:Esquema representativo.}	
 	\end{center}
@@ -53,17 +53,29 @@ estimación y en que momento se produce tal estimación.
 \section{Componente de Control basado en estados}
 \hspace{1cm} Todo el algoritmo de navegación autónoma se ha basado en un componente de control basado en estados, este componente se ha realizado con la herramienta de \texttt{Visual States}, la cual nos ha servido tanto para la creación del código, como para la integración de las diferentes partes del sistema en un solo programa. 
 
-\hspace{1cm} \texttt{Visual States} tiene la capacidad de crear estados, donde dentro se escribe el código que se ejecuta cuando está activo, los cuales recorre mediante transiciones que pueden ser temporales o condicionales. Esto permite al programador centrarse en la escritura del algoritmo porque de la conexión entre estados se encarga la herramienta. Además, tiene otras secciones donde se especifican las constantes y las funciones que una vez creadas se pueden utilizar en todos los estados y transiciones, pudiendo así conectar y llevar un seguimiento de lo que ocurre en cada estado. Por último, \texttt{Visual State}s ofrece la sección de las librerías, en la cual se introducen aquellas de las que depende tu programa, y el apartado de configuración, donde irán los diferentes enlaces a los interfaces de comunicación que hayamos utilizado. 
+\hspace{1cm} \texttt{Visual States} tiene la capacidad de crear estados, donde dentro se escribe el código que se ejecuta cuando está activo, los cuales recorre mediante transiciones que pueden ser temporales o condicionales. Esto permite al programador centrarse en la escritura del algoritmo porque de la conexión entre estados se encarga la herramienta. Además, tiene otras secciones donde se especifican las constantes y las funciones que una vez creadas se pueden utilizar en todos los estados y transiciones, pudiendo así conectar y llevar un seguimiento de lo que ocurre en cada estado. Por último, \texttt{Visual States} ofrece la sección de las librerías, en la cual se introducen aquellas de las que depende tu programa, y el apartado de configuración, donde irán los diferentes enlaces a los interfaces de comunicación que hayamos utilizado. 
 
 %\hspace{1cm} Es la parte en la que más nos hemos centrado y que más hemos conseguido desarrollar dentro del algoritmo, ya que para nosotros es la parte más importante. Se podría decir que se trata de un piloto el cual realiza las tareas de pilotaje del drone. Hemos dividido el pilo según los datos que recibe de la interface de VisualStates.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.8\textwidth]{imag/IMG32.png}
+		\includegraphics[width=0.8\textwidth]{imag/IMG60.png}
 				\caption{Diseño en cuatro estados de la navegación visual autónoma para seguimiento de rutas en 3D, usando la herramienta VisualStates.}
 		\label{fig:Esquema VisualStates.}	
 	\end{center}
 \end{figure}
+
+\hspace{1cm} En la Figura \ref{fig:Esquema VisualStates.} se observan los diferentes estados y transiciones en los que se ha dividido la aplicación. El primer estado es el de \textit{Precise Takeoff} en el cual el drone despega y se posiciona sobre la baliza arlequinada de despegue, a continuación pasa por la primera transción en la cual se dejan de enviar ordenes de control para que el dron se estabilice y se cambia de la cámara inferior a la frontal. El siguiente estado es el de \textit{Path} donde entra la herramienta de autolocalización para seguir la ruta establecida. Una vez concluida la ruta entra la transición dos en la cual se decide si el dron debe seguir ralizando la ruta desde el inicio o pasar al modulo de aterrizaje. Éste seria el siguiente módulo \textit{Precise Landing} en el cual se vuelve a cambiar la cámara a la inferior para buscar la baliza arlequinada de aterrizaje, una vez encontrada se procede al centrado y al descenso, hasta un punto en el cual la baliza ocupa la totalizad del objetivo de la cámara, que es cuando se para a la transición tres, donde se ponen todas las velocidades a cero menos la de descenso. Por último de llega al estado de \textit{Landed} que significa que el drone desciende verticalmente hasta que al cámara esta sobre la baliza y se paran todos los motores. 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{imag/IMG70.png}
+				\caption{Interfaces de comunicación de Visual States.}
+		\label{fig:Esquema interfaces VisualStates.}	
+	\end{center}
+\end{figure}
+
+La Figura \ref{fig:Esquema interfaces VisualStates.} nos muestra los diferentes interfaces sobre los que se basa la aplicación, que cuadran con los explicados en la figura \ref{fig:Esquema representativo.}, estos son integrados por la herramienta para crear una correcta comunicación con el drone y así conseguir el correcto comportamiento de navegación desarrollado. 
 
 \subsection{Estado de despegue}
 \hspace{1cm} Para este componente se ha utilizado el trabajo que realizó Jorge Vela en su TFG \cite{JorgeVela} refactorizándolo y acoplándolo dentro de nuestro módulo de pilotaje en \texttt{Visual States}. Es el estado activo nada más arrancar la aplicación, el diseño de este algoritmo es un proceso basado en adquisición-procesado-envío de órdenes a los motores. La adquisición de los datos se realiza mediante los sensores de imágenes del drone. Estos datos sensoriales serán recogidos para su procesamiento y tras esto se enviarán las instrucciones al drone para que las ejecute. El sensor utilizado en este estado ha sido la cámara.
