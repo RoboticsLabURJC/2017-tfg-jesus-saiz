@@ -17,7 +17,7 @@
 	\end{center}
 \end{figure}
 
-\hspace{1cm} En este TFG se ha utilizado para simular al drone en un escenario con balizas y se ha programado la navegación autónoma de ese drone simulado, para ello se ha trabajado con la versión Gazebo 7.9. Los mundos creados en esta aplicación se pueden lanzar sin GUI o con GUI y se definen con la extensión '.world' y escritos mediante SDF \textit{(Simulation Description Format)}.
+\hspace{1cm} En este TFG se ha utilizado para simular al dron en un escenario con balizas y se ha programado la navegación autónoma de ese dron simulado, para ello se ha trabajado con la versión Gazebo 7.9. Los mundos creados en esta aplicación se pueden lanzar sin GUI o con GUI y se definen con la extensión '.world' y escritos mediante SDF \textit{(Simulation Description Format)}.
 
 \section{Balizas visuales AprilTags}
 \hspace{1cm} AprilTags \cite{AprilTags2} es una biblioteca para el sistema de visión por computador que permite detectar balizas visuales contenidas en una imagen. Es útil en una amplia variedad de tareas que incluyen la realidad aumentada, la robótica y la calibración de cámaras.
@@ -38,7 +38,7 @@
 \section{Biblioteca OpenCV}
 \hspace{1cm} OpenCV \footnote{\url{https://opencv.org/}} es una biblioteca \textit{OpenSource} de visión artificial que se desarrolló inicialmente por Intel, tiene un conjunto de funciones que van desde sistemas de seguridad con detección de movimiento hasta centros de procesamiento con reconocimiento de objetos. Está programada en C/C++ y en nuestro TFG para el procesamiento de imágenes nos hemos apoyado principalmente sobre ésta, trabajando en la versión 3.4. 
 
-\hspace{1cm} Gracias a OpenCV, al obtener la imagen que transmite el drone se puede tanto detectar objetos como aplicar cambios sobre ella, para marcar las zonas de interés o diferentes objetos. Permite la realización de filtros de color, por ejemplo para eliminar objetos no deseados dependiendo el momento. Además permite el uso de operadores morfológicos (erosión y dilatación) gracias a los cuales se evitan imperfecciones en las imágenes como ruidos, que confunde objetos inexistentes o de no interés con objetos de interés. En nuestro caso, nos ha servido tanto para la localización de las balizas de despegue y aterrizaje, como para la clasificación de las balizas AprilTags según la distancia a la que se encuentran del drone y por tanto el peso que tienen a la hora de estimar la posición.
+\hspace{1cm} Gracias a OpenCV, al obtener la imagen que transmite el dron se puede tanto detectar objetos como aplicar cambios sobre ella, para marcar las zonas de interés o diferentes objetos. Permite la realización de filtros de color, por ejemplo para eliminar objetos no deseados dependiendo el momento. Además permite el uso de operadores morfológicos (erosión y dilatación) gracias a los cuales se evitan imperfecciones en las imágenes como ruidos, que confunde objetos inexistentes o de no interés con objetos de interés. En nuestro caso, nos ha servido tanto para la localización de las balizas de despegue y aterrizaje, como para la clasificación de las balizas AprilTags según la distancia a la que se encuentran del dron y por tanto el peso que tienen a la hora de estimar la posición.
 \\
 
 \begin{figure}[H]
@@ -60,7 +60,7 @@
 \hspace{1cm} Para nuestro trabajo hemos utilizado la versión más reciente del repositorio, JdeRobot-5.6.3(Febrero 2018) \footnote{\url{https://jderobot.org/Installation}}. Nos ha servido como herramienta para comprender los componentes previos que hemos utilizado y la aplicación final es un conjunto de nodos desarrollados en el ecosistema JdeRobot.
 
 \subsection{Herramienta ColorTuner}
-\hspace{1cm} Es una aplicación para configurar filtros de color personalizados en espacios de color HSV, RGB o YUV, y así obtener la gama de color que nos interesa o realizar un filtro sobre una imagen o vídeo. Utiliza un interfaz gráfico donde se representan dos imágenes, una la real y otra la filtrada, en ésta se pueden variar los parámetros para ver qué colores cumplen las características, quedándose los otros en negro. Se ha utilizado para extraer los colores de las balizas de aterrizaje y despegue y así poner su gama de colores correctamente en los filtros de la aplicación final para que el drone las encuentre sin problemas.
+\hspace{1cm} Es una aplicación para configurar filtros de color personalizados en espacios de color HSV, RGB o YUV, y así obtener la gama de color que nos interesa o realizar un filtro sobre una imagen o vídeo. Utiliza un interfaz gráfico donde se representan dos imágenes, una la real y otra la filtrada, en ésta se pueden variar los parámetros para ver qué colores cumplen las características, quedándose los otros en negro. Se ha utilizado para extraer los colores de las balizas de aterrizaje y despegue y así poner su gama de colores correctamente en los filtros de la aplicación final para que el dron las encuentre sin problemas.
 
 \begin{figure}[H]
 	\begin{center}
@@ -71,10 +71,10 @@
 \end{figure}
 
 \subsection{Plugin ArDrone2 en Gazebo}
-\hspace{1cm} Hemos empleado para el desarrollo del proyecto el ArDrone 2.0 o más bien su modelo en el entorno de simulación Gazebo. Este plugin implementa una emulación realista y optimizada en simulación del drone, por lo que nos permite trabajar con los distintos sensores. Este drone cuenta con sensores IMU y con dos cámaras, una frontal y otra ventral, con ello el simulador Gazebo es capaz de ofrecer datos como la posición del drone o las imágenes que ve el mismo. También cuenta con una brújula, un altímetro y cuatro motores cada uno con su correspondiente hélice, lo que nos permite enviar al drone una serie de comandos mediante el interfaz \textit{CMDVel} para dirigir sus movimientos y saber en todo momento en qué posición se encuentra.
+\hspace{1cm} Hemos empleado para el desarrollo del proyecto el ArDrone 2.0 o más bien su modelo en el entorno de simulación Gazebo. Este plugin implementa una emulación realista y optimizada en simulación del dron, por lo que nos permite trabajar con los distintos sensores. Este dron cuenta con sensores IMU y con dos cámaras, una frontal y otra ventral, con ello el simulador Gazebo es capaz de ofrecer datos como la posición del dron o las imágenes que ve el mismo. También cuenta con una brújula, un altímetro y cuatro motores cada uno con su correspondiente hélice, lo que nos permite enviar al dron una serie de comandos mediante el interfaz \textit{CMDVel} para dirigir sus movimientos y saber en todo momento en qué posición se encuentra.
 
 \subsection{Interfaz Pose3D}
-\hspace{1cm} Pose3D es la interfaz que se emplea en JdeRobot para obtener la posición y orientación en un espacio 3D de un objeto, en nuestro caso un drone. Se implementa mediante la función \emph{Pose3Ddata} y está compuesta por un punto en 3D (el cual indica la posición en coordenadas cartesianas) y la orientación mediante los cuaterniones. A partir de éstos podremos obtener los ángulos de \textit{roll, pitch} y \textit{yaw}.
+\hspace{1cm} Pose3D es la interfaz que se emplea en JdeRobot para obtener la posición y orientación en un espacio 3D de un objeto, en nuestro caso un dron. Se implementa mediante la función \emph{Pose3Ddata} y está compuesta por un punto en 3D (el cual indica la posición en coordenadas cartesianas) y la orientación mediante los cuaterniones. A partir de éstos podremos obtener los ángulos de \textit{roll, pitch} y \textit{yaw}.
 
 \begin{figure}[H]
  \centering
